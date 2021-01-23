@@ -1,4 +1,4 @@
-package br.cotador.getting.started;
+package rest;
 
 import io.quarkus.test.junit.NativeImageTest;
 
