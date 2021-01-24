@@ -1,9 +1,9 @@
 package rest;
 
+import entities.Usuario;
 import io.smallrye.jwt.build.Jwt;
 import org.eclipse.microprofile.jwt.Claims;
 import org.eclipse.microprofile.jwt.JsonWebToken;
-import repository.UsuarioRepository;
 
 import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.RequestScoped;
@@ -14,8 +14,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
-import java.util.Arrays;
+import java.security.Principal;
 import java.util.HashSet;
 
 @RequestScoped
@@ -25,35 +26,25 @@ public class Login {
     @Inject
     JsonWebToken jwt;
 
-    @Inject
-    UsuarioRepository usuarioRepository;
-
-    public static void main(String[] args) {
-        System.out.println(Jwt.issuer("https://example.com/issuer")
-                .upn("jdoe@quarkus.io")
-                .groups(new HashSet<>(Arrays.asList("user", "admin")))
-                .claim(Claims.birthdate.name(), "2001-07-13")
-                .sign());
-    }
-
     @GET
-    public String loginG(@Context SecurityContext securityContext) {
-        return Jwt.issuer("https://example.com/issuer")
-                .upn("jdoe@quarkus.io")
-                .groups(new HashSet<>(Arrays.asList("user", "admin")))
-                .claim(Claims.birthdate.name(), "2001-07-13")
-                .sign();
+    public Response login(@Context SecurityContext securityContext) {
+        Principal userPrincipal = securityContext.getUserPrincipal();
+        if (userPrincipal == null) {
+            return Response.status(Response.Status.UNAUTHORIZED).build();
+        }
+        Usuario usuario = Usuario.find("email", userPrincipal.getName()).firstResult();
+        return Response.ok(Jwt.issuer("http://localhost/issuer")
+                                .upn(usuario.getEmail())
+                                .groups(new HashSet<>(usuario.getRolesList()))
+                                .claim(Claims.birthdate.name(), "2001-07-13")
+                                .sign()).build();
     }
 
     @GET()
     @Path("/test")
-    @RolesAllowed({"user", "admin"})
+    @RolesAllowed("admin")
     @Produces(MediaType.TEXT_PLAIN)
-    public String hello(@Context SecurityContext ctx) {
-        return getResponseString(ctx);
-    }
-
-    private String getResponseString(SecurityContext ctx) {
+    public String tokenTest(@Context SecurityContext ctx) {
         String name;
         if (ctx.getUserPrincipal() == null) {
             name = "anonymous";
