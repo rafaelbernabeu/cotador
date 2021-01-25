@@ -17,7 +17,11 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import java.security.Principal;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
+
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @RequestScoped
 @Path("/api/login")
@@ -27,17 +31,20 @@ public class Login {
     JsonWebToken jwt;
 
     @GET
+    @Produces(APPLICATION_JSON)
     public Response login(@Context SecurityContext securityContext) {
         Principal userPrincipal = securityContext.getUserPrincipal();
         if (userPrincipal == null) {
             return Response.status(Response.Status.UNAUTHORIZED).build();
         }
         Usuario usuario = Usuario.find("email", userPrincipal.getName()).firstResult();
-        return Response.ok(Jwt.issuer("http://localhost/issuer")
-                                .upn(usuario.getEmail())
-                                .groups(new HashSet<>(usuario.getRolesList()))
-                                .claim(Claims.birthdate.name(), "2001-07-13")
-                                .sign()).build();
+        Map<String, String> response = new HashMap<>();
+        response.put("token", Jwt.issuer("http://localhost/issuer")
+                .upn(usuario.getEmail())
+                .groups(new HashSet<>(usuario.getRolesList()))
+                .claim(Claims.birthdate.name(), "2001-07-13")
+                .sign());
+        return Response.ok(response).build();
     }
 
     @GET()

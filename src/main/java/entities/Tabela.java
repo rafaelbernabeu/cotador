@@ -9,9 +9,9 @@ import java.util.List;
 
 @Data
 @Entity
-public class Operadora extends PanacheEntity {
+public class Tabela extends PanacheEntity {
 
     @OneToMany
-    List<Produto> produtos;
+    List<Plano> planos;
 
 }

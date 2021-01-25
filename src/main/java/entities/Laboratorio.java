@@ -1,19 +1,14 @@
 package entities;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import lombok.Data;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Data
 @Entity
-public class Laboratorio {
+public class Laboratorio extends PanacheEntity {
 
-    @Id
-    @GeneratedValue
-    Long id;
-
-
+    String nome;
 
 }

@@ -1,20 +1,22 @@
 package entities;
 
+import entities.enums.TipoAbrangencia;
+import entities.enums.TipoAcomodacao;
+import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
 @Entity
-public class Produto {
+public class Produto extends PanacheEntity {
 
-    @Id
-    @GeneratedValue
-    Long id;
+    String nome;
+    Boolean ativo;
+
+    @OneToOne
+    Administradora administradora;
 
     @OneToMany
     List<Hospital> hospitais;
@@ -22,4 +24,9 @@ public class Produto {
     @OneToMany
     List<Laboratorio> laboratorios;
 
+    @Enumerated(EnumType.STRING)
+    TipoAbrangencia tipoAbrangencia;
+
+    @Enumerated(EnumType.STRING)
+    TipoAcomodacao tipoAcomodacao;
 }

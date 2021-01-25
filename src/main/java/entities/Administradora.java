@@ -9,9 +9,11 @@ import java.util.List;
 
 @Data
 @Entity
-public class Operadora extends PanacheEntity {
+public class Administradora extends PanacheEntity {
+
+    String nome;
 
     @OneToMany
-    List<Produto> produtos;
+    List<Operadora> operadoras;
 
 }
