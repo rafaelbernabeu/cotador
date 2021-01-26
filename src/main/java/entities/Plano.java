@@ -23,7 +23,6 @@ public class Plano extends PanacheEntity {
     Boolean coparticipacao;
     String reajuste;
 
-
     @Enumerated(EnumType.STRING)
     TipoAcomodacao acomodacao;
 

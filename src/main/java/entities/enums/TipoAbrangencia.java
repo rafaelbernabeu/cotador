@@ -2,6 +2,6 @@ package entities.enums;
 
 public enum TipoAbrangencia {
 
-    REGIONAL, NACIONAL;
+    REGIONAL, NACIONAL, GRUPO_DE_ESTADOS;
 
 }
