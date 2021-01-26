@@ -11,6 +11,8 @@ import java.util.List;
 @Entity
 public class Operadora extends PanacheEntity {
 
+    String nome;
+
     @OneToMany
     List<Produto> produtos;
 
