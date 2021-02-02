@@ -3,7 +3,7 @@ services:
   build:
     image: rbbernabeu/graalvm
     volumes:
-      - ~/docker/intellij/.m2:/root/.m2
+      - ~/.m2:/root/.m2
       - ../../..:/opt/project
     networks:
       - docker_net
