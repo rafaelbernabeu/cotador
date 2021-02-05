@@ -25,7 +25,7 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @RequestScoped
 @Path("/api/login")
-public class Login {
+public class LoginResource {
 
     @Inject
     JsonWebToken jwt;

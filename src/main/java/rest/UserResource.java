@@ -7,7 +7,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.SecurityContext;
 
 @Path("/api/user")
-public class User {
+public class UserResource {
 
     @GET
     @RolesAllowed("user")
