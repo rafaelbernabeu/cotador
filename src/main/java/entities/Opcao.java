@@ -1,6 +1,5 @@
 package entities;
 
-import entities.enums.TipoAbrangencia;
 import entities.enums.TipoAcomodacao;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import lombok.Data;
@@ -15,8 +14,5 @@ public class Opcao extends PanacheEntity {
 
     @Enumerated(EnumType.STRING)
     TipoAcomodacao acomodacao;
-
-    @Enumerated(EnumType.STRING)
-    TipoAbrangencia tipoAbrangencia;
 
 }
