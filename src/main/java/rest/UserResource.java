@@ -10,7 +10,7 @@ import javax.ws.rs.core.SecurityContext;
 public class UserResource {
 
     @GET
-    @RolesAllowed("user")
+    @RolesAllowed({"user", "admin"})
     @Path("/me")
     public String me(@Context SecurityContext securityContext) {
         return securityContext.getUserPrincipal().getName();

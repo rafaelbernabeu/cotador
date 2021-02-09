@@ -1,0 +1,8 @@
+FROM rbbernabeu/graalvm
+
+COPY target/cotador-saude-1.0.0-SNAPSHOT-runner /opt/projeto/cotador-saude-1.0.0-SNAPSHOT-runner
+COPY src/main/docker/run.sh /opt/projeto/run.sh
+
+RUN chmod +x /opt/projeto/*
+
+CMD /opt/projeto/run.sh

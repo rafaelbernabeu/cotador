@@ -1,5 +1,35 @@
 USE cotador;
 
+-- ESTADOS
+
+INSERT INTO Estado (id, sigla, nome) VALUES (1, 'AC','Acre');
+INSERT INTO Estado (id, sigla, nome) VALUES (2, 'AL','Alagoas');
+INSERT INTO Estado (id, sigla, nome) VALUES (3, 'AM','Amazonas');
+INSERT INTO Estado (id, sigla, nome) VALUES (4, 'AP','Amapá');
+INSERT INTO Estado (id, sigla, nome) VALUES (5, 'BA','Bahia');
+INSERT INTO Estado (id, sigla, nome) VALUES (6, 'CE','Ceará');
+INSERT INTO Estado (id, sigla, nome) VALUES (7, 'DF','Distrito Federal');
+INSERT INTO Estado (id, sigla, nome) VALUES (8, 'ES','Espírito Santo');
+INSERT INTO Estado (id, sigla, nome) VALUES (9, 'GO','Goiás');
+INSERT INTO Estado (id, sigla, nome) VALUES (10, 'MA','Maranhão');
+INSERT INTO Estado (id, sigla, nome) VALUES (12, 'MG','Minas Gerais');
+INSERT INTO Estado (id, sigla, nome) VALUES (13, 'MS','Mato Grosso do Sul');
+INSERT INTO Estado (id, sigla, nome) VALUES (14, 'MT','Mato Grosso');
+INSERT INTO Estado (id, sigla, nome) VALUES (15, 'PA','Pará');
+INSERT INTO Estado (id, sigla, nome) VALUES (16, 'PB','Paraíba');
+INSERT INTO Estado (id, sigla, nome) VALUES (17, 'PE','Pernambuco');
+INSERT INTO Estado (id, sigla, nome) VALUES (18, 'PI','Piauí');
+INSERT INTO Estado (id, sigla, nome) VALUES (19, 'PR','Paraná');
+INSERT INTO Estado (id, sigla, nome) VALUES (20, 'RJ','Rio de Janeiro');
+INSERT INTO Estado (id, sigla, nome) VALUES (21, 'RN','Rio Grande do Norte');
+INSERT INTO Estado (id, sigla, nome) VALUES (22, 'RO','Rondônia');
+INSERT INTO Estado (id, sigla, nome) VALUES (23, 'RR','Roraima');
+INSERT INTO Estado (id, sigla, nome) VALUES (24, 'RS','Rio Grande do Sul');
+INSERT INTO Estado (id, sigla, nome) VALUES (25, 'SC','Santa Catarina');
+INSERT INTO Estado (id, sigla, nome) VALUES (26, 'SE','Sergipe');
+INSERT INTO Estado (id, sigla, nome) VALUES (27, 'SP','São Paulo');
+INSERT INTO Estado (id, sigla, nome) VALUES (28, 'TO','Tocantins');
+
 -- ADMINISTRADORAS
 INSERT INTO Administradora (id, nome) VALUES (1, 'ALLCARE');
 INSERT INTO Administradora (id, nome) VALUES (2, 'ELO');
@@ -14,6 +44,19 @@ INSERT INTO Operadora (id, nome) VALUES (3, 'BRADESCO');
 INSERT INTO Operadora (id, nome) VALUES (4, 'SEGUROS UNIMED');
 INSERT INTO Operadora (id, nome) VALUES (5, 'SULAMÉRICA');
 INSERT INTO Operadora (id, nome) VALUES (6, 'UNIMED - CNU');
+
+-- ENTIDADE
+INSERT INTO Entidade (id, nome) VALUES (1, 'Entidade1');
+INSERT INTO Entidade (id, nome) VALUES (2, 'Entidade2');
+INSERT INTO Entidade (id, nome) VALUES (3, 'Entidade3');
+INSERT INTO Entidade (id, nome) VALUES (4, 'Entidade4');
+
+-- PROFISSAO
+INSERT INTO Profissao (id, nome) VALUES (1, 'Profissao1');
+INSERT INTO Profissao (id, nome) VALUES (2, 'Profissao2');
+INSERT INTO Profissao (id, nome) VALUES (3, 'Profissao3');
+INSERT INTO Profissao (id, nome) VALUES (4, 'Profissao4');
+INSERT INTO Profissao (id, nome) VALUES (5, 'Profissao5');
 
 -- PRODUTOS
 INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo) VALUES (4, 'EFETIVO', 'NACIONAL', 3, true);
