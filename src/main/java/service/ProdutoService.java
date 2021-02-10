@@ -10,8 +10,11 @@ import java.util.List;
 public class ProdutoService {
 
     public List<Produto> getByProfissao(Profissao profissao) {
+        return Produto.find("profissoes", profissao).list();
+    }
+
+    public List<Produto> getAll() {
         return Produto.findAll().list();
-//        return Produto.<Produto>find("profissoes", profissao).list();
     }
 
 }
