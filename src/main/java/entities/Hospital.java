@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "Hospital")
 public class Hospital extends PanacheEntity {
 
-    String nome;
-    String local;
+    private String nome;
+    private String local;
 
 }

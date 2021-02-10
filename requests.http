@@ -21,6 +21,8 @@ GET http://localhost:8080/api/usuario
 
 ###
 POST http://localhost:8080/api/cotacao
+Content-Type: application/json
+
 {
-  profissao: 'Empresário Individual';
+  "profissao": "Empresário Individual"
 }

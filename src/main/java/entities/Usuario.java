@@ -14,16 +14,16 @@ import java.util.List;
 @UserDefinition
 public class Usuario extends PanacheEntity {
 
-    String nome;
+    private String nome;
 
     @Username
-    String email;
+    private String email;
 
     @Password
-    String password;
+    private String password;
 
     @Roles
-    String roles;
+    private String roles;
 
     public List<String> getRolesList() {
         return Arrays.asList(roles.split(","));

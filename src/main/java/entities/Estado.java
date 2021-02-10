@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 @Entity
 public class Estado extends PanacheEntity {
 
-    String nome;
-    String sigla;
+    private String nome;
+    private String sigla;
 
 }

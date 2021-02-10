@@ -31,43 +31,6 @@ INSERT INTO Laboratorio (id, nome) VALUES (3, 'EXAME');
 INSERT INTO Laboratorio (id, nome) VALUES (4, 'DIAGNÓSTICO');
 INSERT INTO Laboratorio (id, nome) VALUES (5, 'FLEURY');
 
-
--- PRODUTOS
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (1, 'EFETIVO', 'NACIONAL', 3, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (2, 'FLEX', 'NACIONAL', 3, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (3, 'TOP E', 'NACIONAL', 3, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (4, 'TOP A', 'NACIONAL', 3, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (5, 'TOP PLUS', 'NACIONAL', 3, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (6, 'EFETIVO', 'NACIONAL', 3, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (7, 'FLEX', 'NACIONAL', 3, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (8, 'TOP E', 'NACIONAL', 3, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (9, 'TOP A', 'NACIONAL', 3, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (10, 'TOP PLUS', 'NACIONAL', 3, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (11, '350', 'NACIONAL', 1, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (12, '400 ', 'NACIONAL', 1, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (13, 'CLÁSSICO', 'REGIONAL', 6, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (14, 'ESTILO', 'NACIONAL', 6, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (15, 'ABSOLUTO', 'NACIONAL', 6, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (16, 'SUPERIOR', 'NACIONAL', 6, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (17, 'EXCLUSIVO', 'NACIONAL', 6, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (18, 'COMPACTO', 'NACIONAL', 4, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (19, 'EFETIVO', 'NACIONAL', 4, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (20, 'COMPLETO', 'NACIONAL', 4, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (21, 'SUPERIOR', 'NACIONAL', 4, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (22, 'SÊNIOR', 'NACIONAL', 4, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (23, 'EXATO', 'NACIONAL', 5, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (24, 'ESPECIAL', 'NACIONAL', 5, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (25, 'EXECUTIVO', 'NACIONAL', 5, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (26, 'PRESTIGE', 'NACIONAL', 5, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (27, 'S80', 'GRUPO_DE_ESTADOS', 1, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (28, 'S380', 'NACIONAL', 1, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (29, 'S450', 'NACIONAL', 1, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (30, 'S750', 'NACIONAL', 1, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (31, 'S1500', 'NACIONAL', 2, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (32, 'S2500', 'NACIONAL', 2, true);
-INSERT INTO Produto (id, nome, administradora_id, tipoAbrangencia, ativo) VALUES (33, 'S6500', 'NACIONAL', 2, true);
-
-
 -- PROFISSOES
 INSERT INTO Profissao (id, nome) VALUES (1, 'Autônomo');
 INSERT INTO Profissao (id, nome) VALUES (2, 'Empresário');
@@ -197,10 +160,48 @@ INSERT INTO Estado (id, sigla, nome) VALUES (26, 'SE','Sergipe');
 INSERT INTO Estado (id, sigla, nome) VALUES (27, 'SP','São Paulo');
 INSERT INTO Estado (id, sigla, nome) VALUES (28, 'TO','Tocantins');
 
+
+-- PRODUTOS
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (1, 'EFETIVO', 'NACIONAL', 3, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (2, 'FLEX', 'NACIONAL', 3, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (3, 'TOP E', 'NACIONAL', 3, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (4, 'TOP A', 'NACIONAL', 3, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (5, 'TOP PLUS', 'NACIONAL', 3, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (6, 'EFETIVO', 'NACIONAL', 3, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (7, 'FLEX', 'NACIONAL', 3, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (8, 'TOP E', 'NACIONAL', 3, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (9, 'TOP A', 'NACIONAL', 3, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (10, 'TOP PLUS', 'NACIONAL', 3, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (11, '350', 'NACIONAL', 1, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (12, '400 ', 'NACIONAL', 1, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (13, 'CLÁSSICO', 'REGIONAL', 6, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (14, 'ESTILO', 'NACIONAL', 6, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (15, 'ABSOLUTO', 'NACIONAL', 6, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (16, 'SUPERIOR', 'NACIONAL', 6, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (17, 'EXCLUSIVO', 'NACIONAL', 6, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (18, 'COMPACTO', 'NACIONAL', 4, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (19, 'EFETIVO', 'NACIONAL', 4, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (20, 'COMPLETO', 'NACIONAL', 4, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (21, 'SUPERIOR', 'NACIONAL', 4, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (22, 'SÊNIOR', 'NACIONAL', 4, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (23, 'EXATO', 'NACIONAL', 5, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (24, 'ESPECIAL', 'NACIONAL', 5, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (25, 'EXECUTIVO', 'NACIONAL', 5, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (26, 'PRESTIGE', 'NACIONAL', 5, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (27, 'S80', 'GRUPO_DE_ESTADOS', 1, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (28, 'S380', 'NACIONAL', 1, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (29, 'S450', 'NACIONAL', 1, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (30, 'S750', 'NACIONAL', 1, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (31, 'S1500', 'NACIONAL', 2, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (32, 'S2500', 'NACIONAL', 2, true, 7);
+INSERT INTO Produto (id, nome, tipoAbrangencia, administradora_id, ativo, estado_id) VALUES (33, 'S6500', 'NACIONAL', 2, true, 7);
+
+
 -- ENTIDADE-PROFISSAO
-INSERT INTO Profissao_Entidade (profissao_id, entidade_id) VALUES (3, 18);
-INSERT INTO Profissao_Entidade (profissao_id, entidade_id) VALUES (3, 35);
-INSERT INTO Profissao_Entidade (profissao_id, entidade_id) VALUES (3, 31);
+INSERT INTO Entidade_Profissao (entidade_id, profissoes_id) VALUES (18, 3);
+INSERT INTO Entidade_Profissao (entidade_id, profissoes_id) VALUES (35, 3);
+INSERT INTO Entidade_Profissao (entidade_id, profissoes_id) VALUES (31, 3);
+
 
 -- PRODUTO-ENTIDADE
 INSERT INTO Produto_Entidade (produto_id, entidades_id) VALUES (11, 18);

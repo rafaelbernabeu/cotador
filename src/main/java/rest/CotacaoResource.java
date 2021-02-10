@@ -1,7 +1,7 @@
 package rest;
 
-import dto.Cotacao;
-import dto.SolicitacaoCotacao;
+import dto.CotacaoDTO;
+import dto.SolicitacaoCotacaoDTO;
 import service.CotacaoService;
 
 import javax.annotation.security.PermitAll;
@@ -20,8 +20,8 @@ public class CotacaoResource {
     @POST
 //    @RolesAllowed({"user", "admin"})
     @PermitAll
-    @Produces(MediaType.TEXT_PLAIN)
-    public Cotacao geraCotacao(SolicitacaoCotacao cotacao) {
+    @Produces(MediaType.APPLICATION_JSON)
+    public CotacaoDTO geraCotacao(SolicitacaoCotacaoDTO cotacao) {
         return cotacaoService.geraCotacao(cotacao);
     }
 

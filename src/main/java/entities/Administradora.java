@@ -11,9 +11,9 @@ import java.util.List;
 @Entity
 public class Administradora extends PanacheEntity {
 
-    String nome;
+    private String nome;
 
     @OneToMany
-    List<Operadora> operadoras;
+    private List<Operadora> operadoras;
 
 }

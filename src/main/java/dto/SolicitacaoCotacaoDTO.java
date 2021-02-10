@@ -3,7 +3,7 @@ package dto;
 import lombok.Data;
 
 @Data
-public class SolicitacaoCotacao {
+public class SolicitacaoCotacaoDTO {
 
     private String profissao;
     private int vidas0a18;

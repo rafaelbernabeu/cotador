@@ -11,36 +11,36 @@ import java.util.List;
 @Entity
 public class Produto extends PanacheEntity {
 
-    Long valor;
-    String nome;
+    private Long valor;
+    private String nome;
 
-    Long reajuste;
-    Boolean ativo;
-    Integer idadeMinima;
-    Integer idadeMaxima;
-    Integer qtdMinVidas;
-    Integer qtdMinTitulares;
-    Boolean coparticipacao;
+    private Long reajuste;
+    private Boolean ativo;
+    private Integer idadeMinima;
+    private Integer idadeMaxima;
+    private Integer qtdMinVidas;
+    private Integer qtdMinTitulares;
+    private Boolean coparticipacao;
 
     @OneToOne
-    Estado estado;
+    private Estado estado;
 
     @Enumerated(EnumType.STRING)
-    TipoAbrangencia tipoAbrangencia;
+    private TipoAbrangencia tipoAbrangencia;
 
     @OneToOne
-    Administradora administradora;
+    private Administradora administradora;
 
     @OneToMany
-    List<Profissao> profissoes;
+    private List<Hospital> hospitais;
 
     @OneToMany
-    List<Hospital> hospitais;
+    private List<Laboratorio> laboratorios;
 
     @OneToMany
-    List<Laboratorio> laboratorios;
+    private List<Entidade> entidades;
 
     @OneToMany
-    List<Opcao> opcoes;
+    private List<Opcao> opcoes;
 
 }

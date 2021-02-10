@@ -1,7 +1,7 @@
 package service;
 
-import dto.Cotacao;
-import dto.SolicitacaoCotacao;
+import dto.CotacaoDTO;
+import dto.SolicitacaoCotacaoDTO;
 import entities.Produto;
 import entities.Profissao;
 
@@ -18,10 +18,10 @@ public class CotacaoService {
     @Inject
     ProdutoService produtoService;
 
-    public Cotacao geraCotacao(SolicitacaoCotacao solicitacaoCotacao) {
+    public CotacaoDTO geraCotacao(SolicitacaoCotacaoDTO solicitacaoCotacao) {
         Profissao profissao = profissaoService.getByNome(solicitacaoCotacao.getProfissao());
         List<Produto> produtos = produtoService.getByProfissao(profissao);
 
-        return new Cotacao(produtos);
+        return new CotacaoDTO(produtos);
     }
 }

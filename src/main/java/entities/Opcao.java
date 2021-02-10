@@ -13,6 +13,6 @@ import javax.persistence.Enumerated;
 public class Opcao extends PanacheEntity {
 
     @Enumerated(EnumType.STRING)
-    TipoAcomodacao acomodacao;
+    private TipoAcomodacao acomodacao;
 
 }
