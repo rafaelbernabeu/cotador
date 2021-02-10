@@ -1,9 +1,10 @@
 package rest;
 
 import dto.Cotacao;
+import dto.SolicitacaoCotacao;
 import service.CotacaoService;
 
-import javax.annotation.security.RolesAllowed;
+import javax.annotation.security.PermitAll;
 import javax.inject.Inject;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -17,10 +18,11 @@ public class CotacaoResource {
     CotacaoService cotacaoService;
 
     @POST
-    @RolesAllowed({"user", "admin"})
+//    @RolesAllowed({"user", "admin"})
+    @PermitAll
     @Produces(MediaType.TEXT_PLAIN)
-    public String geraCotacao(Cotacao cotacao) {
-        return "public";
+    public Cotacao geraCotacao(SolicitacaoCotacao cotacao) {
+        return cotacaoService.geraCotacao(cotacao);
     }
 
 }

@@ -32,7 +32,7 @@ public class Produto extends PanacheEntity {
     Administradora administradora;
 
     @OneToMany
-    List<Entidade> entidadesFiliadas;
+    List<Profissao> profissoes;
 
     @OneToMany
     List<Hospital> hospitais;

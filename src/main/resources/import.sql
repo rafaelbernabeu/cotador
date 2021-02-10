@@ -147,8 +147,8 @@ INSERT INTO Entidade (id, nome) VALUES (26, 'CRF-DF');
 INSERT INTO Entidade (id, nome) VALUES (27, 'CRO-DF');
 INSERT INTO Entidade (id, nome) VALUES (28, 'CRP-01');
 INSERT INTO Entidade (id, nome) VALUES (29, 'FEBRAD');
-INSERT INTO Entidade (id, nome) VALUES (30, 'FECOMÉRCIO - DF');
-INSERT INTO Entidade (id, nome) VALUES (31, 'FECOMÉRCIO');
+INSERT INTO Entidade (id, nome) VALUES (30, 'FECOMÉRCIO');
+INSERT INTO Entidade (id, nome) VALUES (31, 'FECOMÉRCIO - DF');
 INSERT INTO Entidade (id, nome) VALUES (32, 'FEIFAR');
 INSERT INTO Entidade (id, nome) VALUES (33, 'FENAMEV');
 INSERT INTO Entidade (id, nome) VALUES (34, 'FETRACOM');
@@ -196,3 +196,15 @@ INSERT INTO Estado (id, sigla, nome) VALUES (25, 'SC','Santa Catarina');
 INSERT INTO Estado (id, sigla, nome) VALUES (26, 'SE','Sergipe');
 INSERT INTO Estado (id, sigla, nome) VALUES (27, 'SP','São Paulo');
 INSERT INTO Estado (id, sigla, nome) VALUES (28, 'TO','Tocantins');
+
+-- ENTIDADE-PROFISSAO
+INSERT INTO Profissao_Entidade (profissao_id, entidade_id) VALUES (3, 18);
+INSERT INTO Profissao_Entidade (profissao_id, entidade_id) VALUES (3, 35);
+INSERT INTO Profissao_Entidade (profissao_id, entidade_id) VALUES (3, 31);
+
+-- PRODUTO-ENTIDADE
+INSERT INTO Produto_Entidade (produto_id, entidades_id) VALUES (11, 18);
+INSERT INTO Produto_Entidade (produto_id, entidades_id) VALUES (11, 35);
+INSERT INTO Produto_Entidade (produto_id, entidades_id) VALUES (12, 18);
+INSERT INTO Produto_Entidade (produto_id, entidades_id) VALUES (12, 35);
+INSERT INTO Produto_Entidade (produto_id, entidades_id) VALUES (12, 31);
