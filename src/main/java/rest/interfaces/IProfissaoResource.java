@@ -1,8 +1,8 @@
 package rest.interfaces;
 
-import entities.Usuario;
+import entities.Profissao;
 import io.quarkus.hibernate.orm.rest.data.panache.PanacheEntityResource;
 import io.quarkus.rest.data.panache.ResourceProperties;
 
-@ResourceProperties(path = "/api/usuarios")
-public interface UsuarioResource extends PanacheEntityResource<Usuario, Long> {}
+@ResourceProperties(exposed = false)
+public interface IProfissaoResource extends PanacheEntityResource<Profissao, Long> {}
