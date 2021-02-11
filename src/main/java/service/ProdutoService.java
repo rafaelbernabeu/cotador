@@ -14,7 +14,7 @@ public class ProdutoService {
     }
 
     public List<Produto> getAll() {
-        return Produto.findAll().list();
+        return Produto.listAll();
     }
 
 }

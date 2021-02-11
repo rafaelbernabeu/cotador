@@ -1,9 +1,7 @@
 package rest;
 
-import entities.Hospital;
-import io.quarkus.panache.common.Page;
-import io.quarkus.panache.common.Sort;
-import rest.interfaces.IHospitalResource;
+import entities.Profissao;
+import rest.interfaces.IProfissaoResource;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
@@ -11,30 +9,31 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import java.util.List;
 
-@Path("/api/hospitais")
-public class HospitalResource {
+@Path("/api/profissoes")
+public class ProfissaoResource {
 
     @Inject
-    IHospitalResource hospitalResource;
+    IProfissaoResource profissaoResource;
 
     @GET
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
-    public Hospital get(@PathParam("id") Long id) {
-        return hospitalResource.get(id);
+    public Profissao get(@PathParam("id") Long id) {
+        return profissaoResource.get(id);
     }
 
     @GET
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<Hospital> list(@QueryParam("sort") @DefaultValue("id") String columnName,
+    public List<Profissao> list(@QueryParam("sort") @DefaultValue("id") String columnName,
                                @QueryParam("page") @DefaultValue("0") int pageIndex,
                                @QueryParam("size") @DefaultValue("20") int pageSize) {
 
-        Sort sort = Sort.by(columnName);
-        Page page = Page.of(pageIndex, pageSize);
-        return hospitalResource.list(page, sort);
+//        Sort sort = Sort.by(columnName);
+//        Page page = Page.of(pageIndex, pageSize);
+//        return profissaoResource.list(page, sort);
+        return Profissao.listAll();
     }
 
     @POST
@@ -42,8 +41,8 @@ public class HospitalResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Hospital add(Hospital hospital) {
-        return hospitalResource.add(hospital);
+    public Profissao add(Profissao profissao) {
+        return profissaoResource.add(profissao);
     }
 
     @PUT
@@ -52,15 +51,15 @@ public class HospitalResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Hospital update(@PathParam("id") Long id, Hospital hospital) {
-        return hospitalResource.update(id, hospital);
+    public Profissao update(@PathParam("id") Long id, Profissao profissao) {
+        return profissaoResource.update(id, profissao);
     }
 
     @DELETE
     @Path("{id}")
     @RolesAllowed("admin")
     public boolean delete(@PathParam("id") Long id) {
-        return hospitalResource.delete(id);
+        return profissaoResource.delete(id);
     }
 
 }
