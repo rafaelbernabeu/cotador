@@ -3,6 +3,7 @@ package rest;
 import entities.Entidade;
 import entities.Profissao;
 import rest.interfaces.IEntidadeResource;
+import service.EntidadeService;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
@@ -16,6 +17,9 @@ public class EntidadeResource {
     @Inject
     IEntidadeResource entidadeResource;
 
+    @Inject
+    EntidadeService entidadeService;
+
     @GET
     @Path("{id}")
     @RolesAllowed("admin")
@@ -25,11 +29,20 @@ public class EntidadeResource {
     }
 
     @GET
-    @Path("{id}/profissoes")
     @RolesAllowed("admin")
+    @Path("{id}/profissoes")
     @Produces("application/json")
     public List<Profissao> getProfissoes(@PathParam("id") Long id) {
         return entidadeResource.get(id).getProfissoes();
+    }
+
+    @POST
+    @RolesAllowed("admin")
+    @Path("{id}/profissoes")
+    @Produces("application/json")
+    public void getProfissoes(@PathParam("id") Long id, List<Profissao> profissoes) {
+
+        entidadeService.atualizarProfissoesDaEntidade(id, profissoes);
     }
 
     @GET
