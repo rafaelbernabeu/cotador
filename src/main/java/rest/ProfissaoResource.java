@@ -56,6 +56,7 @@ public class ProfissaoResource {
     }
 
     @DELETE
+    @Transactional
     @Path("{id}")
     @RolesAllowed("admin")
     public boolean delete(@PathParam("id") Long id) {
