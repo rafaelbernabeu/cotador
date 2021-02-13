@@ -9,7 +9,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Data
 @Entity
@@ -31,10 +30,6 @@ public class Usuario extends PanacheEntityBase {
     @Roles
     @ManyToMany
     private List<Role> roles;
-
-    public List<String> getRolesAsString() {
-        return roles.stream().map(Role::getRole).collect(Collectors.toList());
-    }
 
 }
 

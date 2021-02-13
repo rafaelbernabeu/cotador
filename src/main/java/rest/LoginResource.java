@@ -1,5 +1,6 @@
 package rest;
 
+import entities.Role;
 import entities.Usuario;
 import io.smallrye.jwt.build.Jwt;
 import org.eclipse.microprofile.jwt.Claims;
@@ -15,14 +16,13 @@ import java.security.Principal;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @RequestScoped
 @Path("/api/login")
 public class LoginResource {
-
-
 
     @GET
     @Produces(APPLICATION_JSON)
@@ -35,12 +35,9 @@ public class LoginResource {
         Map<String, String> response = new HashMap<>();
         response.put("token", Jwt.issuer("http://localhost/issuer")
                 .upn(usuario.getEmail())
-                .groups(new HashSet<>(usuario.getRolesAsString()))
+                .groups(new HashSet<>(usuario.getRoles().stream().map(Role::getRole).collect(Collectors.toList())))
                 .claim(Claims.email.name(), userPrincipal.getName())
                 .sign());
         return Response.ok(response).build();
     }
-
-
-
 }

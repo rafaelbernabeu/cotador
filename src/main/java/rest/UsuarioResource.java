@@ -29,8 +29,8 @@ public class UsuarioResource {
     }
 
     @GET
+    @Path("{id}/roles")
     @RolesAllowed("admin")
-    @Path("{id}/profissoes")
     @Produces("application/json")
     public List<Role> getRoles(@PathParam("id") Long id) {
         return usuarioResource.get(id).getRoles();
