@@ -1,15 +1,19 @@
 ### admin@admin.com
 GET http://localhost:8080/api/login
 Authorization: Basic YWRtaW5AYWRtaW4uY29tOmFkbWlu
+###
 
+### user@user.com
+GET http://localhost:8080/api/login
+Authorization: Basic dXNlckB1c2VyLmNvbTp1c2Vy
 ###
 
 GET http://localhost:8080/api/hospital
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2lzc3VlciIsInVwbiI6ImFkbWluQGFkbWluLmNvbSIsImdyb3VwcyI6WyJhZG1pbiJdLCJiaXJ0aGRhdGUiOiIyMDAxLTA3LTEzIiwiaWF0IjoxNjEyMjM2MjAxLCJleHAiOjE2MTIyMzY1MDEsImp0aSI6ImJhMWI4NmZmLTkzY2QtNGIxYi04N2U5LTkyY2Y2YzMwMzUxZSJ9.A315uMVM-6jfPDgMB_fY1qfovXK6EdQlPIjPlMsCRAYYTZSMTU5kfloAy_rVfRdf2g5B29vuBs0Tms_GLgXx51Xg4eYlTuiSTmEcuRG9VyWNiaXk_ALi6yUlgpoH7w-T_mN-Htv2hZxu3dgYtmdH7FPB8yDU2gfqf93h709SP-Y5yMCQGVOOhjaf6aQ2BsmkqS5SNovLAxr2tpbrzdlAxRVYFJshV-sGN-K2-s8VGSnmj8i5X9MoFeAlEIvJO2UN7Q1TgVar1efKrmr5UmhBHzmusX3p4LBv9oqY6vA9Mklg_NIM6awiBElqOfYgw0JjokCjJX9opZiQw6FVYqAWkw
+Authorization: Bearer
 ###
 
 POST http://localhost:8080/api/hospital
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0L2lzc3VlciIsInVwbiI6ImFkbWluQGFkbWluLmNvbSIsImdyb3VwcyI6WyJhZG1pbiJdLCJiaXJ0aGRhdGUiOiIyMDAxLTA3LTEzIiwiaWF0IjoxNjEyMjM2MjAxLCJleHAiOjE2MTIyMzY1MDEsImp0aSI6ImJhMWI4NmZmLTkzY2QtNGIxYi04N2U5LTkyY2Y2YzMwMzUxZSJ9.A315uMVM-6jfPDgMB_fY1qfovXK6EdQlPIjPlMsCRAYYTZSMTU5kfloAy_rVfRdf2g5B29vuBs0Tms_GLgXx51Xg4eYlTuiSTmEcuRG9VyWNiaXk_ALi6yUlgpoH7w-T_mN-Htv2hZxu3dgYtmdH7FPB8yDU2gfqf93h709SP-Y5yMCQGVOOhjaf6aQ2BsmkqS5SNovLAxr2tpbrzdlAxRVYFJshV-sGN-K2-s8VGSnmj8i5X9MoFeAlEIvJO2UN7Q1TgVar1efKrmr5UmhBHzmusX3p4LBv9oqY6vA9Mklg_NIM6awiBElqOfYgw0JjokCjJX9opZiQw6FVYqAWkw
+Authorization: Bearer
 Content-Type: application/json
 
 {
@@ -17,12 +21,15 @@ Content-Type: application/json
   "local": "ccc"
 }
 ###
-GET http://localhost:8080/api/usuario
 
+GET http://localhost:8080/api/check/login
+Authorization: Bearer
 ###
+
 POST http://localhost:8080/api/cotacao
 Content-Type: application/json
 
 {
   "profissao": "Empresário Individual"
 }
+###

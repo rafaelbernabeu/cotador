@@ -1,5 +1,5 @@
 target/
-.idea
+.idea/
 *.iml
 3rdpartylicenses.txt
 /https:/git.heroku.com/cotador-saude.git/
