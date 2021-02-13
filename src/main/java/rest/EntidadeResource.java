@@ -40,9 +40,9 @@ public class EntidadeResource {
     @RolesAllowed("admin")
     @Path("{id}/profissoes")
     @Produces("application/json")
-    public void getProfissoes(@PathParam("id") Long id, List<Profissao> profissoes) {
+    public List<Profissao> atualizarProfissoesDaEntidade(@PathParam("id") Long id, List<Profissao> profissoes) {
 
-        entidadeService.atualizarProfissoesDaEntidade(id, profissoes);
+        return entidadeService.atualizarProfissoesDaEntidade(id, profissoes);
     }
 
     @GET
