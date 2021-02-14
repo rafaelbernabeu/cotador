@@ -39,4 +39,10 @@ public class UsuarioService {
         usuario.setRoles(Stream.of(roles).map(r -> (Role) Role.find("role", r).firstResult()).collect(Collectors.toList()));
         usuario.persist();
     }
+
+    @Transactional
+    public static void adicionarUsuario(Usuario usuario) {
+        usuario.setPassword(BcryptUtil.bcryptHash(usuario.getPassword()));
+        usuario.persist();
+    }
 }

@@ -1,5 +1,6 @@
 package rest;
 
+import dto.UsuarioDTO;
 import entities.Role;
 import entities.Usuario;
 import rest.interfaces.IUsuarioResource;
@@ -10,6 +11,7 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Path("/api/usuarios")
 public class UsuarioResource {
@@ -24,8 +26,8 @@ public class UsuarioResource {
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
-    public Usuario get(@PathParam("id") Long id) {
-        return usuarioResource.get(id);
+    public UsuarioDTO get(@PathParam("id") Long id) {
+        return new UsuarioDTO(usuarioResource.get(id));
     }
 
     @GET
@@ -48,14 +50,14 @@ public class UsuarioResource {
     @GET
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<Usuario> list(@QueryParam("sort") @DefaultValue("id") String columnName,
+    public List<UsuarioDTO> list(@QueryParam("sort") @DefaultValue("id") String columnName,
                               @QueryParam("page") @DefaultValue("0") int pageIndex,
                               @QueryParam("size") @DefaultValue("20") int pageSize) {
 
 //        Sort sort = Sort.by(columnName);
 //        Page page = Page.of(pageIndex, pageSize);
 //        return entidadeResource.list(page, sort);
-        return Usuario.listAll();
+        return Usuario.<Usuario>listAll().stream().map(UsuarioDTO::new).collect(Collectors.toList());
     }
 
     @POST
@@ -63,8 +65,8 @@ public class UsuarioResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Usuario add(Usuario usuario) {
-        return usuarioResource.add(usuario);
+    public UsuarioDTO add(Usuario usuario) {
+        return new UsuarioDTO(usuarioResource.add(usuario));
     }
 
     @PUT
@@ -73,8 +75,8 @@ public class UsuarioResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Usuario update(@PathParam("id") Long id, Usuario usuario) {
-        return usuarioResource.update(id, usuario);
+    public UsuarioDTO update(@PathParam("id") Long id, Usuario usuario) {
+        return new UsuarioDTO(usuarioResource.update(id, usuario));
     }
 
     @DELETE

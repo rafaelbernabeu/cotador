@@ -27,11 +27,6 @@ public class Role extends PanacheEntityBase {
         this.role = role;
     }
 
-    public Role(Long id, String role) {
-        this.id = id;
-        this.role = role;
-    }
-    
     public static void persist(String... roles) {
         Stream.of(roles).map(Role::new).forEach(Role::persistAndFlush);
     }
