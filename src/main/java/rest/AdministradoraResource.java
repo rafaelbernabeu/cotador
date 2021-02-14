@@ -1,7 +1,7 @@
 package rest;
 
-import entities.Profissao;
-import rest.interfaces.IProfissaoResource;
+import entities.Administradora;
+import rest.interfaces.IAdministradoraResource;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
@@ -9,25 +9,25 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import java.util.List;
 
-@Path("/api/profissoes")
-public class ProfissaoResource {
+@Path("/api/administradoras")
+public class AdministradoraResource {
 
     @Inject
-    IProfissaoResource profissaoResource;
+    IAdministradoraResource administradoraResource;
 
     @GET
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
-    public Profissao get(@PathParam("id") Long id) {
-        return profissaoResource.get(id);
+    public Administradora get(@PathParam("id") Long id) {
+        return administradoraResource.get(id);
     }
 
     @GET
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<Profissao> list() {
-        return Profissao.listAll();
+    public List<Administradora> list() {
+        return Administradora.listAll();
     }
 
     @POST
@@ -35,8 +35,8 @@ public class ProfissaoResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Profissao add(Profissao profissao) {
-        return profissaoResource.add(profissao);
+    public Administradora add(Administradora administradora) {
+        return administradoraResource.add(administradora);
     }
 
     @PUT
@@ -45,8 +45,8 @@ public class ProfissaoResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Profissao update(@PathParam("id") Long id, Profissao profissao) {
-        return profissaoResource.update(id, profissao);
+    public Administradora update(@PathParam("id") Long id, Administradora administradora) {
+        return administradoraResource.update(id, administradora);
     }
 
     @DELETE
@@ -54,7 +54,7 @@ public class ProfissaoResource {
     @Path("{id}")
     @RolesAllowed("admin")
     public boolean delete(@PathParam("id") Long id) {
-        return profissaoResource.delete(id);
+        return administradoraResource.delete(id);
     }
 
 }

@@ -13,11 +13,13 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import java.security.Principal;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static java.time.temporal.ChronoUnit.HOURS;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @RequestScoped
@@ -37,6 +39,7 @@ public class LoginResource {
                 .upn(usuario.getEmail())
                 .groups(new HashSet<>(usuario.getRoles().stream().map(Role::getRole).collect(Collectors.toList())))
                 .claim(Claims.email.name(), userPrincipal.getName())
+                .expiresIn(Duration.of(8, HOURS))
                 .sign());
         return Response.ok(response).build();
     }

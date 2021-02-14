@@ -1,7 +1,7 @@
 package rest;
 
-import entities.Profissao;
-import rest.interfaces.IProfissaoResource;
+import entities.Produto;
+import rest.interfaces.IProdutoResource;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
@@ -9,25 +9,25 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import java.util.List;
 
-@Path("/api/profissoes")
-public class ProfissaoResource {
+@Path("/api/produtos")
+public class ProdutoResource {
 
     @Inject
-    IProfissaoResource profissaoResource;
+    IProdutoResource produtoResource;
 
     @GET
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
-    public Profissao get(@PathParam("id") Long id) {
-        return profissaoResource.get(id);
+    public Produto get(@PathParam("id") Long id) {
+        return produtoResource.get(id);
     }
 
     @GET
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<Profissao> list() {
-        return Profissao.listAll();
+    public List<Produto> list() {
+        return Produto.listAll();
     }
 
     @POST
@@ -35,8 +35,8 @@ public class ProfissaoResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Profissao add(Profissao profissao) {
-        return profissaoResource.add(profissao);
+    public Produto add(Produto produto) {
+        return produtoResource.add(produto);
     }
 
     @PUT
@@ -45,8 +45,8 @@ public class ProfissaoResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Profissao update(@PathParam("id") Long id, Profissao profissao) {
-        return profissaoResource.update(id, profissao);
+    public Produto update(@PathParam("id") Long id, Produto produto) {
+        return produtoResource.update(id, produto);
     }
 
     @DELETE
@@ -54,7 +54,7 @@ public class ProfissaoResource {
     @Path("{id}")
     @RolesAllowed("admin")
     public boolean delete(@PathParam("id") Long id) {
-        return profissaoResource.delete(id);
+        return produtoResource.delete(id);
     }
 
 }

@@ -1,7 +1,7 @@
 package rest;
 
-import entities.Profissao;
-import rest.interfaces.IProfissaoResource;
+import entities.Opcao;
+import rest.interfaces.IOpcaoResource;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
@@ -9,25 +9,25 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import java.util.List;
 
-@Path("/api/profissoes")
-public class ProfissaoResource {
+@Path("/api/opcoes")
+public class OpcaoResource {
 
     @Inject
-    IProfissaoResource profissaoResource;
+    IOpcaoResource opcaoResource;
 
     @GET
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
-    public Profissao get(@PathParam("id") Long id) {
-        return profissaoResource.get(id);
+    public Opcao get(@PathParam("id") Long id) {
+        return opcaoResource.get(id);
     }
 
     @GET
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<Profissao> list() {
-        return Profissao.listAll();
+    public List<Opcao> list() {
+        return Opcao.listAll();
     }
 
     @POST
@@ -35,8 +35,8 @@ public class ProfissaoResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Profissao add(Profissao profissao) {
-        return profissaoResource.add(profissao);
+    public Opcao add(Opcao opcao) {
+        return opcaoResource.add(opcao);
     }
 
     @PUT
@@ -45,8 +45,8 @@ public class ProfissaoResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Profissao update(@PathParam("id") Long id, Profissao profissao) {
-        return profissaoResource.update(id, profissao);
+    public Opcao update(@PathParam("id") Long id, Opcao opcao) {
+        return opcaoResource.update(id, opcao);
     }
 
     @DELETE
@@ -54,7 +54,7 @@ public class ProfissaoResource {
     @Path("{id}")
     @RolesAllowed("admin")
     public boolean delete(@PathParam("id") Long id) {
-        return profissaoResource.delete(id);
+        return opcaoResource.delete(id);
     }
 
 }

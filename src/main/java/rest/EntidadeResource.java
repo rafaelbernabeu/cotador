@@ -37,6 +37,7 @@ public class EntidadeResource {
     }
 
     @POST
+    @Transactional
     @RolesAllowed("admin")
     @Path("{id}/profissoes")
     @Produces("application/json")

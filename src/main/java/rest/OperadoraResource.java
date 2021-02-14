@@ -1,7 +1,7 @@
 package rest;
 
-import entities.Profissao;
-import rest.interfaces.IProfissaoResource;
+import entities.Operadora;
+import rest.interfaces.IOperadoraResource;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
@@ -9,25 +9,25 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import java.util.List;
 
-@Path("/api/profissoes")
-public class ProfissaoResource {
+@Path("/api/operadoras")
+public class OperadoraResource {
 
     @Inject
-    IProfissaoResource profissaoResource;
+    IOperadoraResource operadoraResource;
 
     @GET
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
-    public Profissao get(@PathParam("id") Long id) {
-        return profissaoResource.get(id);
+    public Operadora get(@PathParam("id") Long id) {
+        return operadoraResource.get(id);
     }
 
     @GET
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<Profissao> list() {
-        return Profissao.listAll();
+    public List<Operadora> list() {
+        return Operadora.listAll();
     }
 
     @POST
@@ -35,8 +35,8 @@ public class ProfissaoResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Profissao add(Profissao profissao) {
-        return profissaoResource.add(profissao);
+    public Operadora add(Operadora operadora) {
+        return operadoraResource.add(operadora);
     }
 
     @PUT
@@ -45,8 +45,8 @@ public class ProfissaoResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Profissao update(@PathParam("id") Long id, Profissao profissao) {
-        return profissaoResource.update(id, profissao);
+    public Operadora update(@PathParam("id") Long id, Operadora operadora) {
+        return operadoraResource.update(id, operadora);
     }
 
     @DELETE
@@ -54,7 +54,7 @@ public class ProfissaoResource {
     @Path("{id}")
     @RolesAllowed("admin")
     public boolean delete(@PathParam("id") Long id) {
-        return profissaoResource.delete(id);
+        return operadoraResource.delete(id);
     }
 
 }

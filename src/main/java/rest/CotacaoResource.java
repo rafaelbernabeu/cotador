@@ -2,6 +2,7 @@ package rest;
 
 import dto.SolicitacaoCotacaoDTO;
 import entities.Tabela;
+import rest.interfaces.ICotacaoResource;
 import service.CotacaoService;
 
 import javax.annotation.security.PermitAll;
@@ -14,6 +15,9 @@ import java.util.List;
 
 @Path("/api/cotacoes")
 public class CotacaoResource {
+
+    @Inject
+    ICotacaoResource cotacaoResource;
 
     @Inject
     CotacaoService cotacaoService;

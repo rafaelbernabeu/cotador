@@ -1,7 +1,7 @@
 package rest;
 
-import entities.Profissao;
-import rest.interfaces.IProfissaoResource;
+import entities.Tabela;
+import rest.interfaces.ITabelaResource;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
@@ -9,25 +9,25 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import java.util.List;
 
-@Path("/api/profissoes")
-public class ProfissaoResource {
+@Path("/api/tabelas")
+public class TabelaResource {
 
     @Inject
-    IProfissaoResource profissaoResource;
+    ITabelaResource tabelaResource;
 
     @GET
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
-    public Profissao get(@PathParam("id") Long id) {
-        return profissaoResource.get(id);
+    public Tabela get(@PathParam("id") Long id) {
+        return tabelaResource.get(id);
     }
 
     @GET
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<Profissao> list() {
-        return Profissao.listAll();
+    public List<Tabela> list() {
+        return Tabela.listAll();
     }
 
     @POST
@@ -35,8 +35,8 @@ public class ProfissaoResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Profissao add(Profissao profissao) {
-        return profissaoResource.add(profissao);
+    public Tabela add(Tabela tabela) {
+        return tabelaResource.add(tabela);
     }
 
     @PUT
@@ -45,8 +45,8 @@ public class ProfissaoResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Profissao update(@PathParam("id") Long id, Profissao profissao) {
-        return profissaoResource.update(id, profissao);
+    public Tabela update(@PathParam("id") Long id, Tabela tabela) {
+        return tabelaResource.update(id, tabela);
     }
 
     @DELETE
@@ -54,7 +54,7 @@ public class ProfissaoResource {
     @Path("{id}")
     @RolesAllowed("admin")
     public boolean delete(@PathParam("id") Long id) {
-        return profissaoResource.delete(id);
+        return tabelaResource.delete(id);
     }
 
 }

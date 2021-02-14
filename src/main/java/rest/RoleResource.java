@@ -20,4 +20,5 @@ public class RoleResource {
     public List<Role> listAll() {
         return Role.listAll();
     }
+
 }

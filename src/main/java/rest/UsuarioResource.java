@@ -43,20 +43,13 @@ public class UsuarioResource {
     @Path("{id}/roles")
     @Produces("application/json")
     public List<Role> atualizarRolesDoUsuario(@PathParam("id") Long id, List<Role> roles) {
-
         return usuarioService.atualizarRolesDoUsuario(id, roles);
     }
 
     @GET
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<UsuarioDTO> list(@QueryParam("sort") @DefaultValue("id") String columnName,
-                              @QueryParam("page") @DefaultValue("0") int pageIndex,
-                              @QueryParam("size") @DefaultValue("20") int pageSize) {
-
-//        Sort sort = Sort.by(columnName);
-//        Page page = Page.of(pageIndex, pageSize);
-//        return entidadeResource.list(page, sort);
+    public List<UsuarioDTO> list() {
         return Usuario.<Usuario>listAll().stream().map(UsuarioDTO::new).collect(Collectors.toList());
     }
 
