@@ -17,5 +17,6 @@ public class Laboratorio extends PanacheEntityBase {
    private Long id;
 
    private String nome;
+   private String local;
 
 }

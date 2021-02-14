@@ -3,8 +3,10 @@ package entities;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.Data;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Data
 @Entity
@@ -15,8 +17,5 @@ public class Administradora extends PanacheEntityBase {
     private Long id;
 
     private String nome;
-
-    @OneToMany
-    private List<Operadora> operadoras;
 
 }

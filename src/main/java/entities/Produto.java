@@ -1,6 +1,5 @@
 package entities;
 
-import entities.enums.TipoAbrangencia;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.Data;
 
@@ -15,36 +14,24 @@ public class Produto extends PanacheEntityBase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long valor;
+    private Boolean ativo;
+    private String abrangencia;
+
+    @ManyToOne
+    private Operadora operadora;
+
     private String nome;
 
-    private Long reajuste;
-    private Boolean ativo;
-    private Integer idadeMinima;
-    private Integer idadeMaxima;
-    private Integer qtdMinVidas;
-    private Integer qtdMinTitulares;
-    private Boolean coparticipacao;
-
-    @OneToOne
-    private Estado estado;
-
-    @Enumerated(EnumType.STRING)
-    private TipoAbrangencia tipoAbrangencia;
-
-    @OneToOne
-    private Administradora administradora;
+    private Float reembolso;
 
     @OneToMany
-    private List<Hospital> hospitais;
+    private List<Coparticipacao> coparticipacoes;
 
-    @OneToMany
+    @ManyToMany
     private List<Laboratorio> laboratorios;
 
-    @OneToMany
-    private List<Entidade> entidades;
+    @ManyToMany
+    private List<Hospital> hospitais;
 
-    @OneToMany
-    private List<Opcao> opcoes;
 
 }

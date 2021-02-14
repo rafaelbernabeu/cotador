@@ -1,10 +1,12 @@
 package entities;
 
-import entities.enums.TipoAcomodacao;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Data
 @Entity
@@ -14,7 +16,7 @@ public class Opcao extends PanacheEntityBase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private TipoAcomodacao acomodacao;
+    private String tipo;
+    private String descricao;
 
 }

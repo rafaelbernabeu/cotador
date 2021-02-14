@@ -10,12 +10,15 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Operadora extends PanacheEntityBase {
+public class Coparticipacao extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
+    private String tipo;
+
+    private Float percentual;
+    private Float valor;
 
 }
