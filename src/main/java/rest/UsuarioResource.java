@@ -38,7 +38,7 @@ public class UsuarioResource {
 
     @POST
     @RolesAllowed("admin")
-    @Path("{id}/profissoes")
+    @Path("{id}/roles")
     @Produces("application/json")
     public List<Role> atualizarRolesDoUsuario(@PathParam("id") Long id, List<Role> roles) {
 

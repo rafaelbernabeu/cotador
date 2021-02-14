@@ -22,6 +22,7 @@ public class UsuarioService {
         adicionarUsuario("user", "user@user.com", "user", "user");
     }
 
+    @Transactional
     public List<Role> atualizarRolesDoUsuario(Long id, List<Role> roles) {
         Usuario usuario = Usuario.findById(id);
         usuario.setRoles(roles);
@@ -29,6 +30,7 @@ public class UsuarioService {
         return usuario.getRoles();
     }
 
+    @Transactional
     public static void adicionarUsuario(String nome, String email, String password, String... roles) {
         Usuario usuario = new Usuario();
         usuario.setNome(nome);
