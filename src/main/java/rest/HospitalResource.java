@@ -58,6 +58,7 @@ public class HospitalResource {
 
     @DELETE
     @Path("{id}")
+    @Transactional
     @RolesAllowed("admin")
     public boolean delete(@PathParam("id") Long id) {
         return hospitalResource.delete(id);
