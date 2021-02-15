@@ -4,3 +4,7 @@ target/
 3rdpartylicenses.txt
 /https:/git.heroku.com/cotador-saude.git/
 /.settings/
+/Dockerfile
+/.classpath
+/.factorypath
+/.project
