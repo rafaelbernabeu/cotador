@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import java.util.List;
 
-@Path("/api/tabelas")
+@Path("/api/tabela")
 public class TabelaResource {
 
     @Inject
