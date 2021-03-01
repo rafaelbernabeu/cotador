@@ -3,7 +3,14 @@ package entities;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import java.util.List;
 
 @Data
@@ -14,24 +21,21 @@ public class Produto extends PanacheEntityBase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String nome;
     private Boolean ativo;
+    private Float reembolso;
     private String abrangencia;
 
     @ManyToOne
     private Operadora operadora;
 
-    private String nome;
-
-    private Float reembolso;
-
-    @OneToMany
-    private List<Coparticipacao> coparticipacoes;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Coparticipacao coparticipacao;
 
     @ManyToMany
     private List<Laboratorio> laboratorios;
 
     @ManyToMany
     private List<Hospital> hospitais;
-
 
 }

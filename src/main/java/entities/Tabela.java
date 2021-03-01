@@ -1,9 +1,19 @@
 package entities;
 
+import entities.enums.TipoCategoria;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import java.util.List;
 
 @Data
@@ -13,18 +23,22 @@ public class Tabela extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @OneToOne
-    private Estado estado;
-
-    private String tipoTabela;
+    private String nome;
+    private Boolean pme;
+    private Boolean contemplaMEI;
+    private Boolean compulsoria;
     private Integer idadeMinima;
     private Integer idadeMaxima;
     private Integer qtdMinVidas;
     private Integer qtdMinTitulares;
+    private Boolean preferencial;
+    private String reajuste;
 
-    @ManyToMany
-    private List<Opcao> opcao;
+    @OneToOne
+    private Estado estado;
+
+    @Enumerated(EnumType.ORDINAL)
+    private TipoCategoria categoria;
 
     @ManyToOne
     private Administradora administradora;
@@ -32,18 +46,8 @@ public class Tabela extends PanacheEntityBase {
     @ManyToOne
     private Produto produto;
 
-    private Float valor0a18anos;
-    private Float valor19a23anos;
-    private Float valor24a28anos;
-    private Float valor29a33anos;
-    private Float valor34a38anos;
-    private Float valor39a43anos;
-    private Float valor44a48anos;
-    private Float valor49a53anos;
-    private Float valor54a58anos;
-    private Float valor59ouMaisAnos;
-
-    private String reajuste;
+    @OneToMany
+    private List<Opcao> opcao;
 
     @ManyToMany
     private List<Entidade> entidades;

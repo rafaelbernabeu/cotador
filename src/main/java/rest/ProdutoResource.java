@@ -2,11 +2,19 @@ package rest;
 
 import entities.Produto;
 import rest.interfaces.IProdutoResource;
+import service.ProdutoService;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import java.util.List;
 
 @Path("/api/produtos")
@@ -14,6 +22,9 @@ public class ProdutoResource {
 
     @Inject
     IProdutoResource produtoResource;
+
+    @Inject
+    ProdutoService produtoService;
 
     @GET
     @Path("{id}")
@@ -36,7 +47,7 @@ public class ProdutoResource {
     @Consumes("application/json")
     @Produces("application/json")
     public Produto add(Produto produto) {
-        return produtoResource.add(produto);
+        return produtoService.add(produto);
     }
 
     @PUT

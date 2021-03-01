@@ -1,5 +1,6 @@
 package service;
 
+import entities.Coparticipacao;
 import entities.Produto;
 import entities.Profissao;
 
@@ -17,4 +18,11 @@ public class ProdutoService {
         return Produto.listAll();
     }
 
+    public Produto add(Produto produto) {
+        if (produto.getCoparticipacao() == null) {
+            produto.setCoparticipacao(new Coparticipacao());
+        }
+        Produto.persist(produto);
+        return produto;
+    }
 }

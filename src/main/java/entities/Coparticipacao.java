@@ -16,9 +16,20 @@ public class Coparticipacao extends PanacheEntityBase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String tipo;
+    private Float valorProntoSocorro;
+    private Float percentualProntoSocorro;
 
-    private Float percentual;
-    private Float valor;
+    private Float valorConsulta;
+    private Float percentualConsulta;
+
+    private Float valorExameSimples;
+    private Float percentualExameSimples;
+
+    private Float valorExameEspecial;
+    private Float percentualExameEspecial;
+
+    private Float valorInternacao;
+    private Float percentualInternacao;
+
 
 }
