@@ -4,11 +4,11 @@ import entities.Administradora;
 import entities.Entidade;
 import entities.Opcao;
 import entities.Operadora;
-import entities.Produto;
 import entities.Tabela;
 import lombok.Data;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 public class TabelaDTO {
@@ -28,7 +28,7 @@ public class TabelaDTO {
     private String categoria;
     private Operadora operadora;
     private Administradora administradora;
-    private List<Produto> produtos;
+    private List<ProdutoDTO> produtos;
     private List<Opcao> opcoes;
     private List<Entidade> entidades;
 
@@ -49,7 +49,7 @@ public class TabelaDTO {
         this.categoria = tabela.getCategoria().getNome();
         this.operadora = tabela.getOperadora();
         this.administradora = tabela.getAdministradora();
-        this.produtos = tabela.getProdutos();
+        this.produtos = tabela.getProdutos().stream().map(ProdutoDTO::new).collect(Collectors.toList());
         this.opcoes = tabela.getOpcoes();
         this.entidades = tabela.getEntidades();
     }

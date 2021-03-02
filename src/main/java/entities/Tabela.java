@@ -17,6 +17,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @Entity
@@ -76,7 +77,7 @@ public class Tabela extends PanacheEntityBase {
         this.categoria = Categoria.getByNome(tabelaDTO.getCategoria());
         this.operadora = tabelaDTO.getOperadora();
         this.administradora = tabelaDTO.getAdministradora();
-        this.produtos = tabelaDTO.getProdutos();
+        this.produtos = tabelaDTO.getProdutos().stream().map(Produto::new).collect(Collectors.toList());
         this.opcoes = tabelaDTO.getOpcoes();
         this.entidades = tabelaDTO.getEntidades();
     }

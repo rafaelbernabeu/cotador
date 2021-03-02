@@ -1,5 +1,6 @@
 package rest;
 
+import dto.ProdutoDTO;
 import entities.Operadora;
 import entities.Produto;
 import rest.interfaces.IOperadoraResource;
@@ -37,8 +38,8 @@ public class OperadoraResource {
     @Path("{id}/produtos")
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<Produto> getProdutosByOperadora(@PathParam("id") Long id) {
-        return Produto.<Produto>listAll().stream().filter(p -> p.getOperadora().getId().equals(id)).collect(toList());
+    public List<ProdutoDTO> getProdutosByOperadora(@PathParam("id") Long id) {
+        return Produto.<Produto>listAll().stream().filter(p -> p.getOperadora().getId().equals(id)).map(ProdutoDTO::new).collect(toList());
     }
 
     @GET

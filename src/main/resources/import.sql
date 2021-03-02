@@ -162,14 +162,18 @@ INSERT INTO Estado (id, sigla, nome) VALUES (28, 'TO','Tocantins');
 
 
 -- COPARTICIPACOES
-INSERT INTO Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (1, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
-INSERT INTO Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (2, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
-INSERT INTO Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (3, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (1, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (2, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (3, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (4, 45, 89, 90, 9, null, 68, 76, 54, 64, 67);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (5, 56, 90, 7, 67, 34, 67, 0, 89, 54, 45);
 
 -- PRODUTOS
-INSERT INTO Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) VALUES (1, 1, true, 'Produto Amil 1', 123, 1, 1);
-INSERT INTO Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) VALUES (2, 1, true, 'Produto Amil 2', 321, 2, 1);
-INSERT INTO Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) VALUES (3, 2, true, 'Produto Bradesco', 999, 3, 3);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (1, 1, true, 'Amil 1', 123, 1, 1);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (2, 1, true, 'Amil 2', 321, 2, 1);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (3, 2, true, 'Bradesco', 999, 3, 3);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (4, 0, true, 'Unimed 1', 200, 4, 4);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (5, 2, true, 'Sulamerica', 76, 5, 5);
 
 -- TABELA
 INSERT INTO Tabela (id, categoria, compulsoria, contemplaMEI, estado, idadeMaxima, idadeMinima, nome, pme, preferencial, qtdMinTitulares, qtdMinVidas, reajuste, administradora_id, operadora_id) VALUES (1, 0, true, true, 6, 2, 1, 'Tabela 1', null, null, 4, 3, 0, 1, 1);
