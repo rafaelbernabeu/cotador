@@ -3,7 +3,7 @@ package entities;
 import dto.TabelaDTO;
 import entities.enums.Categoria;
 import entities.enums.Estado;
-import entities.enums.Mes;
+import entities.enums.Reajuste;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.Data;
 
@@ -34,7 +34,7 @@ public class Tabela extends PanacheEntityBase {
     private Integer qtdMinVidas;
     private Integer qtdMinTitulares;
     private Boolean preferencial;
-    private Mes reajuste;
+    private Reajuste reajuste;
 
     @Enumerated(EnumType.ORDINAL)
     private Estado estado;
@@ -71,7 +71,7 @@ public class Tabela extends PanacheEntityBase {
         this.qtdMinVidas = tabelaDTO.getQtdMinVidas();
         this.qtdMinTitulares = tabelaDTO.getQtdMinTitulares();
         this.preferencial = tabelaDTO.getPreferencial();
-        this.reajuste = Mes.getByNome(tabelaDTO.getReajuste());
+        this.reajuste = Reajuste.getByNome(tabelaDTO.getReajuste());
         this.estado = Estado.getBySigla(tabelaDTO.getEstado().getSigla());
         this.categoria = Categoria.getByNome(tabelaDTO.getCategoria());
         this.operadora = tabelaDTO.getOperadora();

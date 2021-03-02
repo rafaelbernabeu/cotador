@@ -163,9 +163,16 @@ INSERT INTO Estado (id, sigla, nome) VALUES (28, 'TO','Tocantins');
 
 -- COPARTICIPACOES
 INSERT INTO Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (1, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+INSERT INTO Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (2, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+INSERT INTO Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (3, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
 
 -- PRODUTOS
 INSERT INTO Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) VALUES (1, 1, true, 'Produto Amil 1', 123, 1, 1);
+INSERT INTO Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) VALUES (2, 1, true, 'Produto Amil 2', 321, 2, 1);
+INSERT INTO Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) VALUES (3, 2, true, 'Produto Bradesco', 999, 3, 3);
+
+-- TABELA
+INSERT INTO Tabela (id, categoria, compulsoria, contemplaMEI, estado, idadeMaxima, idadeMinima, nome, pme, preferencial, qtdMinTitulares, qtdMinVidas, reajuste, administradora_id, operadora_id) VALUES (1, 0, true, true, 6, 2, 1, 'Tabela 1', null, null, 4, 3, 0, 1, 1);
 
 
 -- ENTIDADE-PROFISSAO

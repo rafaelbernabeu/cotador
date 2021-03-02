@@ -6,7 +6,7 @@ import java.security.InvalidParameterException;
 import java.util.Arrays;
 
 @Getter
-public enum Mes {
+public enum Reajuste {
 
     JANEIRO("Janeiro"),
     FEVEREIRO("Fevereiro"),
@@ -23,11 +23,11 @@ public enum Mes {
 
     private String nome;
 
-    Mes(String nome) {
+    Reajuste(String nome) {
         this.nome = nome;
     }
 
-    public static Mes getByNome(String nome) {
-        return Arrays.stream(Mes.values()).filter(mes -> mes.nome.equals(nome)).findFirst().orElseThrow(InvalidParameterException::new);
+    public static Reajuste getByNome(String nome) {
+        return Arrays.stream(Reajuste.values()).filter(reajuste -> reajuste.nome.equals(nome)).findFirst().orElseThrow(InvalidParameterException::new);
     }
 }

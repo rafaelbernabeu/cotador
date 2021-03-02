@@ -44,7 +44,7 @@ public class TabelaDTO {
         this.qtdMinVidas = tabela.getQtdMinVidas();
         this.qtdMinTitulares = tabela.getQtdMinTitulares();
         this.preferencial = tabela.getPreferencial();
-        this.reajuste = tabela.getReajuste();
+        this.reajuste = tabela.getReajuste().getNome();
         this.estado = new EstadoDTO(tabela.getEstado());
         this.categoria = tabela.getCategoria().getNome();
         this.operadora = tabela.getOperadora();
