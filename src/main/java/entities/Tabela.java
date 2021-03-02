@@ -1,6 +1,9 @@
 package entities;
 
-import entities.enums.TipoCategoria;
+import dto.TabelaDTO;
+import entities.enums.Categoria;
+import entities.enums.Estado;
+import entities.enums.Mes;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.Data;
 
@@ -13,7 +16,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import java.util.List;
 
 @Data
@@ -32,24 +34,51 @@ public class Tabela extends PanacheEntityBase {
     private Integer qtdMinVidas;
     private Integer qtdMinTitulares;
     private Boolean preferencial;
-    private String reajuste;
+    private Mes reajuste;
 
-    @OneToOne
+    @Enumerated(EnumType.ORDINAL)
     private Estado estado;
 
     @Enumerated(EnumType.ORDINAL)
-    private TipoCategoria categoria;
+    private Categoria categoria;
+
+    @ManyToOne
+    private Operadora operadora;
 
     @ManyToOne
     private Administradora administradora;
 
-    @ManyToOne
-    private Produto produto;
+    @ManyToMany
+    private List<Produto> produtos;
 
     @OneToMany
-    private List<Opcao> opcao;
+    private List<Opcao> opcoes;
 
     @ManyToMany
     private List<Entidade> entidades;
+
+    public Tabela() {
+    }
+
+    public Tabela(TabelaDTO tabelaDTO) {
+        this.id = tabelaDTO.getId();
+        this.nome = tabelaDTO.getNome();
+        this.pme = tabelaDTO.getPme();
+        this.contemplaMEI = tabelaDTO.getContemplaMEI();
+        this.compulsoria = tabelaDTO.getCompulsoria();
+        this.idadeMinima = tabelaDTO.getIdadeMinima();
+        this.idadeMaxima = tabelaDTO.getIdadeMaxima();
+        this.qtdMinVidas = tabelaDTO.getQtdMinVidas();
+        this.qtdMinTitulares = tabelaDTO.getQtdMinTitulares();
+        this.preferencial = tabelaDTO.getPreferencial();
+        this.reajuste = Mes.getByNome(tabelaDTO.getReajuste());
+        this.estado = Estado.getBySigla(tabelaDTO.getEstado().getSigla());
+        this.categoria = Categoria.getByNome(tabelaDTO.getCategoria());
+        this.operadora = tabelaDTO.getOperadora();
+        this.administradora = tabelaDTO.getAdministradora();
+        this.produtos = tabelaDTO.getProdutos();
+        this.opcoes = tabelaDTO.getOpcoes();
+        this.entidades = tabelaDTO.getEntidades();
+    }
 
 }

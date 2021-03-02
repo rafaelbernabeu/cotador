@@ -1,5 +1,6 @@
 package rest;
 
+import dto.TabelaDTO;
 import entities.Tabela;
 import rest.interfaces.ITabelaResource;
 
@@ -15,6 +16,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 @Path("/api/tabela")
 public class TabelaResource {
@@ -33,8 +36,8 @@ public class TabelaResource {
     @GET
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<Tabela> list() {
-        return Tabela.listAll();
+    public List<TabelaDTO> list() {
+        return Tabela.<Tabela>listAll().stream().map(TabelaDTO::new).collect(toList());
     }
 
     @POST
@@ -42,8 +45,8 @@ public class TabelaResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Tabela add(Tabela tabela) {
-        return tabelaResource.add(tabela);
+    public TabelaDTO add(TabelaDTO tabelaDTO) {
+        return new TabelaDTO(tabelaResource.add(new Tabela(tabelaDTO)));
     }
 
     @PUT
@@ -52,8 +55,8 @@ public class TabelaResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Tabela update(@PathParam("id") Long id, Tabela tabela) {
-        return tabelaResource.update(id, tabela);
+    public TabelaDTO update(@PathParam("id") Long id, TabelaDTO tabelaDTO) {
+        return new TabelaDTO(tabelaResource.update(id, new Tabela(tabelaDTO)));
     }
 
     @DELETE

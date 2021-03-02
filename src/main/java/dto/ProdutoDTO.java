@@ -1,6 +1,10 @@
 package dto;
 
-import entities.enums.TipoAbrangencia;
+import entities.Coparticipacao;
+import entities.Hospital;
+import entities.Laboratorio;
+import entities.Operadora;
+import entities.Produto;
 import lombok.Data;
 
 import java.util.List;
@@ -8,29 +12,26 @@ import java.util.List;
 @Data
 public class ProdutoDTO {
 
-    private Long valor;
+    private Long id;
     private String nome;
-
-    private Long reajuste;
     private Boolean ativo;
-    private Integer idadeMinima;
-    private Integer idadeMaxima;
-    private Integer qtdMinVidas;
-    private Integer qtdMinTitulares;
-    private Boolean coparticipacao;
+    private Float reembolso;
+    private String abrangencia;
+    private Operadora operadora;
+    private Coparticipacao coparticipacao;
+    private List<Laboratorio> laboratorios;
+    private List<Hospital> hospitais;
 
-    private EstadoDTO estado;
-
-    private TipoAbrangencia tipoAbrangencia;
-
-    private AdministradoraDTO administradora;
-
-    private List<HospitalDTO> hospitais;
-
-    private List<LaboratorioDTO> laboratorios;
-
-    private List<EntidadeDTO> entidades;
-
-    private List<OpcaoDTO> opcoes;
-
+    public ProdutoDTO(){}
+    public ProdutoDTO(Produto produto) {
+        this.id = produto.getId();
+        this.nome = produto.getNome();
+        this.ativo = produto.getAtivo();
+        this.reembolso = produto.getReembolso();
+        this.abrangencia = produto.getAbrangencia().getNome();
+        this.operadora = produto.getOperadora();
+        this.coparticipacao = produto.getCoparticipacao();
+        this.laboratorios = produto.getLaboratorios();
+        this.hospitais = produto.getHospitais();
+    }
 }

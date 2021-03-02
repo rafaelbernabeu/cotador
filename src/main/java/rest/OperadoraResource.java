@@ -1,6 +1,7 @@
 package rest;
 
 import entities.Operadora;
+import entities.Produto;
 import rest.interfaces.IOperadoraResource;
 
 import javax.annotation.security.RolesAllowed;
@@ -16,6 +17,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 @Path("/api/operadoras")
 public class OperadoraResource {
 
@@ -28,6 +31,14 @@ public class OperadoraResource {
     @Produces("application/json")
     public Operadora get(@PathParam("id") Long id) {
         return operadoraResource.get(id);
+    }
+
+    @GET
+    @Path("{id}/produtos")
+    @RolesAllowed("admin")
+    @Produces("application/json")
+    public List<Produto> getProdutosByOperadora(@PathParam("id") Long id) {
+        return Produto.<Produto>listAll().stream().filter(p -> p.getOperadora().getId().equals(id)).collect(toList());
     }
 
     @GET

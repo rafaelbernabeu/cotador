@@ -1,10 +1,12 @@
 package dto;
 
-import entities.Estado;
+import entities.enums.Estado;
 import lombok.Data;
 
 @Data
 public class EstadoDTO {
+
+    public EstadoDTO(){}
 
     public EstadoDTO(Estado estado) {
         this.nome = estado.getNome();

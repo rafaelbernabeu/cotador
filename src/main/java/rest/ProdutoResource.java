@@ -1,5 +1,6 @@
 package rest;
 
+import dto.ProdutoDTO;
 import entities.Produto;
 import rest.interfaces.IProdutoResource;
 import service.ProdutoService;
@@ -16,6 +17,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 @Path("/api/produtos")
 public class ProdutoResource {
@@ -37,8 +40,8 @@ public class ProdutoResource {
     @GET
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<Produto> list() {
-        return Produto.listAll();
+    public List<ProdutoDTO> list() {
+        return Produto.<Produto>listAll().stream().map(ProdutoDTO::new).collect(toList());
     }
 
     @POST
@@ -46,8 +49,8 @@ public class ProdutoResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Produto add(Produto produto) {
-        return produtoService.add(produto);
+    public ProdutoDTO add(ProdutoDTO produtoDTO) {
+        return new ProdutoDTO(produtoService.add(new Produto(produtoDTO)));
     }
 
     @PUT
@@ -56,8 +59,8 @@ public class ProdutoResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Produto update(@PathParam("id") Long id, Produto produto) {
-        return produtoResource.update(id, produto);
+    public ProdutoDTO update(@PathParam("id") Long id, ProdutoDTO produtoDTO) {
+        return new ProdutoDTO(produtoResource.update(id, new Produto(produtoDTO)));
     }
 
     @DELETE
