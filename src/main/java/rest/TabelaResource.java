@@ -19,7 +19,7 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
-@Path("/api/tabela")
+@Path("/api/tabelas")
 public class TabelaResource {
 
     @Inject
