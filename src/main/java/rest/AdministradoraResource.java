@@ -1,6 +1,8 @@
 package rest;
 
 import entities.Administradora;
+import entities.Operadora;
+import entities.Tabela;
 import rest.interfaces.IAdministradoraResource;
 
 import javax.annotation.security.RolesAllowed;
@@ -14,7 +16,10 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 @Path("/api/administradoras")
 public class AdministradoraResource {
@@ -28,6 +33,24 @@ public class AdministradoraResource {
     @Produces("application/json")
     public Administradora get(@PathParam("id") Long id) {
         return administradoraResource.get(id);
+    }
+
+    @GET
+    @Path("{id}/operadoras")
+    @RolesAllowed("admin")
+    @Produces("application/json")
+    public List<Operadora> get(@PathParam("id") Long id,
+                               @QueryParam("estado") String siglaEstado,
+                               @QueryParam("categoria") String categoria,
+                               @QueryParam("mei") Boolean contemplaMei) {
+
+        return Tabela.<Tabela>listAll().stream()
+                .filter(t -> t.getCategoria().getNome().equals(categoria))
+                .filter(t -> t.getEstado().getSigla().equals(siglaEstado))
+                .filter(t -> t.getAdministradora().getId().equals(id))
+                .filter(t -> t.getContemplaMEI().equals(contemplaMei))
+                .map(Tabela::getOperadora)
+                .collect(toList());
     }
 
     @GET

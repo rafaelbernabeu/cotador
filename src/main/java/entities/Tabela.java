@@ -58,8 +58,7 @@ public class Tabela extends PanacheEntityBase {
     @ManyToMany
     private List<Entidade> entidades;
 
-    public Tabela() {
-    }
+    public Tabela() {}
 
     public Tabela(TabelaDTO tabelaDTO) {
         this.id = tabelaDTO.getId();
