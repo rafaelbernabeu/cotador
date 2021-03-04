@@ -1,7 +1,6 @@
 package rest;
 
 import dto.UsuarioDTO;
-import entities.Role;
 import entities.Usuario;
 import rest.interfaces.IUsuarioResource;
 import service.UsuarioService;
@@ -37,21 +36,6 @@ public class UsuarioResource {
         return new UsuarioDTO(usuarioResource.get(id));
     }
 
-    @GET
-    @Path("{id}/roles")
-    @RolesAllowed("admin")
-    @Produces("application/json")
-    public List<Role> getRoles(@PathParam("id") Long id) {
-        return usuarioResource.get(id).getRoles();
-    }
-
-    @POST
-    @RolesAllowed("admin")
-    @Path("{id}/roles")
-    @Produces("application/json")
-    public List<Role> atualizarRolesDoUsuario(@PathParam("id") Long id, List<Role> roles) {
-        return usuarioService.atualizarRolesDoUsuario(id, roles);
-    }
 
     @GET
     @RolesAllowed("admin")
@@ -75,8 +59,10 @@ public class UsuarioResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public UsuarioDTO update(@PathParam("id") Long id, Usuario usuario) {
-        return new UsuarioDTO(usuarioResource.update(id, usuario));
+    public UsuarioDTO update(@PathParam("id") Long id, Usuario usuarioNovo) {
+        Usuario usuarioAtual = Usuario.findById(id);
+        usuarioNovo.setPassword(usuarioAtual.getPassword());
+        return new UsuarioDTO(usuarioResource.update(id, usuarioNovo));
     }
 
     @DELETE
