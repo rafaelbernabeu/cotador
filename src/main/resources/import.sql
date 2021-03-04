@@ -17,19 +17,21 @@ insert into Operadora (id, nome) values (6, 'UNIMED - CNU');
 
 
 -- HOSPITAIS
-insert into Hospital (id, nome) values (1, 'Hospital1');
-insert into Hospital (id, nome) values (2, 'Hospital2');
-insert into Hospital (id, nome) values (3, 'Hospital3');
-insert into Hospital (id, nome) values (4, 'Hospital4');
-insert into Hospital (id, nome) values (5, 'Hospital5');
+insert into Hospital (id, local, nome) values (1, 'Local 6', 'Hospital1');
+insert into Hospital (id, local, nome) values (2, 'Local 7', 'Hospital2');
+insert into Hospital (id, local, nome) values (3, 'Local 8', 'Hospital3');
+insert into Hospital (id, local, nome) values (4, 'Local 9', 'Hospital4');
+insert into Hospital (id, local, nome) values (5, 'Local 10', 'Hospital5');
+
 
 
 -- LABORATORIOS
-insert into Laboratorio (id, nome) values (1, 'SANTA PAULA');
-insert into Laboratorio (id, nome) values (2, 'SABIN');
-insert into Laboratorio (id, nome) values (3, 'EXAME');
-insert into Laboratorio (id, nome) values (4, 'DIAGNÓSTICO');
-insert into Laboratorio (id, nome) values (5, 'FLEURY');
+insert into Laboratorio (id, local, nome) values (1, 'Local 1', 'SANTA PAULA');
+insert into Laboratorio (id, local, nome) values (2, 'Local 2', 'SABIN');
+insert into Laboratorio (id, local, nome) values (3, 'Local 3', 'EXAME');
+insert into Laboratorio (id, local, nome) values (4, 'Local 4', 'DIAGNÓSTICO');
+insert into Laboratorio (id, local, nome) values (5, 'Local 5', 'FLEURY');
+
 
 -- PROFISSOES
 insert into Profissao (id, nome) values (1, 'Autônomo');
@@ -131,42 +133,13 @@ insert into Entidade (id, nome) values (47, 'UBES');
 insert into Entidade (id, nome) values (48, 'UNE');
 
 
--- ESTADOS
-insert into Estado (id, sigla, nome) values (1, 'AC','Acre');
-insert into Estado (id, sigla, nome) values (2, 'AL','Alagoas');
-insert into Estado (id, sigla, nome) values (3, 'AM','Amazonas');
-insert into Estado (id, sigla, nome) values (4, 'AP','Amapá');
-insert into Estado (id, sigla, nome) values (5, 'BA','Bahia');
-insert into Estado (id, sigla, nome) values (6, 'CE','Ceará');
-insert into Estado (id, sigla, nome) values (7, 'DF','Distrito Federal');
-insert into Estado (id, sigla, nome) values (8, 'ES','Espírito Santo');
-insert into Estado (id, sigla, nome) values (9, 'GO','Goiás');
-insert into Estado (id, sigla, nome) values (10, 'MA','Maranhão');
-insert into Estado (id, sigla, nome) values (12, 'MG','Minas Gerais');
-insert into Estado (id, sigla, nome) values (13, 'MS','Mato Grosso do Sul');
-insert into Estado (id, sigla, nome) values (14, 'MT','Mato Grosso');
-insert into Estado (id, sigla, nome) values (15, 'PA','Pará');
-insert into Estado (id, sigla, nome) values (16, 'PB','Paraíba');
-insert into Estado (id, sigla, nome) values (17, 'PE','Pernambuco');
-insert into Estado (id, sigla, nome) values (18, 'PI','Piauí');
-insert into Estado (id, sigla, nome) values (19, 'PR','Paraná');
-insert into Estado (id, sigla, nome) values (20, 'RJ','Rio de Janeiro');
-insert into Estado (id, sigla, nome) values (21, 'RN','Rio Grande do Norte');
-insert into Estado (id, sigla, nome) values (22, 'RO','Rondônia');
-insert into Estado (id, sigla, nome) values (23, 'RR','Roraima');
-insert into Estado (id, sigla, nome) values (24, 'RS','Rio Grande do Sul');
-insert into Estado (id, sigla, nome) values (25, 'SC','Santa Catarina');
-insert into Estado (id, sigla, nome) values (26, 'SE','Sergipe');
-insert into Estado (id, sigla, nome) values (27, 'SP','São Paulo');
-insert into Estado (id, sigla, nome) values (28, 'TO','Tocantins');
-
-
 -- COPARTICIPACOES
 insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (1, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
 insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (2, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
 insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (3, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
 insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (4, 45, 89, 90, 9, null, 68, 76, 54, 64, 67);
 insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (5, 56, 90, 7, 67, 34, 67, 0, 89, 54, 45);
+
 
 -- PRODUTOS
 insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (1, 1, true, 'Amil 1', 123, 1, 1);
@@ -175,9 +148,18 @@ insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id,
 insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (4, 0, true, 'Unimed 1', 200, 4, 4);
 insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (5, 2, true, 'Sulamerica', 76, 5, 5);
 
+
 -- TABELA
 insert into Tabela (id, categoria, compulsoria, contemplaMEI, estado, idadeMaxima, idadeMinima, nome, pme, preferencial, qtdMinTitulares, qtdMinVidas, reajuste, administradora_id, operadora_id) values (1, 0, true, true, 6, 2, 1, 'Tabela 1', null, null, 4, 3, 0, 1, 1);
 insert into Tabela (id, categoria, compulsoria, contemplaMEI, estado, idadeMaxima, idadeMinima, nome, pme, preferencial, qtdMinTitulares, qtdMinVidas, reajuste, administradora_id, operadora_id) values (2, 1, null, true, 8, 8, 9, 'Tabela 2', null, null, 6, 7, 1, 4, 3);
+insert into Tabela (id, categoria, compulsoria, contemplaMEI, estado, idadeMaxima, idadeMinima, nome, pme, preferencial, qtdMinTitulares, qtdMinVidas, reajuste, administradora_id, operadora_id) values (3, 0, false, false, 6, 2, 1, 'Tabela 3', true, true, 8, 5, 0, 2, 4);
+insert into Tabela (id, categoria, compulsoria, contemplaMEI, estado, idadeMaxima, idadeMinima, nome, pme, preferencial, qtdMinTitulares, qtdMinVidas, reajuste, administradora_id, operadora_id) values (4, 0, null, true, 8, 5, 8, 'Tabela 4', null, true, 4, 9, 11, 1, 1);
+
+
+-- TABELA-PRODUTO
+insert into Tabela_Produto (Tabela_id, produtos_id) values (1, 1);
+insert into Tabela_Produto (Tabela_id, produtos_id) values (2, 3);
+insert into Tabela_Produto (Tabela_id, produtos_id) values (3, 4);
 
 
 -- ENTIDADE-PROFISSAO
@@ -186,4 +168,6 @@ insert into Entidade_Profissao (entidade_id, profissoes_id) values (35, 3);
 insert into Entidade_Profissao (entidade_id, profissoes_id) values (31, 3);
 
 
--- PRODUTO-ENTIDADE
+-- OPCAO
+insert into Opcao (id, acomodacao, coparticipacao, valor0a18anos, valor19a23anos, valor24a28anos, valor29a33anos, valor34a38anos, valor39a43anos, valor44a48anos, valor49a53anos, valor54a58anos, valor59ouMaisAnos, produto_id, tabela_id) values (1, 0, true, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 1);
+insert into Opcao (id, acomodacao, coparticipacao, valor0a18anos, valor19a23anos, valor24a28anos, valor29a33anos, valor34a38anos, valor39a43anos, valor44a48anos, valor49a53anos, valor54a58anos, valor59ouMaisAnos, produto_id, tabela_id) values (2, 1, true, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 3, 2);

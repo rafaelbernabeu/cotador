@@ -1,6 +1,7 @@
 package rest;
 
 import dto.ProdutoDTO;
+import dto.TabelaDTO;
 import entities.Operadora;
 import entities.Produto;
 import entities.Tabela;
@@ -48,7 +49,7 @@ public class OperadoraResource {
     @Path("{id}/tabelas")
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<Tabela> getTabelasByOperadoraAndAdministradoraAndEstadoAndCategoriaAndMEI(
+    public List<TabelaDTO> getTabelasByOperadoraAndAdministradoraAndEstadoAndCategoriaAndMEI(
             @PathParam("id") Long idOperadora,
             @QueryParam("administradora") Long idAdministradora,
             @QueryParam("estado") String siglaEstado,
@@ -61,6 +62,7 @@ public class OperadoraResource {
                 .filter(t -> t.getAdministradora().getId().equals(idAdministradora))
                 .filter(t -> t.getContemplaMEI().equals(contemplaMei))
                 .filter(t -> t.getOperadora().getId().equals(idOperadora))
+                .map(TabelaDTO::new)
                 .collect(toList());
     }
 

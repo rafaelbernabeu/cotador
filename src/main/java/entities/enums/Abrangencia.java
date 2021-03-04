@@ -17,6 +17,6 @@ public enum Abrangencia {
     }
 
     public static Abrangencia getByNome(String nome) {
-        return Arrays.stream(Abrangencia.values()).filter(categoria -> categoria.nome.equals(nome)).findFirst().orElseThrow(InvalidParameterException::new);
+        return Arrays.stream(Abrangencia.values()).filter(abrangencia -> abrangencia.nome.equals(nome)).findFirst().orElseThrow(InvalidParameterException::new);
     }
 }

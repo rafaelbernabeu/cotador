@@ -1,5 +1,6 @@
 package rest;
 
+import dto.ProdutoDTO;
 import dto.TabelaDTO;
 import entities.Tabela;
 import rest.interfaces.ITabelaResource;
@@ -15,6 +16,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -31,6 +33,30 @@ public class TabelaResource {
     @Produces("application/json")
     public Tabela get(@PathParam("id") Long id) {
         return tabelaResource.get(id);
+    }
+
+    @GET
+    @Path("{id}/produtos")
+    @RolesAllowed("admin")
+    @Produces("application/json")
+    public List<ProdutoDTO> getProdutosByTabelaAndOperadoraAndAdministradoraAndEstadoAndCategoriaAndMEI(
+            @PathParam("id") Long idTabela,
+            @QueryParam("operadora") Long idOperadora,
+            @QueryParam("administradora") Long idAdministradora,
+            @QueryParam("estado") String siglaEstado,
+            @QueryParam("categoria") String categoria,
+            @QueryParam("mei") Boolean contemplaMei) {
+
+        return Tabela.<Tabela>listAll().stream()
+                .filter(t -> t.getId().equals(idTabela))
+                .filter(t -> t.getCategoria().getNome().equals(categoria))
+                .filter(t -> t.getEstado().getSigla().equals(siglaEstado))
+                .filter(t -> t.getAdministradora().getId().equals(idAdministradora))
+                .filter(t -> t.getContemplaMEI().equals(contemplaMei))
+                .filter(t -> t.getOperadora().getId().equals(idOperadora))
+                .flatMap(t -> t.getProdutos().stream())
+                .map(ProdutoDTO::new)
+                .collect(toList());
     }
 
     @GET

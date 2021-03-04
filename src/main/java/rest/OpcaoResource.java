@@ -1,5 +1,6 @@
 package rest;
 
+import dto.OpcaoDTO;
 import entities.Opcao;
 import rest.interfaces.IOpcaoResource;
 
@@ -16,6 +17,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 @Path("/api/opcoes")
 public class OpcaoResource {
 
@@ -26,15 +29,15 @@ public class OpcaoResource {
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
-    public Opcao get(@PathParam("id") Long id) {
-        return opcaoResource.get(id);
+    public OpcaoDTO get(@PathParam("id") Long id) {
+        return new OpcaoDTO(opcaoResource.get(id));
     }
 
     @GET
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<Opcao> list() {
-        return Opcao.listAll();
+    public List<OpcaoDTO> list() {
+        return Opcao.<Opcao>listAll().stream().map(OpcaoDTO::new).collect(toList());
     }
 
     @POST
@@ -42,8 +45,8 @@ public class OpcaoResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Opcao add(Opcao opcao) {
-        return opcaoResource.add(opcao);
+    public OpcaoDTO add(OpcaoDTO opcaoDTO) {
+        return new OpcaoDTO(opcaoResource.add(new Opcao(opcaoDTO)));
     }
 
     @PUT
@@ -52,8 +55,8 @@ public class OpcaoResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Opcao update(@PathParam("id") Long id, Opcao opcao) {
-        return opcaoResource.update(id, opcao);
+    public OpcaoDTO update(@PathParam("id") Long id, OpcaoDTO opcaoDTO) {
+        return new OpcaoDTO(opcaoResource.update(id, new Opcao(opcaoDTO)));
     }
 
     @DELETE

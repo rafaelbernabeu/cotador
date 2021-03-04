@@ -8,3 +8,10 @@ target/
 /.classpath
 /.factorypath
 /.project
+/src/main/resources/META-INF/resources/favicon.ico
+/src/main/resources/META-INF/resources/index.html
+/src/main/resources/META-INF/resources/main.*.js
+/src/main/resources/META-INF/resources/polyfills.*.js
+/src/main/resources/META-INF/resources/runtime.*.js
+/src/main/resources/META-INF/resources/styles.*.css
+/sql/
