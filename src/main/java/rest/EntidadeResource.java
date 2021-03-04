@@ -1,23 +1,19 @@
 package rest;
 
 import entities.Entidade;
-import entities.Profissao;
 import rest.interfaces.IEntidadeResource;
-import service.EntidadeService;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
-import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import java.util.List;
 
 @Path("/api/entidades")
@@ -25,9 +21,6 @@ public class EntidadeResource {
 
     @Inject
     IEntidadeResource entidadeResource;
-
-    @Inject
-    EntidadeService entidadeService;
 
     @GET
     @Path("{id}")
@@ -39,32 +32,8 @@ public class EntidadeResource {
 
     @GET
     @RolesAllowed("admin")
-    @Path("{id}/profissoes")
     @Produces("application/json")
-    public List<Profissao> getProfissoes(@PathParam("id") Long id) {
-        return entidadeResource.get(id).getProfissoes();
-    }
-
-    @POST
-    @Transactional
-    @RolesAllowed("admin")
-    @Path("{id}/profissoes")
-    @Produces("application/json")
-    public List<Profissao> atualizarProfissoesDaEntidade(@PathParam("id") Long id, List<Profissao> profissoes) {
-
-        return entidadeService.atualizarProfissoesDaEntidade(id, profissoes);
-    }
-
-    @GET
-    @RolesAllowed("admin")
-    @Produces("application/json")
-    public List<Entidade> list(@QueryParam("sort") @DefaultValue("id") String columnName,
-                               @QueryParam("page") @DefaultValue("0") int pageIndex,
-                               @QueryParam("size") @DefaultValue("20") int pageSize) {
-
-//        Sort sort = Sort.by(columnName);
-//        Page page = Page.of(pageIndex, pageSize);
-//        return entidadeResource.list(page, sort);
+    public List<Entidade> list() {
         return Entidade.listAll();
     }
 
