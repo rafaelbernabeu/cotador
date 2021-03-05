@@ -1,0 +1,4 @@
+Contact: rbbernabeu@gmail.com
+Preferred-Languages: pt,en
+Canonical: http://cotador-super.herokuapp.com/security.txt
+
