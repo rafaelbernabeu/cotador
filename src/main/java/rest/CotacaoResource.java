@@ -1,11 +1,11 @@
 package rest;
 
-import dto.SolicitacaoCotacaoDTO;
-import entities.Tabela;
+import dto.CotacaoDTO;
+import dto.OpcaoDTO;
 import rest.interfaces.ICotacaoResource;
 import service.CotacaoService;
 
-import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -23,10 +23,9 @@ public class CotacaoResource {
     CotacaoService cotacaoService;
 
     @POST
-//    @RolesAllowed({"user", "admin"})
-    @PermitAll
+    @RolesAllowed({"user", "admin"})
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Tabela> geraCotacao(SolicitacaoCotacaoDTO cotacao) {
+    public List<OpcaoDTO> geraCotacao(CotacaoDTO cotacao) {
         return cotacaoService.geraCotacao(cotacao);
     }
 

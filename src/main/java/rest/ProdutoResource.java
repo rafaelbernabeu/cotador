@@ -3,7 +3,6 @@ package rest;
 import dto.ProdutoDTO;
 import entities.Produto;
 import rest.interfaces.IProdutoResource;
-import service.ProdutoService;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
@@ -26,9 +25,6 @@ public class ProdutoResource {
     @Inject
     IProdutoResource produtoResource;
 
-    @Inject
-    ProdutoService produtoService;
-
     @GET
     @Path("{id}")
     @RolesAllowed("admin")
@@ -50,7 +46,7 @@ public class ProdutoResource {
     @Consumes("application/json")
     @Produces("application/json")
     public ProdutoDTO add(ProdutoDTO produtoDTO) {
-        return new ProdutoDTO(produtoService.add(new Produto(produtoDTO)));
+        return new ProdutoDTO(produtoResource.add(new Produto(produtoDTO)));
     }
 
     @PUT
