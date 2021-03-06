@@ -7,6 +7,7 @@ import io.quarkus.security.jpa.UserDefinition;
 import io.quarkus.security.jpa.Username;
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,6 +27,7 @@ public class Usuario extends PanacheEntityBase {
     private String nome;
 
     @Username
+    @Column(unique = true)
     private String email;
 
     @Password

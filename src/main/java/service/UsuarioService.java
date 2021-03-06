@@ -17,17 +17,21 @@ public class UsuarioService {
 
     @Transactional
     public void carregaUsuarios(@Observes StartupEvent evt) {
-        Role.persist("admin", "user" );
-        adicionarUsuario("admin", "admin@admin.com", "admin", "admin");
-        adicionarUsuario("user", "user@user.com", "user", "user");
-    }
+        List<Role> roles = Role.listAll();
+        List<Usuario> usuarios = Usuario.listAll();
+        if (roles.stream().noneMatch(r -> r.getRole().equals("admin"))) {
+            Role.persist("admin");
+        }
+        if (roles.stream().noneMatch(r -> r.getRole().equals("user"))) {
+            Role.persist("user");
+        }
 
-    @Transactional
-    public List<Role> atualizarRolesDoUsuario(Long id, List<Role> roles) {
-        Usuario usuario = Usuario.findById(id);
-        usuario.setRoles(roles);
-        usuario.persistAndFlush();
-        return usuario.getRoles();
+        if (usuarios.stream().noneMatch(u -> u.getEmail().equals("admin@admin.com"))) {
+            adicionarUsuario("admin", "admin@admin.com", "admin", "admin");
+        }
+        if (usuarios.stream().noneMatch(u -> u.getEmail().equals("user@user.com"))) {
+            adicionarUsuario("user", "user@user.com", "user", "user");
+        }
     }
 
     @Transactional
