@@ -150,10 +150,10 @@ insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id,
 
 
 -- TABELA
-insert into Tabela (id, categoria, compulsoria, contemplaMEI, estado, idadeMaxima, idadeMinima, nome, pme, preferencial, qtdMinTitulares, qtdMinVidas, reajuste, administradora_id, operadora_id) values (1, 0, true, true, 6, 2, 1, 'Tabela 1', null, null, 4, 3, 0, 1, 1);
-insert into Tabela (id, categoria, compulsoria, contemplaMEI, estado, idadeMaxima, idadeMinima, nome, pme, preferencial, qtdMinTitulares, qtdMinVidas, reajuste, administradora_id, operadora_id) values (2, 1, null, true, 8, 8, 9, 'Tabela 2', null, null, 6, 7, 1, 4, 3);
-insert into Tabela (id, categoria, compulsoria, contemplaMEI, estado, idadeMaxima, idadeMinima, nome, pme, preferencial, qtdMinTitulares, qtdMinVidas, reajuste, administradora_id, operadora_id) values (3, 0, false, false, 6, 2, 1, 'Tabela 3', true, true, 8, 5, 0, 2, 4);
-insert into Tabela (id, categoria, compulsoria, contemplaMEI, estado, idadeMaxima, idadeMinima, nome, pme, preferencial, qtdMinTitulares, qtdMinVidas, reajuste, administradora_id, operadora_id) values (4, 0, null, true, 8, 5, 8, 'Tabela 4', null, true, 4, 9, 11, 1, 1);
+insert into Tabela (id, categoria, compulsoria, contemplaMEI, estado, idadeMaxima, idadeMinima, nome, preferencial, qtdMinTitulares, qtdMinVidas, reajuste, administradora_id, operadora_id) values (1, 0, true, true, 6, 2, 1, 'Tabela 1', false, 4, 3, 0, 1, 1);
+insert into Tabela (id, categoria, compulsoria, contemplaMEI, estado, idadeMaxima, idadeMinima, nome, preferencial, qtdMinTitulares, qtdMinVidas, reajuste, administradora_id, operadora_id) values (2, 1, null, true, 8, 8, 9, 'Tabela 2', false, 6, 7, 1, 4, 3);
+insert into Tabela (id, categoria, compulsoria, contemplaMEI, estado, idadeMaxima, idadeMinima, nome, preferencial, qtdMinTitulares, qtdMinVidas, reajuste, administradora_id, operadora_id) values (3, 0, false, false, 6, 2, 1, 'Tabela 3', true, 8, 5, 0, 2, 4);
+insert into Tabela (id, categoria, compulsoria, contemplaMEI, estado, idadeMaxima, idadeMinima, nome, preferencial, qtdMinTitulares, qtdMinVidas, reajuste, administradora_id, operadora_id) values (4, 0, null, true, 8, 5, 8, 'Tabela 4', true, 4, 9, 11, 1, 1);
 
 
 -- TABELA-PRODUTO
