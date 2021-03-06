@@ -19,9 +19,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import java.util.Collection;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 
 @Path("/api/operadoras")
 public class OperadoraResource {
@@ -49,7 +51,7 @@ public class OperadoraResource {
     @Path("{id}/tabelas")
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<TabelaDTO> getTabelasByOperadoraAndAdministradoraAndEstadoAndCategoriaAndMEI(
+    public Collection<TabelaDTO> getTabelasByOperadoraAndAdministradoraAndEstadoAndCategoriaAndMEI(
             @PathParam("id") Long idOperadora,
             @QueryParam("administradora") Long idAdministradora,
             @QueryParam("estado") String siglaEstado,
@@ -63,7 +65,7 @@ public class OperadoraResource {
                 .filter(t -> t.getContemplaMEI().equals(contemplaMei))
                 .filter(t -> t.getOperadora().getId().equals(idOperadora))
                 .map(TabelaDTO::new)
-                .collect(toList());
+                .collect(toSet());
     }
 
     @GET

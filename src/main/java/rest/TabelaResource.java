@@ -17,9 +17,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import java.util.Collection;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 
 @Path("/api/tabelas")
 public class TabelaResource {
@@ -39,7 +41,7 @@ public class TabelaResource {
     @Path("{id}/produtos")
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<ProdutoDTO> getProdutosByTabelaAndOperadoraAndAdministradoraAndEstadoAndCategoriaAndMEI(
+    public Collection<ProdutoDTO> getProdutosByTabelaAndOperadoraAndAdministradoraAndEstadoAndCategoriaAndMEI(
             @PathParam("id") Long idTabela,
             @QueryParam("operadora") Long idOperadora,
             @QueryParam("administradora") Long idAdministradora,
@@ -56,7 +58,7 @@ public class TabelaResource {
                 .filter(t -> t.getOperadora().getId().equals(idOperadora))
                 .flatMap(t -> t.getProdutos().stream())
                 .map(ProdutoDTO::new)
-                .collect(toList());
+                .collect(toSet());
     }
 
     @GET

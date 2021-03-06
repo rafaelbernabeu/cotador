@@ -17,9 +17,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import java.util.Collection;
 import java.util.List;
 
-import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 
 @Path("/api/administradoras")
 public class AdministradoraResource {
@@ -39,7 +40,7 @@ public class AdministradoraResource {
     @Path("{id}/operadoras")
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<Operadora> getOperadorasByAdministradoraAndEstadoAndCategoriaAndMEI(
+    public Collection<Operadora> getOperadorasByAdministradoraAndEstadoAndCategoriaAndMEI(
             @PathParam("id") Long idAdministradora,
             @QueryParam("estado") String siglaEstado,
             @QueryParam("categoria") String categoria,
@@ -51,7 +52,7 @@ public class AdministradoraResource {
                 .filter(t -> t.getAdministradora().getId().equals(idAdministradora))
                 .filter(t -> t.getContemplaMEI().equals(contemplaMei))
                 .map(Tabela::getOperadora)
-                .collect(toList());
+                .collect(toSet());
     }
 
     @GET
