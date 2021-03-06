@@ -17,16 +17,19 @@ public class CotacaoService {
         if (cotacao.getCategoria() != null && !cotacao.getCategoria().equals("")) {
             stream = stream.filter(op -> op.getTabela().getCategoria().getNome().equals(cotacao.getCategoria()));
         }
-        if (cotacao.getCoparticipacao() != null) {
-            stream = stream.filter(op -> op.getCoparticipacao().equals(cotacao.getCoparticipacao()));
-        }
-        if (cotacao.getAcomodacao() != null && !cotacao.getAcomodacao().equals("")) {
-            stream = stream.filter(op -> op.getAcomodacao().getNome().equals(cotacao.getAcomodacao()));
+        if (cotacao.getEstado() != null) {
+            stream = stream.filter(op -> op.getTabela().getEstado().getNome().equals(cotacao.getEstado().getNome()));
         }
         if (cotacao.getProfissao() != null) {
             stream = stream.filter(op -> op.getTabela().getEntidades().stream()
                     .flatMap(e -> e.getProfissoes().stream())
                     .anyMatch(p -> p.getNome().equals(cotacao.getProfissao().getNome())));
+        }
+        if (cotacao.getCoparticipacao() != null) {
+            stream = stream.filter(op -> op.getCoparticipacao().equals(cotacao.getCoparticipacao()));
+        }
+        if (cotacao.getAcomodacao() != null && !cotacao.getAcomodacao().equals("")) {
+            stream = stream.filter(op -> op.getAcomodacao().getNome().equals(cotacao.getAcomodacao()));
         }
         return stream.map(OpcaoDTO::new).collect(Collectors.toList());
     }

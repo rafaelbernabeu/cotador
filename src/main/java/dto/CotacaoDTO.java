@@ -17,9 +17,10 @@ public class CotacaoDTO {
     private int qtdVidas54a58Anos;
     private int qtdVidas59ouMaisAnos;
 
-    private String acomodacao;
     private String categoria;
-    private Profissao profissao;
+    private String acomodacao;
     private Boolean coparticipacao;
+    private EstadoDTO estado;
+    private Profissao profissao;
 
 }
