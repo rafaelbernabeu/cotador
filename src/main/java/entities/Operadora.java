@@ -17,5 +17,6 @@ public class Operadora extends PanacheEntityBase {
     private Long id;
 
     private String nome;
+    private String cor;
 
 }
