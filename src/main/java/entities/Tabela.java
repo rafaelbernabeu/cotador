@@ -27,7 +27,6 @@ public class Tabela extends PanacheEntityBase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private Boolean pme;
     private Boolean contemplaMEI;
     private Boolean compulsoria;
     private Integer idadeMinima;
@@ -63,7 +62,6 @@ public class Tabela extends PanacheEntityBase {
     public Tabela(TabelaDTO tabelaDTO) {
         this.id = tabelaDTO.getId();
         this.nome = tabelaDTO.getNome();
-        this.pme = tabelaDTO.getPme();
         this.contemplaMEI = tabelaDTO.getContemplaMEI();
         this.compulsoria = tabelaDTO.getCompulsoria();
         this.idadeMinima = tabelaDTO.getIdadeMinima();

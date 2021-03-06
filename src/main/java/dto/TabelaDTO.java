@@ -15,7 +15,6 @@ public class TabelaDTO {
 
     private Long id;
     private String nome;
-    private Boolean pme;
     private Boolean contemplaMEI;
     private Boolean compulsoria;
     private Integer idadeMinima;
@@ -36,7 +35,6 @@ public class TabelaDTO {
     public TabelaDTO(Tabela tabela) {
         this.id = tabela.getId();
         this.nome = tabela.getNome();
-        this.pme = tabela.getPme();
         this.contemplaMEI = tabela.getContemplaMEI();
         this.compulsoria = tabela.getCompulsoria();
         this.idadeMinima = tabela.getIdadeMinima();
