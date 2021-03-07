@@ -29,6 +29,7 @@ public class Tabela extends PanacheEntityBase {
     private String nome;
     private Boolean contemplaMEI;
     private Boolean compulsoria;
+    private Boolean livreAdesao;
     private Integer idadeMinima;
     private Integer idadeMaxima;
     private Integer qtdMinVidas;
@@ -64,6 +65,7 @@ public class Tabela extends PanacheEntityBase {
         this.nome = tabelaDTO.getNome();
         this.contemplaMEI = tabelaDTO.getContemplaMEI();
         this.compulsoria = tabelaDTO.getCompulsoria();
+        this.livreAdesao = tabelaDTO.getLivreAdesao();
         this.idadeMinima = tabelaDTO.getIdadeMinima();
         this.idadeMaxima = tabelaDTO.getIdadeMaxima();
         this.qtdMinVidas = tabelaDTO.getQtdMinVidas();
