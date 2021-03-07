@@ -3,7 +3,6 @@ package rest;
 import entities.Role;
 import entities.Usuario;
 import io.smallrye.jwt.build.Jwt;
-import org.eclipse.microprofile.jwt.Claims;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 
 import javax.enterprise.context.RequestScoped;
@@ -44,10 +43,10 @@ public class LoginResource {
         Map<String, String> response = new HashMap<>();
         response.put("token", Jwt.issuer("http://localhost/issuer")
                 .upn(usuario.getEmail())
+                .subject(usuario.getNome())
                 .groups(new HashSet<>(usuario.getRoles().stream().map(Role::getRole).collect(Collectors.toList())))
-                .claim(Claims.email.name(), userPrincipal.getName())
                 .issuedAt(Instant.now())
-                .expiresIn(Duration.of(8, HOURS))
+                .expiresIn(Duration.of(24, HOURS))
                 .sign());
         return Response.ok(response).build();
     }
