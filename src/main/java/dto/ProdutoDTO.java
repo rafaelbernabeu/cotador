@@ -16,6 +16,7 @@ public class ProdutoDTO {
     private String nome;
     private Boolean ativo;
     private Float reembolso;
+    private String observacao;
     private String abrangencia;
     private Operadora operadora;
     private Coparticipacao coparticipacao;
@@ -28,6 +29,7 @@ public class ProdutoDTO {
         this.nome = produto.getNome();
         this.ativo = produto.getAtivo();
         this.reembolso = produto.getReembolso();
+        this.observacao = produto.getObservacao();
         this.abrangencia = produto.getAbrangencia().getNome();
         this.operadora = produto.getOperadora();
         this.coparticipacao = produto.getCoparticipacao();

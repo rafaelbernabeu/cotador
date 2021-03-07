@@ -28,6 +28,7 @@ public class Produto extends PanacheEntityBase {
     private String nome;
     private Boolean ativo;
     private Float reembolso;
+    private String observacao;
 
     @Enumerated(EnumType.ORDINAL)
     private Abrangencia abrangencia;
@@ -50,6 +51,7 @@ public class Produto extends PanacheEntityBase {
         this.nome = produtoDTO.getNome();
         this.ativo = produtoDTO.getAtivo();
         this.reembolso = produtoDTO.getReembolso();
+        this.observacao = produtoDTO.getObservacao();
         this.abrangencia = Abrangencia.getByNome(produtoDTO.getAbrangencia());
         this.operadora = produtoDTO.getOperadora();
         this.coparticipacao = produtoDTO.getCoparticipacao();
