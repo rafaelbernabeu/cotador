@@ -2,12 +2,12 @@ package dto;
 
 import entities.Coparticipacao;
 import entities.Hospital;
-import entities.Laboratorio;
 import entities.Operadora;
 import entities.Produto;
 import lombok.Data;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 public class ProdutoDTO {
@@ -20,7 +20,7 @@ public class ProdutoDTO {
     private String abrangencia;
     private Operadora operadora;
     private Coparticipacao coparticipacao;
-    private List<Laboratorio> laboratorios;
+    private List<LaboratorioDTO> laboratorios;
     private List<Hospital> hospitais;
 
     public ProdutoDTO(){}
@@ -33,7 +33,7 @@ public class ProdutoDTO {
         this.abrangencia = produto.getAbrangencia().getNome();
         this.operadora = produto.getOperadora();
         this.coparticipacao = produto.getCoparticipacao();
-        this.laboratorios = produto.getLaboratorios();
+        this.laboratorios = produto.getLaboratorios().stream().map(LaboratorioDTO::new).collect(Collectors.toList());
         this.hospitais = produto.getHospitais();
     }
 }

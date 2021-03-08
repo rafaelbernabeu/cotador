@@ -1,5 +1,6 @@
 package rest;
 
+import dto.LaboratorioDTO;
 import entities.Laboratorio;
 import rest.interfaces.ILaboratorioResource;
 
@@ -16,6 +17,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 @Path("/api/laboratorios")
 public class LaboratorioResource {
 
@@ -26,15 +29,15 @@ public class LaboratorioResource {
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
-    public Laboratorio get(@PathParam("id") Long id) {
-        return laboratorioResource.get(id);
+    public LaboratorioDTO get(@PathParam("id") Long id) {
+        return new LaboratorioDTO(laboratorioResource.get(id));
     }
 
     @GET
     @RolesAllowed("admin")
     @Produces("application/json")
-    public List<Laboratorio> list() {
-        return Laboratorio.listAll();
+    public List<LaboratorioDTO> list() {
+        return Laboratorio.<Laboratorio>listAll().stream().map(LaboratorioDTO::new).collect(toList());
     }
 
     @POST
@@ -42,8 +45,8 @@ public class LaboratorioResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Laboratorio add(Laboratorio laboratorio) {
-        return laboratorioResource.add(laboratorio);
+    public LaboratorioDTO add(LaboratorioDTO laboratorio) {
+        return new LaboratorioDTO(laboratorioResource.add(new Laboratorio(laboratorio)));
     }
 
     @PUT
@@ -52,8 +55,8 @@ public class LaboratorioResource {
     @RolesAllowed("admin")
     @Consumes("application/json")
     @Produces("application/json")
-    public Laboratorio update(@PathParam("id") Long id, Laboratorio laboratorio) {
-        return laboratorioResource.update(id, laboratorio);
+    public LaboratorioDTO update(@PathParam("id") Long id, LaboratorioDTO laboratorio) {
+        return new LaboratorioDTO(laboratorioResource.update(id, new Laboratorio(laboratorio)));
     }
 
     @DELETE
