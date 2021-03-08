@@ -16,6 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @Entity
@@ -55,7 +56,7 @@ public class Produto extends PanacheEntityBase {
         this.abrangencia = Abrangencia.getByNome(produtoDTO.getAbrangencia());
         this.operadora = produtoDTO.getOperadora();
         this.coparticipacao = produtoDTO.getCoparticipacao();
-        this.laboratorios = produtoDTO.getLaboratorios();
+        this.laboratorios = produtoDTO.getLaboratorios().stream().map(Laboratorio::new).collect(Collectors.toList());
         this.hospitais = produtoDTO.getHospitais();
     }
 }
