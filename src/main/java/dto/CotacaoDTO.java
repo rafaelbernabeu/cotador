@@ -3,6 +3,8 @@ package dto;
 import entities.Profissao;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class CotacaoDTO {
 
@@ -21,6 +23,6 @@ public class CotacaoDTO {
     private String acomodacao;
     private Boolean coparticipacao;
     private EstadoDTO estado;
-    private Profissao profissao;
+    private List<Profissao> profissoes;
 
 }

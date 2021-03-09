@@ -20,8 +20,8 @@ public class CotacaoService {
         if (consulta.getEstado() != null) {
             stream = stream.filter(op -> op.getTabela().getEstado().getNome().equals(consulta.getEstado().getNome()));
         }
-        if (consulta.getProfissao() != null) {
-            stream = stream.filter(op -> op.getTabela().getEntidades().stream().flatMap(e -> e.getProfissoes().stream()).anyMatch(p -> p.getNome().equals(consulta.getProfissao().getNome())));
+        if (consulta.getProfissoes() != null && !consulta.getProfissoes().isEmpty()) {
+            stream = stream.filter(op -> op.getTabela().getEntidades().stream().flatMap(e -> e.getProfissoes().stream()).anyMatch(p -> consulta.getProfissoes().contains(p)));
         }
         if (consulta.getCoparticipacao() != null) {
             stream = stream.filter(op -> op.getCoparticipacao().equals(consulta.getCoparticipacao()));
@@ -32,8 +32,8 @@ public class CotacaoService {
 
         List<OpcaoDTO> cotacao = stream.map(OpcaoDTO::new).collect(Collectors.toList());
 
-        if (consulta.getProfissao() != null) {
-            cotacao.forEach(c -> c.getTabela().getEntidades().removeIf(entidade -> !entidade.getProfissoes().contains(consulta.getProfissao())));
+        if (consulta.getProfissoes() != null && !consulta.getProfissoes().isEmpty()) {
+            cotacao.forEach(c -> c.getTabela().getEntidades().removeIf(entidade -> entidade.getProfissoes().stream().noneMatch(p -> consulta.getProfissoes().contains(p))));
         }
         return cotacao;
     }
