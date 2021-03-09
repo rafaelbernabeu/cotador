@@ -8,12 +8,12 @@ insert into Administradora (id, nome) values (4, 'QUALICORP');
 
 
 -- OPERADORAS
-insert into Operadora (id, nome) values (1, 'AMIL');
-insert into Operadora (id, nome) values (2, 'AMIL ONE');
-insert into Operadora (id, nome) values (3, 'BRADESCO');
-insert into Operadora (id, nome) values (4, 'SEGUROS UNIMED');
-insert into Operadora (id, nome) values (5, 'SULAMÉRICA');
-insert into Operadora (id, nome) values (6, 'UNIMED - CNU');
+insert into Operadora (id, nome, cor) values (1, 'AMIL', '#000000');
+insert into Operadora (id, nome, cor) values (2, 'AMIL ONE', '#000000');
+insert into Operadora (id, nome, cor) values (3, 'BRADESCO', '#000000');
+insert into Operadora (id, nome, cor) values (4, 'SEGUROS UNIMED', '#000000');
+insert into Operadora (id, nome, cor) values (5, 'SULAMÉRICA', '#000000');
+insert into Operadora (id, nome, cor) values (6, 'UNIMED - CNU', '#000000');
 
 
 -- HOSPITAIS
@@ -26,11 +26,11 @@ insert into Hospital (id, local, nome) values (5, 'Local 10', 'Hospital5');
 
 
 -- LABORATORIOS
-insert into Laboratorio (id, local, nome) values (1, 'Local 1', 'SANTA PAULA');
-insert into Laboratorio (id, local, nome) values (2, 'Local 2', 'SABIN');
-insert into Laboratorio (id, local, nome) values (3, 'Local 3', 'EXAME');
-insert into Laboratorio (id, local, nome) values (4, 'Local 4', 'DIAGNÓSTICO');
-insert into Laboratorio (id, local, nome) values (5, 'Local 5', 'FLEURY');
+insert into Laboratorio (id, estado, nome) values (1, 6, 'SANTA PAULA');
+insert into Laboratorio (id, estado, nome) values (2, 6, 'SABIN');
+insert into Laboratorio (id, estado, nome) values (3, 6, 'EXAME');
+insert into Laboratorio (id, estado, nome) values (4, 6, 'DIAGNÓSTICO');
+insert into Laboratorio (id, estado, nome) values (5, 6, 'FLEURY');
 
 
 -- PROFISSOES
@@ -137,16 +137,72 @@ insert into Entidade (id, nome) values (48, 'UNE');
 insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (1, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
 insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (2, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
 insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (3, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
-insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (4, 45, 89, 90, 9, null, 68, 76, 54, 64, 67);
-insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (5, 56, 90, 7, 67, 34, 67, 0, 89, 54, 45);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (4, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (5, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (6, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (7, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (8, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (9, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (10, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (11, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (12, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (13, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (14, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (15, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (16, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (17, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (18, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (19, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (20, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (21, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (22, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (23, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (24, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (25, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (26, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (27, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (28, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (29, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (30, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (31, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (32, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
+insert into Coparticipacao (id, percentualConsulta, percentualExameEspecial, percentualExameSimples, percentualInternacao, percentualProntoSocorro, valorConsulta, valorExameEspecial, valorExameSimples, valorInternacao, valorProntoSocorro) values (33, 3, 7, 5, 9, 1, 4, 8, 6, 0, 2);
 
 
 -- PRODUTOS
-insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (1, 1, true, 'Amil 1', 123, 1, 1);
-insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (2, 1, true, 'Amil 2', 321, 2, 1);
-insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (3, 2, true, 'Bradesco', 999, 3, 3);
-insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (4, 0, true, 'Unimed 1', 200, 4, 4);
-insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (5, 2, true, 'Sulamerica', 76, 5, 5);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (1, 1, true, 'EFETIVO', 114.95, 1, 3);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (2, 1, true, 'FLEX', 114.95, 2, 3);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (3, 1, true, 'TOP E', 114.95, 3, 3);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (4, 1, true, 'TOP A', 114.95, 4, 3);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (5, 1, true, 'TOP PLUS', 459.81, 5, 3);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (6, 1, true, 'EFETIVO', 114.95, 6, 3);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (7, 1, true, 'FLEX', 114.95, 7, 3);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (8, 1, true, 'TOP E', 114.95, 8, 3);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (9, 1, true, 'TOP A', 114.95, 9, 3);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (10, 1, true, 'TOP PLUS', 459.81, 10, 3);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (11, 1, true, '350', 80, 11, 1);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (12, 1, true, '400 ', 80, 12, 1);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (13, 0, true, 'CLÁSSICO', 0, 13, 6);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (14, 1, true, 'ESTILO', 70, 14, 6);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (15, 1, true, 'ABSOLUTO', 140.00, 15, 6);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (16, 1, true, 'SUPERIOR', 210.00, 16, 6);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (17, 1, true, 'EXCLUSIVO', 560.00, 17, 6);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (18, 1, true, 'COMPACTO', 70.00, 18, 4);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (19, 1, true, 'EFETIVO', 70.00, 19, 4);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (20, 1, true, 'COMPLETO', 105.00, 20, 4);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (21, 1, true, 'SUPERIOR', 210.00, 21, 4);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (22, 1, true, 'SÊNIOR', 560.00, 22, 4);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (23, 1, true, 'EXATO', 81.00, 23, 5);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (24, 1, true, 'ESPECIAL', 153.00, 24, 5);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (25, 1, true, 'EXECUTIVO', 337.50, 25, 5);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (26, 1, true, 'PRESTIGE', 810.00, 26, 5);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (27, 2, true, 'S80', 0, 27, 1);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (28, 1, true, 'S380', 80.00, 28, 1);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (29, 1, true, 'S450', 80.00, 29, 1);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (30, 1, true, 'S750', 160.00, 30, 1);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (31, 1, true, 'S1500', 160.00, 31, 2);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (32, 1, true, 'S2500', 360.00, 32, 2);
+insert into Produto (id, abrangencia, ativo, nome, reembolso, coparticipacao_id, operadora_id) values (33, 1, true, 'S6500', 440.00, 33, 2);
 
 
 -- TABELA
