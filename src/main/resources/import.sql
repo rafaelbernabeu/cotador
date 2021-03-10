@@ -17,12 +17,32 @@ insert into Operadora (id, nome, cor) values (6, 'UNIMED - CNU', '#000000');
 
 
 -- HOSPITAIS
-insert into Hospital (id, local, nome) values (1, 'Local 6', 'Hospital1');
-insert into Hospital (id, local, nome) values (2, 'Local 7', 'Hospital2');
-insert into Hospital (id, local, nome) values (3, 'Local 8', 'Hospital3');
-insert into Hospital (id, local, nome) values (4, 'Local 9', 'Hospital4');
-insert into Hospital (id, local, nome) values (5, 'Local 10', 'Hospital5');
-
+insert into Hospital (id, local, nome) values (1, 'CEILÂNDIA', 'HOSPITAL SÃO FRANCISCO');
+insert into Hospital (id, local, nome) values (2, 'CEILÂNDIA', 'PRONTO SOCORRO DE FRATURAS');
+insert into Hospital (id, local, nome) values (3, 'GAMA', 'HOSPITAL MARIA AUXILIADORA');
+insert into Hospital (id, local, nome) values (4, 'TAGUATINGA', 'HOSPITAL ANNA NERY');
+insert into Hospital (id, local, nome) values (5, 'TAGUATINGA', 'HOSPITAL SANTA MARTA');
+insert into Hospital (id, local, nome) values (5, 'TAGUATINGA', 'HOSPITAL ANCHIETA');
+insert into Hospital (id, local, nome) values (5, 'CRUZEIRO', 'HOSPITAL SÃO MATEUS');
+insert into Hospital (id, local, nome) values (5, 'SUDOESTE', 'MATERNIDADE BRASÍLIA');
+insert into Hospital (id, local, nome) values (5, 'LAGO SUL', 'HOSPITAL DAHER');
+insert into Hospital (id, local, nome) values (5, 'LAGO SUL', 'HOSPITAL BRASÍLIA');
+insert into Hospital (id, local, nome) values (5, 'ASA NORTE', 'HOSPITAL ALBERT SABIN');
+insert into Hospital (id, local, nome) values (5, 'ASA NORTE', 'HOSPITAL PRONTONORTE');
+insert into Hospital (id, local, nome) values (5, 'ASA NORTE', 'HOSPITAL SANTA HELENA');
+insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL PACINI DE OFTALMOLOGIA');
+insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOB BRASÍLIA');
+insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'CENTRO BRASILEIRO DE VISÃO (CBV)');
+insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL UROLÓGICO DE BRASÍLIA');
+insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL DO CORAÇÃO DO BRASIL');
+insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL HOME');
+insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL ALVORADA BRASÍLIA');
+insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL SANTA LUZIA');
+insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL SANTA LÚCIA');
+insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL SÍRIO LIBANES');
+insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL DF STAR');
+insert into Hospital (id, local, nome) values (5, 'SP', 'HOSPITAL SÍRIO LIBANES SP');
+insert into Hospital (id, local, nome) values (5, 'SP', 'HOSPITAL ALBERT EINSTEIN SP');
 
 
 -- LABORATORIOS
