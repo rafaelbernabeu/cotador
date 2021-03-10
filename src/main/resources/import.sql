@@ -22,27 +22,27 @@ insert into Hospital (id, local, nome) values (2, 'CEILÂNDIA', 'PRONTO SOCORRO 
 insert into Hospital (id, local, nome) values (3, 'GAMA', 'HOSPITAL MARIA AUXILIADORA');
 insert into Hospital (id, local, nome) values (4, 'TAGUATINGA', 'HOSPITAL ANNA NERY');
 insert into Hospital (id, local, nome) values (5, 'TAGUATINGA', 'HOSPITAL SANTA MARTA');
-insert into Hospital (id, local, nome) values (5, 'TAGUATINGA', 'HOSPITAL ANCHIETA');
-insert into Hospital (id, local, nome) values (5, 'CRUZEIRO', 'HOSPITAL SÃO MATEUS');
-insert into Hospital (id, local, nome) values (5, 'SUDOESTE', 'MATERNIDADE BRASÍLIA');
-insert into Hospital (id, local, nome) values (5, 'LAGO SUL', 'HOSPITAL DAHER');
-insert into Hospital (id, local, nome) values (5, 'LAGO SUL', 'HOSPITAL BRASÍLIA');
-insert into Hospital (id, local, nome) values (5, 'ASA NORTE', 'HOSPITAL ALBERT SABIN');
-insert into Hospital (id, local, nome) values (5, 'ASA NORTE', 'HOSPITAL PRONTONORTE');
-insert into Hospital (id, local, nome) values (5, 'ASA NORTE', 'HOSPITAL SANTA HELENA');
-insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL PACINI DE OFTALMOLOGIA');
-insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOB BRASÍLIA');
-insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'CENTRO BRASILEIRO DE VISÃO (CBV)');
-insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL UROLÓGICO DE BRASÍLIA');
-insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL DO CORAÇÃO DO BRASIL');
-insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL HOME');
-insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL ALVORADA BRASÍLIA');
-insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL SANTA LUZIA');
-insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL SANTA LÚCIA');
-insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL SÍRIO LIBANES');
-insert into Hospital (id, local, nome) values (5, 'ASA SUL', 'HOSPITAL DF STAR');
-insert into Hospital (id, local, nome) values (5, 'SP', 'HOSPITAL SÍRIO LIBANES SP');
-insert into Hospital (id, local, nome) values (5, 'SP', 'HOSPITAL ALBERT EINSTEIN SP');
+insert into Hospital (id, local, nome) values (6, 'TAGUATINGA', 'HOSPITAL ANCHIETA');
+insert into Hospital (id, local, nome) values (7, 'CRUZEIRO', 'HOSPITAL SÃO MATEUS');
+insert into Hospital (id, local, nome) values (8, 'SUDOESTE', 'MATERNIDADE BRASÍLIA');
+insert into Hospital (id, local, nome) values (9, 'LAGO SUL', 'HOSPITAL DAHER');
+insert into Hospital (id, local, nome) values (10, 'LAGO SUL', 'HOSPITAL BRASÍLIA');
+insert into Hospital (id, local, nome) values (11, 'ASA NORTE', 'HOSPITAL ALBERT SABIN');
+insert into Hospital (id, local, nome) values (12, 'ASA NORTE', 'HOSPITAL PRONTONORTE');
+insert into Hospital (id, local, nome) values (13, 'ASA NORTE', 'HOSPITAL SANTA HELENA');
+insert into Hospital (id, local, nome) values (14, 'ASA SUL', 'HOSPITAL PACINI DE OFTALMOLOGIA');
+insert into Hospital (id, local, nome) values (15, 'ASA SUL', 'HOB BRASÍLIA');
+insert into Hospital (id, local, nome) values (16, 'ASA SUL', 'CENTRO BRASILEIRO DE VISÃO (CBV)');
+insert into Hospital (id, local, nome) values (17, 'ASA SUL', 'HOSPITAL UROLÓGICO DE BRASÍLIA');
+insert into Hospital (id, local, nome) values (18, 'ASA SUL', 'HOSPITAL DO CORAÇÃO DO BRASIL');
+insert into Hospital (id, local, nome) values (19, 'ASA SUL', 'HOSPITAL HOME');
+insert into Hospital (id, local, nome) values (20, 'ASA SUL', 'HOSPITAL ALVORADA BRASÍLIA');
+insert into Hospital (id, local, nome) values (21, 'ASA SUL', 'HOSPITAL SANTA LUZIA');
+insert into Hospital (id, local, nome) values (22, 'ASA SUL', 'HOSPITAL SANTA LÚCIA');
+insert into Hospital (id, local, nome) values (23, 'ASA SUL', 'HOSPITAL SÍRIO LIBANES');
+insert into Hospital (id, local, nome) values (24, 'ASA SUL', 'HOSPITAL DF STAR');
+insert into Hospital (id, local, nome) values (25, 'SP', 'HOSPITAL SÍRIO LIBANES SP');
+insert into Hospital (id, local, nome) values (26, 'SP', 'HOSPITAL ALBERT EINSTEIN SP');
 
 
 -- LABORATORIOS
