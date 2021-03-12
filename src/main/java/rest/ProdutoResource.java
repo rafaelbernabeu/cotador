@@ -2,6 +2,7 @@ package rest;
 
 import dto.ProdutoDTO;
 import entities.Produto;
+import org.jboss.resteasy.annotations.GZIP;
 import rest.interfaces.IProdutoResource;
 
 import javax.annotation.security.RolesAllowed;
@@ -33,7 +34,12 @@ public class ProdutoResource {
         return produtoResource.get(id);
     }
 
+    /**
+     * Bug ao retornar grandes objetos.
+     * https://github.com/quarkusio/quarkus/issues/14695
+     */
     @GET
+    @GZIP
     @RolesAllowed("admin")
     @Produces("application/json")
     public List<ProdutoDTO> list() {
