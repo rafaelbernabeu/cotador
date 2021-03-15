@@ -3,6 +3,7 @@ package rest;
 import dto.ProdutoDTO;
 import dto.TabelaDTO;
 import entities.Tabela;
+import org.jboss.resteasy.annotations.GZIP;
 import rest.interfaces.ITabelaResource;
 
 import javax.annotation.security.RolesAllowed;
@@ -62,6 +63,7 @@ public class TabelaResource {
     }
 
     @GET
+    @GZIP
     @RolesAllowed("admin")
     @Produces("application/json")
     public List<TabelaDTO> list() {

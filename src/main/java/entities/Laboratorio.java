@@ -1,13 +1,9 @@
 package entities;
 
-import dto.LaboratorioDTO;
-import entities.enums.Estado;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.Data;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,13 +18,6 @@ public class Laboratorio extends PanacheEntityBase {
 
    private String nome;
 
-   @Enumerated(EnumType.ORDINAL)
-   private Estado estado;
+   private String local;
 
-   public Laboratorio(){}
-   public Laboratorio(LaboratorioDTO laboratorioDTO) {
-      this.id = laboratorioDTO.getId();
-      this.nome = laboratorioDTO.getNome();
-      this.estado = Estado.getBySigla(laboratorioDTO.getEstado().getSigla());
-   }
 }

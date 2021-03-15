@@ -2,6 +2,7 @@ package rest;
 
 import dto.OpcaoDTO;
 import entities.Opcao;
+import org.jboss.resteasy.annotations.GZIP;
 import rest.interfaces.IOpcaoResource;
 
 import javax.annotation.security.RolesAllowed;
@@ -34,6 +35,7 @@ public class OpcaoResource {
     }
 
     @GET
+    @GZIP
     @RolesAllowed("admin")
     @Produces("application/json")
     public List<OpcaoDTO> list() {

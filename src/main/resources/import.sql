@@ -46,11 +46,11 @@ insert into Hospital (id, local, nome) values (26, 'SP', 'HOSPITAL ALBERT EINSTE
 
 
 -- LABORATORIOS
-insert into Laboratorio (id, estado, nome) values (1, 6, 'SANTA PAULA');
-insert into Laboratorio (id, estado, nome) values (2, 6, 'SABIN');
-insert into Laboratorio (id, estado, nome) values (3, 6, 'EXAME');
-insert into Laboratorio (id, estado, nome) values (4, 6, 'DIAGNÓSTICO');
-insert into Laboratorio (id, estado, nome) values (5, 6, 'FLEURY');
+insert into Laboratorio (id, nome, local) values (1, 'SANTA PAULA', 'DF');
+insert into Laboratorio (id, nome, local) values (2, 'SABIN', 'DF');
+insert into Laboratorio (id, nome, local) values (3, 'EXAME', 'DF');
+insert into Laboratorio (id, nome, local) values (4, 'DIAGNÓSTICO', 'DF');
+insert into Laboratorio (id, nome, local) values (5, 'FLEURY', 'DF');
 
 
 -- PROFISSOES
