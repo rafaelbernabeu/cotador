@@ -2,6 +2,7 @@ package rest;
 
 import dto.CotacaoDTO;
 import dto.OpcaoDTO;
+import org.jboss.resteasy.annotations.GZIP;
 import rest.interfaces.ICotacaoResource;
 import service.CotacaoService;
 
@@ -23,6 +24,7 @@ public class CotacaoResource {
     CotacaoService cotacaoService;
 
     @POST
+    @GZIP
     @RolesAllowed({"user", "admin"})
     @Produces(MediaType.APPLICATION_JSON)
     public List<OpcaoDTO> geraCotacao(CotacaoDTO cotacao) {
