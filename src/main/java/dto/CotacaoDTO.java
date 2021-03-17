@@ -1,5 +1,7 @@
 package dto;
 
+import entities.Administradora;
+import entities.Operadora;
 import entities.Profissao;
 import lombok.Data;
 
@@ -23,6 +25,8 @@ public class CotacaoDTO {
     private String acomodacao;
     private Boolean coparticipacao;
     private EstadoDTO estado;
+    private List<Operadora> operadoras;
+    private List<Administradora> administradoras;
     private List<Profissao> profissoes;
 
 }

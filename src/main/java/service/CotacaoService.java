@@ -14,6 +14,12 @@ public class CotacaoService {
 
     public List<OpcaoDTO> geraCotacao(CotacaoDTO consulta) {
         Stream<Opcao> stream = Opcao.<Opcao>listAll().stream();
+        if (consulta.getAdministradoras() != null && !consulta.getAdministradoras().isEmpty()) {
+            stream = stream.filter(op -> consulta.getAdministradoras().stream().anyMatch(adm -> op.getTabela().getAdministradora().getId().equals(adm.getId())));
+        }
+        if (consulta.getOperadoras() != null && !consulta.getOperadoras().isEmpty()) {
+            stream = stream.filter(op -> consulta.getOperadoras().stream().anyMatch(operadora -> op.getTabela().getOperadora().getId().equals(operadora.getId())));
+        }
         if (consulta.getCategoria() != null && !consulta.getCategoria().equals("")) {
             stream = stream.filter(op -> op.getTabela().getCategoria().getNome().equals(consulta.getCategoria()));
         }
