@@ -10,6 +10,11 @@ import java.util.List;
 @Data
 public class CotacaoDTO {
 
+    private int idadeMin;
+    private int idadeMax;
+    private int qtdMinVidas;
+    private String tipoFiltro;
+
     private int qtdVidas0a18Anos;
     private int qtdVidas19a23Anos;
     private int qtdVidas24aa28Anos;
