@@ -16,11 +16,11 @@ public class LoginTest {
                 .when().get("/api/login")
                 .then()
                 .statusCode(200)
-                .extract().asString();
+                .extract().asString().split(":")[1].replaceAll("\"", "");
 
         String tokenTest = given()
                 .header("Authorization", "Bearer " + token)
-                .when().get("/api/login/test")
+                .when().get("/api/login/verify")
                 .then()
                 .statusCode(200)
                 .extract().asString();
