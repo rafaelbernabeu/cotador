@@ -19,7 +19,8 @@ public enum Reajuste {
     SETEMBRO("Setembro"),
     OUTUBRO("Outubro"),
     NOVEMBRO("Novembro"),
-    DEZEMBRO("Dezembro");
+    DEZEMBRO("Dezembro"),
+    ANIV_DO_CTT("Aniversário do Contrato");
 
     private String nome;
 
