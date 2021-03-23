@@ -53,12 +53,15 @@ public class LoginResource {
                 .issuedAt(Instant.now())
                 .expiresIn(Duration.of(24, HOURS))
                 .sign());
+
+        String ipRemoto = request.getHeader("X-Forwarded-For");
         AuditoriaLogin.builder()
                 .usuario(usuario.getEmail())
                 .dataHora(LocalDateTime.now())
-                .ip(request.remoteAddress().toString())
+                .ip(ipRemoto == null ? request.remoteAddress().toString() : ipRemoto)
                 .userAgent(request.getHeader("user-agent"))
                 .build().persist();
+
         return Response.ok(response).build();
     }
 
