@@ -1,12 +1,15 @@
 package rest;
 
+import entities.AuditoriaLogin;
 import entities.Role;
 import entities.Usuario;
 import io.smallrye.jwt.build.Jwt;
+import io.vertx.core.http.HttpServerRequest;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -16,6 +19,7 @@ import javax.ws.rs.core.SecurityContext;
 import java.security.Principal;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -33,8 +37,9 @@ public class LoginResource {
     JsonWebToken jwt;
 
     @GET
+    @Transactional
     @Produces(APPLICATION_JSON)
-    public Response login(@Context SecurityContext securityContext) {
+    public Response login(@Context SecurityContext securityContext, @Context HttpServerRequest request) {
         Principal userPrincipal = securityContext.getUserPrincipal();
         if (userPrincipal == null) {
             return Response.status(Response.Status.UNAUTHORIZED).build();
@@ -48,6 +53,12 @@ public class LoginResource {
                 .issuedAt(Instant.now())
                 .expiresIn(Duration.of(24, HOURS))
                 .sign());
+        AuditoriaLogin.builder()
+                .usuario(usuario.getEmail())
+                .dataHora(LocalDateTime.now())
+                .ip(request.remoteAddress().toString())
+                .userAgent(request.getHeader("user-agent"))
+                .build().persist();
         return Response.ok(response).build();
     }
 
