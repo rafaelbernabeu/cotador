@@ -1,4 +1,3 @@
 #!/bin/bash
 
-./build-native.sh
-./deploy-heroku.sh
+./build-native.sh && ./deploy-heroku.sh
