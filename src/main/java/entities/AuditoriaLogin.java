@@ -25,6 +25,8 @@ public class AuditoriaLogin extends PanacheEntityBase {
 
     private String ip;
     private String usuario;
+    private Double latitude;
+    private Double longitude;
     private String userAgent;
     private LocalDateTime dataHora;
 

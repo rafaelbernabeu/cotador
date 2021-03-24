@@ -1,5 +1,6 @@
 package rest;
 
+import dto.GeolocationDTO;
 import entities.AuditoriaLogin;
 import entities.Role;
 import entities.Usuario;
@@ -11,6 +12,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
@@ -36,10 +38,10 @@ public class LoginResource {
     @Inject
     JsonWebToken jwt;
 
-    @GET
+    @POST
     @Transactional
     @Produces(APPLICATION_JSON)
-    public Response login(@Context SecurityContext securityContext, @Context HttpServerRequest request) {
+    public Response login(GeolocationDTO geolocation, @Context SecurityContext securityContext, @Context HttpServerRequest request) {
         Principal userPrincipal = securityContext.getUserPrincipal();
         if (userPrincipal == null) {
             return Response.status(Response.Status.UNAUTHORIZED).build();
@@ -58,8 +60,10 @@ public class LoginResource {
         AuditoriaLogin.builder()
                 .usuario(usuario.getEmail())
                 .dataHora(LocalDateTime.now())
-                .ip(ipRemoto == null ? request.remoteAddress().toString() : ipRemoto)
+                .latitude(geolocation.getLatitude())
+                .longitude(geolocation.getLongitude())
                 .userAgent(request.getHeader("user-agent"))
+                .ip(ipRemoto == null ? request.remoteAddress().toString() : ipRemoto)
                 .build().persist();
 
         return Response.ok(response).build();
