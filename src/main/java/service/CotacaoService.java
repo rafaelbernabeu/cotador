@@ -67,8 +67,18 @@ public class CotacaoService {
     }
 
     private Stream<Opcao> filtraPorCategoria(CotacaoDTO consulta, Stream<Opcao> stream) {
-        if (consulta.getCategoria() != null && !consulta.getCategoria().equals("")) {
-            stream = stream.filter(op -> op.getTabela().getCategoria().getNome().equals(consulta.getCategoria()));
+        String categoria = consulta.getCategoria();
+        String tipoAdesao = consulta.getTipoAdesao();
+
+        if (categoria != null && !categoria.equals("")) {
+            stream = stream.filter(op -> op.getTabela().getCategoria().getNome().equals(categoria));
+            if (categoria.equals("Empresarial") && tipoAdesao != null) {
+                if (tipoAdesao.equals("livreAdesao")) {
+                    stream = stream.filter(op -> op.getTabela().getLivreAdesao());
+                } else if (tipoAdesao.equals("compulsoria")) {
+                    stream = stream.filter(op -> op.getTabela().getCompulsoria());
+                }
+            }
         }
         return stream;
     }
