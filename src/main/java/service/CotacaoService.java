@@ -30,76 +30,12 @@ public class CotacaoService {
     }
 
     private Stream<Opcao> filtraPorIdadeAndVidas(CotacaoDTO consulta, Stream<Opcao> stream) {
-        if (consulta.getTipoFiltro() != null && !consulta.getTipoFiltro().isEmpty()) {
-            return filtraOperacaoPorTipoFiltro(stream, consulta);
+        if (consulta.getVidas() != null && !consulta.getVidas().isEmpty()) {
+            stream = stream.filter(op -> consulta.getVidas().size() >= op.getTabela().getQtdMinVidas());
+            stream = stream.filter(op -> consulta.getVidas().stream().min(Integer::compareTo).orElseThrow() >= op.getTabela().getIdadeMinima());
+            stream = stream.filter(op -> consulta.getVidas().stream().max(Integer::compareTo).orElseThrow() <= op.getTabela().getIdadeMaxima());
         }
         return stream;
-    }
-
-    private Stream<Opcao> filtraOperacaoPorTipoFiltro(Stream<Opcao> streamParam, CotacaoDTO consulta) {
-        Stream<Opcao> opcoes = streamParam;
-        switch (consulta.getTipoFiltro().trim()) {
-            case "<":
-                opcoes = filtraOperacaoMenorQue(consulta, opcoes);
-                break;
-
-            case "=":
-                opcoes = filtraOperacaoIgual(consulta, opcoes);
-                break;
-
-            case ">":
-                opcoes = filtraOperacaoMaiorQue(consulta, opcoes);
-                break;
-
-            default:
-                return opcoes;
-        }
-        return opcoes;
-    }
-
-    private Stream<Opcao> filtraOperacaoMaiorQue(CotacaoDTO consulta, Stream<Opcao> opcoes) {
-        if (consulta.getIdadeMin() > 0) {
-            opcoes = opcoes.filter(op -> op.getTabela().getIdadeMinima() > consulta.getIdadeMin());
-        }
-        if (consulta.getIdadeMax() > 0) {
-            opcoes = opcoes.filter(op -> op.getTabela().getIdadeMaxima() > consulta.getIdadeMax());
-        }
-        if (consulta.getQtdMinVidas() > 0) {
-            opcoes = opcoes.filter(op -> op.getTabela().getQtdMinVidas() > consulta.getQtdMinVidas());
-        }
-        return opcoes;
-    }
-
-    private Stream<Opcao> filtraOperacaoIgual(CotacaoDTO consulta, Stream<Opcao> opcoes) {
-        if (consulta.getIdadeMin() > 0) {
-            opcoes = opcoes.filter(op -> op.getTabela().getIdadeMinima() == consulta.getIdadeMin());
-        }
-        if (consulta.getIdadeMax() > 0) {
-            opcoes = opcoes.filter(op -> op.getTabela().getIdadeMaxima() == consulta.getIdadeMax());
-        }
-        if (consulta.getQtdMinVidas() > 0) {
-            opcoes = opcoes.filter(op -> op.getTabela().getQtdMinVidas() == consulta.getQtdMinVidas());
-        }
-        return opcoes;
-    }
-
-    private Stream<Opcao> filtraOperacaoMenorQue(CotacaoDTO consulta, Stream<Opcao> opcoes) {
-        if (consulta.getIdadeMin() > 0) {
-            opcoes = opcoes.filter(op -> op.getTabela().getIdadeMinima() < consulta.getIdadeMin());
-        }
-        if (consulta.getIdadeMax() > 0) {
-            opcoes = opcoes.filter(op -> op.getTabela().getIdadeMaxima() < consulta.getIdadeMax());
-        }
-        if (consulta.getQtdMinVidas() > 0) {
-            opcoes = opcoes.filter(op -> op.getTabela().getQtdMinVidas() < consulta.getQtdMinVidas());
-        }
-        return opcoes;
-    }
-
-    private void removeEntidadesPorProfissao(CotacaoDTO consulta, List<OpcaoDTO> cotacao) {
-        if (consulta.getProfissoes() != null && !consulta.getProfissoes().isEmpty()) {
-            cotacao.forEach(c -> c.getTabela().getEntidades().removeIf(entidade -> entidade.getProfissoes().stream().noneMatch(p -> consulta.getProfissoes().contains(p))));
-        }
     }
 
     private Stream<Opcao> filtraPorAcomodacao(CotacaoDTO consulta, Stream<Opcao> stream) {
@@ -151,4 +87,9 @@ public class CotacaoService {
         return stream;
     }
 
+    private void removeEntidadesPorProfissao(CotacaoDTO consulta, List<OpcaoDTO> cotacao) {
+        if (consulta.getProfissoes() != null && !consulta.getProfissoes().isEmpty()) {
+            cotacao.forEach(c -> c.getTabela().getEntidades().removeIf(entidade -> entidade.getProfissoes().stream().noneMatch(p -> consulta.getProfissoes().contains(p))));
+        }
+    }
 }
