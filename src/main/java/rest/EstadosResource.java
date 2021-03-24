@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
@@ -36,6 +37,7 @@ public class EstadosResource {
         return Tabela.<Tabela>listAll().stream()
                 .filter(t -> t.getCategoria().getNome().equals(categoria))
                 .filter(t -> t.getEstado().getSigla().equals(sigla))
+                .filter(t -> nonNull(t.getAdministradora()))
                 .map(Tabela::getAdministradora)
                 .collect(toSet());
 

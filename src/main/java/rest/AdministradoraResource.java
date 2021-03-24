@@ -20,6 +20,7 @@ import javax.ws.rs.QueryParam;
 import java.util.Collection;
 import java.util.List;
 
+import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toSet;
 
 @Path("/api/administradoras")
@@ -49,7 +50,7 @@ public class AdministradoraResource {
         return Tabela.<Tabela>listAll().stream()
                 .filter(t -> t.getCategoria().getNome().equals(categoria))
                 .filter(t -> t.getEstado().getSigla().equals(siglaEstado))
-                .filter(t -> t.getAdministradora().getId().equals(idAdministradora))
+                .filter(t -> nonNull(t.getAdministradora()) && t.getAdministradora().getId().equals(idAdministradora))
                 .filter(t -> t.getContemplaMEI().equals(contemplaMei))
                 .map(Tabela::getOperadora)
                 .collect(toSet());
