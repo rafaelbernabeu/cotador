@@ -86,6 +86,9 @@ public class TabelaResource {
     @Consumes("application/json")
     @Produces("application/json")
     public TabelaDTO update(@PathParam("id") Long id, TabelaDTO tabelaDTO) {
+        if (tabelaDTO.getAdministradora() == null) {
+            Tabela.update("administradora = null where id = ?1", id);
+        }
         return new TabelaDTO(tabelaResource.update(id, new Tabela(tabelaDTO)));
     }
 
