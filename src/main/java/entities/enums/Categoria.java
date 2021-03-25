@@ -8,7 +8,7 @@ import java.util.Arrays;
 @Getter
 public enum Categoria {
 
-    ADESAO("Adesao"), EMPRESARIAL("Empresarial");
+    ADESAO("Adesão"), EMPRESARIAL("Empresarial");
 
     private String nome;
 
