@@ -21,7 +21,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Stream;
 
+import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
@@ -58,11 +60,15 @@ public class OperadoraResource {
             @QueryParam("categoria") String categoria,
             @QueryParam("mei") Boolean contemplaMei) {
 
-        return Tabela.<Tabela>listAll().stream()
+        Stream<Tabela> stream = Tabela.<Tabela>listAll().stream()
                 .filter(t -> t.getCategoria().getNome().equals(categoria))
-                .filter(t -> t.getEstado().getSigla().equals(siglaEstado))
-                .filter(t -> t.getAdministradora().getId().equals(idAdministradora))
-                .filter(t -> t.getContemplaMEI().equals(contemplaMei))
+                .filter(t -> t.getEstado().getSigla().equals(siglaEstado));
+
+        if (nonNull(idAdministradora)) {
+            stream = stream.filter(t -> nonNull(t.getAdministradora()) && t.getAdministradora().getId().equals(idAdministradora));
+        }
+
+        return stream.filter(t -> t.getContemplaMEI().equals(contemplaMei))
                 .filter(t -> t.getOperadora().getId().equals(idOperadora))
                 .map(TabelaDTO::new)
                 .collect(toSet());

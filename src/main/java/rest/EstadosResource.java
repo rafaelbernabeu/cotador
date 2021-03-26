@@ -2,6 +2,7 @@ package rest;
 
 import dto.EstadoDTO;
 import entities.Administradora;
+import entities.Operadora;
 import entities.Tabela;
 import entities.enums.Estado;
 
@@ -41,6 +42,23 @@ public class EstadosResource {
                 .map(Tabela::getAdministradora)
                 .collect(toSet());
 
+    }
+
+    @GET
+    @Path("{estado}/operadoras")
+    @RolesAllowed("admin")
+    @Produces("application/json")
+    public Collection<Operadora> getOperadorasByEstadoAndCategoriaAndMEI(
+            @PathParam("estado") String siglaEstado,
+            @QueryParam("categoria") String categoria,
+            @QueryParam("mei") Boolean contemplaMei) {
+
+        return Tabela.<Tabela>listAll().stream()
+                .filter(t -> t.getCategoria().getNome().equals(categoria))
+                .filter(t -> t.getEstado().getSigla().equals(siglaEstado))
+                .filter(t -> t.getContemplaMEI().equals(contemplaMei))
+                .map(Tabela::getOperadora)
+                .collect(toSet());
     }
 
 }
