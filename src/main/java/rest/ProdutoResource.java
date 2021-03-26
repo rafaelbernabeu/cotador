@@ -27,6 +27,7 @@ public class ProdutoResource {
     IProdutoResource produtoResource;
 
     @GET
+    @GZIP
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
@@ -47,6 +48,7 @@ public class ProdutoResource {
     }
 
     @POST
+    @GZIP
     @Transactional
     @RolesAllowed("admin")
     @Consumes("application/json")
@@ -56,6 +58,7 @@ public class ProdutoResource {
     }
 
     @PUT
+    @GZIP
     @Transactional
     @Path("{id}")
     @RolesAllowed("admin")
@@ -66,6 +69,7 @@ public class ProdutoResource {
     }
 
     @DELETE
+    @GZIP
     @Transactional
     @Path("{id}")
     @RolesAllowed("admin")

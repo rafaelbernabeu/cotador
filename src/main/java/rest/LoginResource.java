@@ -7,6 +7,7 @@ import entities.Usuario;
 import io.smallrye.jwt.build.Jwt;
 import io.vertx.core.http.HttpServerRequest;
 import org.eclipse.microprofile.jwt.JsonWebToken;
+import org.jboss.resteasy.annotations.GZIP;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -39,6 +40,7 @@ public class LoginResource {
     JsonWebToken jwt;
 
     @POST
+    @GZIP
     @Transactional
     @Produces(APPLICATION_JSON)
     public Response login(GeolocationDTO geolocation, @Context SecurityContext securityContext, @Context HttpServerRequest request) {
@@ -70,6 +72,7 @@ public class LoginResource {
     }
 
     @GET
+    @GZIP
     @Path("/verify")
     @Produces(TEXT_PLAIN)
     public Response tokenTest(@Context SecurityContext securityContext) {

@@ -1,6 +1,7 @@
 package rest;
 
 import entities.Role;
+import org.jboss.resteasy.annotations.GZIP;
 import rest.interfaces.IRoleResource;
 
 import javax.annotation.security.RolesAllowed;
@@ -17,6 +18,7 @@ public class RoleResource {
     IRoleResource roleResource;
 
     @GET
+    @GZIP
     @RolesAllowed("admin")
     @Produces("application/json")
     public List<Role> listAll() {

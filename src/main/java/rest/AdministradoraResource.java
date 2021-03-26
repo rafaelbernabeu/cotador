@@ -3,6 +3,7 @@ package rest;
 import entities.Administradora;
 import entities.Operadora;
 import entities.Tabela;
+import org.jboss.resteasy.annotations.GZIP;
 import rest.interfaces.IAdministradoraResource;
 
 import javax.annotation.security.RolesAllowed;
@@ -30,6 +31,7 @@ public class AdministradoraResource {
     IAdministradoraResource administradoraResource;
 
     @GET
+    @GZIP
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
@@ -38,6 +40,7 @@ public class AdministradoraResource {
     }
 
     @GET
+    @GZIP
     @Path("{id}/operadoras")
     @RolesAllowed("admin")
     @Produces("application/json")
@@ -57,6 +60,7 @@ public class AdministradoraResource {
     }
 
     @GET
+    @GZIP
     @RolesAllowed("admin")
     @Produces("application/json")
     public List<Administradora> list() {
@@ -64,6 +68,7 @@ public class AdministradoraResource {
     }
 
     @POST
+    @GZIP
     @Transactional
     @RolesAllowed("admin")
     @Consumes("application/json")
@@ -73,6 +78,7 @@ public class AdministradoraResource {
     }
 
     @PUT
+    @GZIP
     @Transactional
     @Path("{id}")
     @RolesAllowed("admin")
@@ -83,6 +89,7 @@ public class AdministradoraResource {
     }
 
     @DELETE
+    @GZIP
     @Transactional
     @Path("{id}")
     @RolesAllowed("admin")

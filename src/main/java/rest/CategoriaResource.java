@@ -3,6 +3,7 @@ package rest;
 import dto.EstadoDTO;
 import entities.Tabela;
 import entities.enums.Categoria;
+import org.jboss.resteasy.annotations.GZIP;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
@@ -20,6 +21,7 @@ import static java.util.stream.Collectors.toSet;
 public class CategoriaResource  {
 
     @GET
+    @GZIP
     @RolesAllowed({"user", "admin"})
     @Produces("application/json")
     public List<String> getCategorias() {
@@ -27,6 +29,7 @@ public class CategoriaResource  {
     }
 
     @GET
+    @GZIP
     @Path("/{categoria}/estados")
     @RolesAllowed({"user", "admin"})
     @Produces("application/json")

@@ -27,6 +27,7 @@ public class OpcaoResource {
     IOpcaoResource opcaoResource;
 
     @GET
+    @GZIP
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
@@ -43,6 +44,7 @@ public class OpcaoResource {
     }
 
     @POST
+    @GZIP
     @Transactional
     @RolesAllowed("admin")
     @Consumes("application/json")
@@ -52,6 +54,7 @@ public class OpcaoResource {
     }
 
     @PUT
+    @GZIP
     @Transactional
     @Path("{id}")
     @RolesAllowed("admin")
@@ -62,6 +65,7 @@ public class OpcaoResource {
     }
 
     @DELETE
+    @GZIP
     @Transactional
     @Path("{id}")
     @RolesAllowed("admin")

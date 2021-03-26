@@ -5,6 +5,7 @@ import dto.TabelaDTO;
 import entities.Operadora;
 import entities.Produto;
 import entities.Tabela;
+import org.jboss.resteasy.annotations.GZIP;
 import rest.interfaces.IOperadoraResource;
 
 import javax.annotation.security.RolesAllowed;
@@ -34,6 +35,7 @@ public class OperadoraResource {
     IOperadoraResource operadoraResource;
 
     @GET
+    @GZIP
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
@@ -42,6 +44,7 @@ public class OperadoraResource {
     }
 
     @GET
+    @GZIP
     @Path("{id}/produtos")
     @RolesAllowed("admin")
     @Produces("application/json")
@@ -50,6 +53,7 @@ public class OperadoraResource {
     }
 
     @GET
+    @GZIP
     @Path("{id}/tabelas")
     @RolesAllowed("admin")
     @Produces("application/json")
@@ -75,6 +79,7 @@ public class OperadoraResource {
     }
 
     @GET
+    @GZIP
     @RolesAllowed("admin")
     @Produces("application/json")
     public List<Operadora> list() {
@@ -82,6 +87,7 @@ public class OperadoraResource {
     }
 
     @POST
+    @GZIP
     @Transactional
     @RolesAllowed("admin")
     @Consumes("application/json")
@@ -91,6 +97,7 @@ public class OperadoraResource {
     }
 
     @PUT
+    @GZIP
     @Transactional
     @Path("{id}")
     @RolesAllowed("admin")
@@ -101,6 +108,7 @@ public class OperadoraResource {
     }
 
     @DELETE
+    @GZIP
     @Transactional
     @Path("{id}")
     @RolesAllowed("admin")

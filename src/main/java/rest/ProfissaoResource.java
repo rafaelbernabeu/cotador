@@ -1,6 +1,7 @@
 package rest;
 
 import entities.Profissao;
+import org.jboss.resteasy.annotations.GZIP;
 import rest.interfaces.IProfissaoResource;
 
 import javax.annotation.security.RolesAllowed;
@@ -23,6 +24,7 @@ public class ProfissaoResource {
     IProfissaoResource profissaoResource;
 
     @GET
+    @GZIP
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
@@ -31,6 +33,7 @@ public class ProfissaoResource {
     }
 
     @GET
+    @GZIP
     @RolesAllowed("admin")
     @Produces("application/json")
     public List<Profissao> list() {
@@ -38,6 +41,7 @@ public class ProfissaoResource {
     }
 
     @POST
+    @GZIP
     @Transactional
     @RolesAllowed("admin")
     @Consumes("application/json")
@@ -47,6 +51,7 @@ public class ProfissaoResource {
     }
 
     @PUT
+    @GZIP
     @Transactional
     @Path("{id}")
     @RolesAllowed("admin")
@@ -57,6 +62,7 @@ public class ProfissaoResource {
     }
 
     @DELETE
+    @GZIP
     @Transactional
     @Path("{id}")
     @RolesAllowed("admin")

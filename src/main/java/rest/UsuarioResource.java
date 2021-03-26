@@ -2,6 +2,7 @@ package rest;
 
 import dto.UsuarioDTO;
 import entities.Usuario;
+import org.jboss.resteasy.annotations.GZIP;
 import rest.interfaces.IUsuarioResource;
 import service.UsuarioService;
 
@@ -29,6 +30,7 @@ public class UsuarioResource {
     UsuarioService usuarioService;
 
     @GET
+    @GZIP
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
@@ -38,6 +40,7 @@ public class UsuarioResource {
 
 
     @GET
+    @GZIP
     @RolesAllowed("admin")
     @Produces("application/json")
     public List<UsuarioDTO> list() {
@@ -45,6 +48,7 @@ public class UsuarioResource {
     }
 
     @POST
+    @GZIP
     @Transactional
     @RolesAllowed("admin")
     @Consumes("application/json")
@@ -54,6 +58,7 @@ public class UsuarioResource {
     }
 
     @PUT
+    @GZIP
     @Transactional
     @Path("{id}")
     @RolesAllowed("admin")
@@ -66,6 +71,7 @@ public class UsuarioResource {
     }
 
     @DELETE
+    @GZIP
     @Transactional
     @Path("{id}")
     @RolesAllowed("admin")

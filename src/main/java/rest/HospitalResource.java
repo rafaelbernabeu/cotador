@@ -1,6 +1,7 @@
 package rest;
 
 import entities.Hospital;
+import org.jboss.resteasy.annotations.GZIP;
 import rest.interfaces.IHospitalResource;
 
 import javax.annotation.security.RolesAllowed;
@@ -23,6 +24,7 @@ public class HospitalResource {
     IHospitalResource hospitalResource;
 
     @GET
+    @GZIP
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
@@ -31,6 +33,7 @@ public class HospitalResource {
     }
 
     @GET
+    @GZIP
     @RolesAllowed("admin")
     @Produces("application/json")
     public List<Hospital> list() {
@@ -38,6 +41,7 @@ public class HospitalResource {
     }
 
     @POST
+    @GZIP
     @Transactional
     @RolesAllowed("admin")
     @Consumes("application/json")
@@ -47,6 +51,7 @@ public class HospitalResource {
     }
 
     @PUT
+    @GZIP
     @Transactional
     @Path("{id}")
     @RolesAllowed("admin")
@@ -57,6 +62,7 @@ public class HospitalResource {
     }
 
     @DELETE
+    @GZIP
     @Path("{id}")
     @Transactional
     @RolesAllowed("admin")

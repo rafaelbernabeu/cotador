@@ -33,6 +33,7 @@ public class TabelaResource {
     ITabelaResource tabelaResource;
 
     @GET
+    @GZIP
     @Path("{id}")
     @RolesAllowed("admin")
     @Produces("application/json")
@@ -41,6 +42,7 @@ public class TabelaResource {
     }
 
     @GET
+    @GZIP
     @Path("{id}/produtos")
     @RolesAllowed("admin")
     @Produces("application/json")
@@ -77,6 +79,7 @@ public class TabelaResource {
     }
 
     @POST
+    @GZIP
     @Transactional
     @RolesAllowed("admin")
     @Consumes("application/json")
@@ -86,6 +89,7 @@ public class TabelaResource {
     }
 
     @PUT
+    @GZIP
     @Transactional
     @Path("{id}")
     @RolesAllowed("admin")
@@ -99,6 +103,7 @@ public class TabelaResource {
     }
 
     @DELETE
+    @GZIP
     @Transactional
     @Path("{id}")
     @RolesAllowed("admin")

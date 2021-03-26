@@ -5,6 +5,7 @@ import entities.Administradora;
 import entities.Operadora;
 import entities.Tabela;
 import entities.enums.Estado;
+import org.jboss.resteasy.annotations.GZIP;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
@@ -24,6 +25,7 @@ import static java.util.stream.Collectors.toSet;
 public class EstadosResource {
 
     @GET
+    @GZIP
     @RolesAllowed({"user", "admin"})
     @Produces("application/json")
     public List<EstadoDTO> getEstados() {
@@ -31,6 +33,7 @@ public class EstadosResource {
     }
 
     @GET
+    @GZIP
     @Path("{sigla}/administradoras")
     @RolesAllowed({"user", "admin"})
     @Produces("application/json")
@@ -45,6 +48,7 @@ public class EstadosResource {
     }
 
     @GET
+    @GZIP
     @Path("{estado}/operadoras")
     @RolesAllowed("admin")
     @Produces("application/json")

@@ -1,6 +1,7 @@
 package rest;
 
 import entities.enums.Reajuste;
+import org.jboss.resteasy.annotations.GZIP;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
@@ -15,6 +16,7 @@ import static java.util.stream.Collectors.toList;
 public class ReajusteResource {
 
     @GET
+    @GZIP
     @RolesAllowed({"user", "admin"})
     @Produces("application/json")
     public List<String> getReajustes() {
