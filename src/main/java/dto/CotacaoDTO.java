@@ -10,6 +10,7 @@ import java.util.List;
 @Data
 public class CotacaoDTO {
 
+    private Boolean mei;
     private String categoria;
     private String acomodacao;
     private String tipoAdesao;

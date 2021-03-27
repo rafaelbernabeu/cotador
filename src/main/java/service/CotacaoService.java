@@ -14,13 +14,14 @@ public class CotacaoService {
 
     public List<OpcaoDTO> geraCotacao(CotacaoDTO consulta) {
         Stream<Opcao> stream = Opcao.<Opcao>listAll().stream();
-        stream = filtraPorAdministradora(consulta, stream);
-        stream = filtraPorOperadora(consulta, stream);
-        stream = filtraPorCategoria(consulta, stream);
-        stream = filtraPorEstado(consulta, stream);
-        stream = filtraPorProfissao(consulta, stream);
+        stream = filtraPorMei(consulta, stream);
         stream = filtraPorCoparticipacao(consulta, stream);
         stream = filtraPorAcomodacao(consulta, stream);
+        stream = filtraPorAdministradora(consulta, stream);
+        stream = filtraPorOperadora(consulta, stream);
+        stream = filtraPorEstado(consulta, stream);
+        stream = filtraPorProfissao(consulta, stream);
+        stream = filtraPorCategoria(consulta, stream);
         stream = filtraPorIdadeAndVidas(consulta, stream);
 
         List<OpcaoDTO> cotacao = stream.map(OpcaoDTO::new).collect(Collectors.toList());
@@ -41,6 +42,13 @@ public class CotacaoService {
     private Stream<Opcao> filtraPorAcomodacao(CotacaoDTO consulta, Stream<Opcao> stream) {
         if (consulta.getAcomodacao() != null && !consulta.getAcomodacao().equals("")) {
             stream = stream.filter(op -> op.getAcomodacao().getNome().equals(consulta.getAcomodacao()));
+        }
+        return stream;
+    }
+
+    private Stream<Opcao> filtraPorMei(CotacaoDTO consulta, Stream<Opcao> stream) {
+        if (consulta.getMei() != null) {
+            stream = stream.filter(op -> op.getTabela().getContemplaMEI().equals(consulta.getCoparticipacao()));
         }
         return stream;
     }
