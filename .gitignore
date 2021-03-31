@@ -15,3 +15,4 @@ target/
 /src/main/resources/META-INF/resources/runtime.*.js
 /src/main/resources/META-INF/resources/styles.*.css
 /sql/
+/.gradle/*
