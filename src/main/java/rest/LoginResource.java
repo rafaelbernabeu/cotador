@@ -23,6 +23,7 @@ import java.security.Principal;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -61,7 +62,7 @@ public class LoginResource {
         String ipRemoto = request.getHeader("X-Forwarded-For");
         AuditoriaLogin.builder()
                 .usuario(usuario.getEmail())
-                .dataHora(LocalDateTime.now())
+                .dataHora(LocalDateTime.now(ZoneId.of("America/Sao_Paulo")))
                 .latitude(geolocation.getLatitude())
                 .longitude(geolocation.getLongitude())
                 .userAgent(request.getHeader("user-agent"))
