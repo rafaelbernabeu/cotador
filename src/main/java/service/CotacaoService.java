@@ -15,15 +15,16 @@ public class CotacaoService {
 
     public List<OpcaoDTO> geraCotacao(CotacaoDTO consulta) {
         Stream<Opcao> stream = Opcao.<Opcao>listAll().stream();
-        stream = filtraPorMei(consulta, stream);
         stream = filtraPorCoparticipacao(consulta, stream);
         stream = filtraPorAcomodacao(consulta, stream);
+        stream = filtraPorEstado(consulta, stream);
+        stream = filtraPorCategoria(consulta, stream);
+        stream = filtraPorTipoAdesao(consulta, stream);
+        stream = filtraPorMei(consulta, stream);
+        stream = filtraPorIdadeAndVidas(consulta, stream);
         stream = filtraPorAdministradora(consulta, stream);
         stream = filtraPorOperadora(consulta, stream);
-        stream = filtraPorEstado(consulta, stream);
         stream = filtraPorProfissao(consulta, stream);
-        stream = filtraPorCategoria(consulta, stream);
-        stream = filtraPorIdadeAndVidas(consulta, stream);
 
         List<OpcaoDTO> cotacao = stream.map(OpcaoDTO::new).collect(Collectors.toList());
 
@@ -51,7 +52,7 @@ public class CotacaoService {
     }
 
     private Stream<Opcao> filtraPorMei(CotacaoDTO consulta, Stream<Opcao> stream) {
-        if (consulta.getMei() != null) {
+        if (consulta.getCategoria() != null && consulta.getCategoria().equals(Categoria.EMPRESARIAL.getNome()) && consulta.getMei() != null) {
             stream = stream.filter(op -> op.getTabela().getContemplaMEI().equals(consulta.getMei()));
         }
         return stream;
@@ -79,17 +80,21 @@ public class CotacaoService {
     }
 
     private Stream<Opcao> filtraPorCategoria(CotacaoDTO consulta, Stream<Opcao> stream) {
+        if (consulta.getCategoria() != null) {
+            stream = stream.filter(op -> op.getTabela().getCategoria().getNome().equals(consulta.getCategoria()));
+        }
+        return stream;
+    }
+
+    private Stream<Opcao> filtraPorTipoAdesao(CotacaoDTO consulta, Stream<Opcao> stream) {
         String categoria = consulta.getCategoria();
         String tipoAdesao = consulta.getTipoAdesao();
 
-        if (categoria != null && !categoria.equals("")) {
-            stream = stream.filter(op -> op.getTabela().getCategoria().getNome().equals(categoria));
-            if (categoria.equals(Categoria.EMPRESARIAL.getNome()) && tipoAdesao != null) {
-                if (tipoAdesao.equals("livreAdesao")) {
-                    stream = stream.filter(op -> op.getTabela().getLivreAdesao());
-                } else if (tipoAdesao.equals("compulsoria")) {
-                    stream = stream.filter(op -> op.getTabela().getCompulsoria());
-                }
+        if (categoria != null && categoria.equals(Categoria.EMPRESARIAL.getNome()) && tipoAdesao != null) {
+            if (tipoAdesao.equals("livreAdesao")) {
+                stream = stream.filter(op -> op.getTabela().getLivreAdesao());
+            } else if (tipoAdesao.equals("compulsoria")) {
+                stream = stream.filter(op -> op.getTabela().getCompulsoria());
             }
         }
         return stream;
