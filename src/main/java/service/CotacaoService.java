@@ -52,7 +52,7 @@ public class CotacaoService {
 
     private Stream<Opcao> filtraPorMei(CotacaoDTO consulta, Stream<Opcao> stream) {
         if (consulta.getMei() != null) {
-            stream = stream.filter(op -> op.getTabela().getContemplaMEI().equals(consulta.getCoparticipacao()));
+            stream = stream.filter(op -> op.getTabela().getContemplaMEI().equals(consulta.getMei()));
         }
         return stream;
     }
