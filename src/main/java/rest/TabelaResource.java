@@ -63,8 +63,11 @@ public class TabelaResource {
             stream = stream.filter(t -> t.getAdministradora().getId().equals(idAdministradora));
         }
 
-        return stream.filter(t -> t.getContemplaMEI().equals(contemplaMei))
-                .filter(t -> t.getOperadora().getId().equals(idOperadora))
+        if (nonNull(contemplaMei)) {
+            stream = stream.filter(t -> t.getContemplaMEI().equals(contemplaMei));
+        }
+
+        return stream.filter(t -> t.getOperadora().getId().equals(idOperadora))
                 .flatMap(t -> t.getProdutos().stream())
                 .map(ProdutoDTO::new)
                 .collect(toSet());

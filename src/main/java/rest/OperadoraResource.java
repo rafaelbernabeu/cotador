@@ -72,8 +72,11 @@ public class OperadoraResource {
             stream = stream.filter(t -> nonNull(t.getAdministradora()) && t.getAdministradora().getId().equals(idAdministradora));
         }
 
-        return stream.filter(t -> t.getContemplaMEI().equals(contemplaMei))
-                .filter(t -> t.getOperadora().getId().equals(idOperadora))
+        if (nonNull(contemplaMei)) {
+            stream = stream.filter(t -> t.getContemplaMEI().equals(contemplaMei));
+        }
+
+        return stream.filter(t -> t.getOperadora().getId().equals(idOperadora))
                 .map(TabelaDTO::new)
                 .collect(toSet());
     }
