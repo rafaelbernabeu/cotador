@@ -3,6 +3,7 @@ package rest;
 import entities.AuditoriaAlteracao;
 import entities.AuditoriaCotacao;
 import entities.AuditoriaLogin;
+import io.quarkus.panache.common.Sort;
 import org.jboss.resteasy.annotations.GZIP;
 
 import javax.annotation.security.RolesAllowed;
@@ -20,7 +21,7 @@ public class AuditoriaResource {
     @RolesAllowed({"admin"})
     @Produces("application/json")
     public List<AuditoriaLogin> getHistoricoLogins() {
-        return AuditoriaLogin.listAll();
+        return AuditoriaLogin.listAll(Sort.descending("id"));
     }
 
     @GET
