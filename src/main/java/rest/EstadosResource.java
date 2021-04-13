@@ -13,6 +13,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -29,7 +30,13 @@ public class EstadosResource {
     @RolesAllowed({"user", "admin"})
     @Produces("application/json")
     public List<EstadoDTO> getEstados() {
-        return Arrays.stream(Estado.values()).map(EstadoDTO::new).collect(toList());
+        List<Estado> estados = new ArrayList<>(Estado.values().length);
+        estados.addAll(Arrays.asList(Estado.values()));
+        List<EstadoDTO> estadosOrdemEspecifica = new ArrayList<>(estados.size());
+        estadosOrdemEspecifica.add(new EstadoDTO(estados.remove(estados.indexOf(Estado.DISTRITO_FEDERAL))));
+        estadosOrdemEspecifica.add(new EstadoDTO(estados.remove(estados.indexOf(Estado.GOIAS))));
+        estadosOrdemEspecifica.addAll(estados.stream().map(EstadoDTO::new).collect(toList()));
+        return estadosOrdemEspecifica;
     }
 
     @GET
