@@ -24,6 +24,7 @@ public class OpcaoDTO {
 
     public OpcaoDTO() {}
     public OpcaoDTO(Opcao opcao) {
+        opcao.toString(); //Gambi: BUG Unable to perform requested lazy initialization - no session and settings disallow loading outside the Session ???
         this.id = opcao.getId();
         this.tabela = new TabelaDTO(opcao.getTabela());
         this.produto = new ProdutoDTO(opcao.getProduto());
