@@ -15,6 +15,7 @@ public class CotacaoService {
 
     public List<OpcaoDTO> geraCotacao(CotacaoDTO consulta) {
         Stream<Opcao> stream = Opcao.<Opcao>listAll().stream();
+        stream = filtraPorProdutoAtivo(stream);
         stream = filtraPorCoparticipacao(consulta, stream);
         stream = filtraPorAcomodacao(consulta, stream);
         stream = filtraPorEstado(consulta, stream);
@@ -30,6 +31,10 @@ public class CotacaoService {
 
         removeEntidadesPorProfissao(consulta, cotacao);
         return cotacao;
+    }
+
+    private Stream<Opcao> filtraPorProdutoAtivo(Stream<Opcao> stream) {
+        return stream.filter(op -> op.getProduto().getAtivo());
     }
 
     private Stream<Opcao> filtraPorIdadeAndVidas(CotacaoDTO consulta, Stream<Opcao> stream) {
