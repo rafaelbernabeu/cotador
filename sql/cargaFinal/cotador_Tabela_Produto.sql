@@ -1,0 +1,10 @@
+insert into Tabela_Produto (Tabela_id, produtos_id) values (1, 1);
+insert into Tabela_Produto (Tabela_id, produtos_id) values (3, 4);
+insert into Tabela_Produto (Tabela_id, produtos_id) values (1, 1);
+insert into Tabela_Produto (Tabela_id, produtos_id) values (3, 4);
+insert into Tabela_Produto (Tabela_id, produtos_id) values (1, 1);
+insert into Tabela_Produto (Tabela_id, produtos_id) values (3, 4);
+insert into Tabela_Produto (Tabela_id, produtos_id) values (2, 3);
+insert into Tabela_Produto (Tabela_id, produtos_id) values (5, 1);
+insert into Tabela_Produto (Tabela_id, produtos_id) values (5, 2);
+insert into Tabela_Produto (Tabela_id, produtos_id) values (5, 6);

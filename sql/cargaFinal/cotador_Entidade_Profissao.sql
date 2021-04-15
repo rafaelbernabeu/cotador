@@ -1,0 +1,9 @@
+insert into Entidade_Profissao (Entidade_id, profissoes_id) values (18, 3);
+insert into Entidade_Profissao (Entidade_id, profissoes_id) values (35, 3);
+insert into Entidade_Profissao (Entidade_id, profissoes_id) values (31, 3);
+insert into Entidade_Profissao (Entidade_id, profissoes_id) values (18, 3);
+insert into Entidade_Profissao (Entidade_id, profissoes_id) values (35, 3);
+insert into Entidade_Profissao (Entidade_id, profissoes_id) values (31, 3);
+insert into Entidade_Profissao (Entidade_id, profissoes_id) values (18, 3);
+insert into Entidade_Profissao (Entidade_id, profissoes_id) values (35, 3);
+insert into Entidade_Profissao (Entidade_id, profissoes_id) values (31, 3);
