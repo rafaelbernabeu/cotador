@@ -2,7 +2,6 @@ package dto;
 
 import entities.Administradora;
 import entities.Entidade;
-import entities.Opcao;
 import entities.Operadora;
 import entities.Tabela;
 import lombok.Data;
@@ -29,7 +28,6 @@ public class TabelaDTO {
     private Operadora operadora;
     private Administradora administradora;
     private List<ProdutoDTO> produtos;
-    private List<Opcao> opcoes;
     private List<Entidade> entidades;
 
     public TabelaDTO() {}
@@ -50,7 +48,6 @@ public class TabelaDTO {
         this.operadora = tabela.getOperadora();
         this.administradora = tabela.getAdministradora();
         this.produtos = tabela.getProdutos().stream().map(ProdutoDTO::new).collect(Collectors.toList());
-        this.opcoes = tabela.getOpcoes();
         this.entidades = tabela.getEntidades();
     }
 }

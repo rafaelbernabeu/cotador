@@ -15,7 +15,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,9 +51,6 @@ public class Tabela extends PanacheEntityBase {
     @ManyToMany
     private List<Produto> produtos;
 
-    @OneToMany
-    private List<Opcao> opcoes;
-
     @ManyToMany
     private List<Entidade> entidades;
 
@@ -77,7 +73,6 @@ public class Tabela extends PanacheEntityBase {
         this.operadora = tabelaDTO.getOperadora();
         this.administradora = tabelaDTO.getAdministradora();
         this.produtos = tabelaDTO.getProdutos().stream().map(Produto::new).collect(Collectors.toList());
-        this.opcoes = tabelaDTO.getOpcoes();
         this.entidades = tabelaDTO.getEntidades();
     }
 
