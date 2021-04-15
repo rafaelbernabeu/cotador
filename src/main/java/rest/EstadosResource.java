@@ -59,15 +59,13 @@ public class EstadosResource {
     @Path("{estado}/operadoras")
     @RolesAllowed("admin")
     @Produces("application/json")
-    public Collection<Operadora> getOperadorasByEstadoAndCategoriaAndMEI(
+    public Collection<Operadora> getOperadorasByEstadoAndCategoria(
             @PathParam("estado") String siglaEstado,
-            @QueryParam("categoria") String categoria,
-            @QueryParam("mei") Boolean contemplaMei) {
+            @QueryParam("categoria") String categoria) {
 
         return Tabela.<Tabela>listAll().stream()
                 .filter(t -> t.getCategoria().getNome().equals(categoria))
                 .filter(t -> t.getEstado().getSigla().equals(siglaEstado))
-                .filter(t -> t.getContemplaMEI().equals(contemplaMei))
                 .map(Tabela::getOperadora)
                 .collect(toSet());
     }

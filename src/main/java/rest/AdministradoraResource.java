@@ -44,17 +44,15 @@ public class AdministradoraResource {
     @Path("{id}/operadoras")
     @RolesAllowed("admin")
     @Produces("application/json")
-    public Collection<Operadora> getOperadorasByAdministradoraAndEstadoAndCategoriaAndMEI(
+    public Collection<Operadora> getOperadorasByAdministradoraAndEstadoAndCategoria(
             @PathParam("id") Long idAdministradora,
             @QueryParam("estado") String siglaEstado,
-            @QueryParam("categoria") String categoria,
-            @QueryParam("mei") Boolean contemplaMei) {
+            @QueryParam("categoria") String categoria) {
 
         return Tabela.<Tabela>listAll().stream()
                 .filter(t -> t.getCategoria().getNome().equals(categoria))
                 .filter(t -> t.getEstado().getSigla().equals(siglaEstado))
                 .filter(t -> nonNull(t.getAdministradora()) && t.getAdministradora().getId().equals(idAdministradora))
-                .filter(t -> t.getContemplaMEI().equals(contemplaMei))
                 .map(Tabela::getOperadora)
                 .collect(toSet());
     }
