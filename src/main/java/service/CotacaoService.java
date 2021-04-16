@@ -38,11 +38,14 @@ public class CotacaoService {
     }
 
     private Stream<Opcao> filtraPorIdadeAndVidas(CotacaoDTO consulta, Stream<Opcao> stream) {
-        if (!consulta.getTitulares().isEmpty() || ! consulta.getDependentes().isEmpty()) {
+        if (!consulta.getTitulares().isEmpty() || !consulta.getDependentes().isEmpty()) {
             stream = stream.filter(op -> (consulta.getTitulares().size() + consulta.getDependentes().size()) >= op.getTabela().getQtdMinVidas());
             stream = stream.filter(op -> Stream.concat(consulta.getTitulares().stream(), consulta.getDependentes().stream()).max(Integer::compareTo).orElse(0) <= op.getTabela().getIdadeMaxima());
             if (consulta.getCategoria() != null && consulta.getCategoria().equals(Categoria.ADESAO.getNome())) {
                 stream = stream.filter(op -> consulta.getTitulares().stream().min(Integer::compareTo).orElse(0) >= op.getTabela().getIdadeMinima());
+            }
+            if (consulta.getCategoria() != null && consulta.getCategoria().equals(Categoria.EMPRESARIAL.getNome())) {
+                stream = stream.filter(op -> consulta.getTitulares().size() >= op.getTabela().getQtdMinTitulares());
             }
         }
 
