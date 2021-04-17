@@ -14,41 +14,39 @@ public class TabelaDTO {
 
     private Long id;
     private String nome;
-    private Boolean contemplaMEI;
+    private String reajuste;
+    private EstadoDTO estado;
+    private String categoria;
     private Boolean compulsoria;
     private Boolean livreAdesao;
     private Integer idadeMinima;
     private Integer idadeMaxima;
     private Integer qtdMinVidas;
-    private Integer qtdMinTitulares;
-    private Boolean preferencial;
-    private String reajuste;
-    private EstadoDTO estado;
-    private String categoria;
     private Operadora operadora;
-    private Administradora administradora;
-    private List<ProdutoDTO> produtos;
+    private Boolean contemplaMEI;
+    private Integer qtdMinTitulares;
     private List<Entidade> entidades;
+    private List<ProdutoDTO> produtos;
+    private Administradora administradora;
 
     public TabelaDTO() {}
     public TabelaDTO(Tabela tabela) {
         this.id = tabela.getId();
         this.nome = tabela.getNome();
-        this.contemplaMEI = tabela.getContemplaMEI();
+        this.operadora = tabela.getOperadora();
+        this.entidades = tabela.getEntidades();
         this.compulsoria = tabela.getCompulsoria();
         this.livreAdesao = tabela.getLivreAdesao();
         this.idadeMinima = tabela.getIdadeMinima();
         this.idadeMaxima = tabela.getIdadeMaxima();
         this.qtdMinVidas = tabela.getQtdMinVidas();
-        this.qtdMinTitulares = tabela.getQtdMinTitulares();
-        this.preferencial = tabela.getPreferencial();
+        this.contemplaMEI = tabela.getContemplaMEI();
         this.reajuste = tabela.getReajuste().getNome();
         this.estado = new EstadoDTO(tabela.getEstado());
         this.categoria = tabela.getCategoria().getNome();
-        this.operadora = tabela.getOperadora();
         this.administradora = tabela.getAdministradora();
+        this.qtdMinTitulares = tabela.getQtdMinTitulares();
         this.produtos = tabela.getProdutos().stream().map(ProdutoDTO::new).collect(Collectors.toList());
-        this.entidades = tabela.getEntidades();
     }
 }
 

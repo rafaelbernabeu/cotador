@@ -26,6 +26,7 @@ public class Tabela extends PanacheEntityBase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    private Reajuste reajuste;
     private Boolean contemplaMEI;
     private Boolean compulsoria;
     private Boolean livreAdesao;
@@ -33,8 +34,6 @@ public class Tabela extends PanacheEntityBase {
     private Integer idadeMaxima;
     private Integer qtdMinVidas;
     private Integer qtdMinTitulares;
-    private Boolean preferencial;
-    private Reajuste reajuste;
 
     @Enumerated(EnumType.ORDINAL)
     private Estado estado;
@@ -66,7 +65,6 @@ public class Tabela extends PanacheEntityBase {
         this.idadeMaxima = tabelaDTO.getIdadeMaxima();
         this.qtdMinVidas = tabelaDTO.getQtdMinVidas();
         this.qtdMinTitulares = tabelaDTO.getQtdMinTitulares();
-        this.preferencial = tabelaDTO.getPreferencial();
         this.reajuste = Reajuste.getByNome(tabelaDTO.getReajuste());
         this.estado = Estado.getBySigla(tabelaDTO.getEstado().getSigla());
         this.categoria = Categoria.getByNome(tabelaDTO.getCategoria());
