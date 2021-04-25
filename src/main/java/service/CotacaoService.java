@@ -18,6 +18,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
 
 @ApplicationScoped
@@ -149,18 +150,20 @@ public class CotacaoService {
     public CotacaoDTO recuperaCotacao(Long id) {
         AuditoriaCotacao cotacao = AuditoriaCotacao.findById(id);
 
-        return CotacaoDTO.builder()
+        return cotacao == null ? new CotacaoDTO() :
+                CotacaoDTO.builder()
                 .id(cotacao.getId())
+                .mei(cotacao.getMei())
                 .acomodacao(cotacao.getAcomodacao())
                 .coparticipacao(cotacao.getCoparticipacao())
                 .categoria(cotacao.getCategoria().getNome())
-                .tipoAdesao(cotacao.getTipoAdesao().getNome())
                 .estado(cotacao.getEstado() == null ? null : new EstadoDTO(cotacao.getEstado()))
+                .tipoAdesao(cotacao.getTipoAdesao() == null ? null : cotacao.getTipoAdesao().getNome())
                 .titulares(Arrays.stream(cotacao.getTitulares().split(",")).map(Integer::valueOf).collect(toList()))
-                .dependentes(cotacao.getDependentes() == null ? null : Arrays.stream(cotacao.getDependentes().split(",")).map(Integer::valueOf).collect(toList()))
-                .profissoes(cotacao.getProfissoes() == null ? null : Arrays.stream(cotacao.getProfissoes().split(",")).map(pId -> new Profissao(Long.valueOf(pId), null)).collect(toList()))
-                .operadoras(cotacao.getOperadoras() == null ? null : Arrays.stream(cotacao.getOperadoras().split(",")).map(oId -> new Operadora(Long.valueOf(oId), null, null)).collect(toList()))
-                .administradoras(cotacao.getAdministradoras() == null ? null : Arrays.stream(cotacao.getAdministradoras().split(",")).map(aId -> new Administradora(Long.valueOf(aId), null)).collect(toList()))
+                .dependentes(cotacao.getDependentes() == null || cotacao.getDependentes().isEmpty() ? emptyList() : Arrays.stream(cotacao.getDependentes().split(",")).map(Integer::valueOf).collect(toList()))
+                .profissoes(cotacao.getProfissoes() == null || cotacao.getProfissoes().isEmpty() ? emptyList() : Arrays.stream(cotacao.getProfissoes().split(",")).map(pId -> new Profissao(Long.valueOf(pId), null)).collect(toList()))
+                .operadoras(cotacao.getOperadoras() == null || cotacao.getOperadoras().isEmpty() ? emptyList() : Arrays.stream(cotacao.getOperadoras().split(",")).map(oId -> new Operadora(Long.valueOf(oId), null, null)).collect(toList()))
+                .administradoras(cotacao.getAdministradoras() == null || cotacao.getAdministradoras().isEmpty() ? emptyList() : Arrays.stream(cotacao.getAdministradoras().split(",")).map(aId -> new Administradora(Long.valueOf(aId), null)).collect(toList()))
                 .build();
     }
 }

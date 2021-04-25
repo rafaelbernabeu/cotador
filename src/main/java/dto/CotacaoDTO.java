@@ -1,5 +1,6 @@
 package dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import entities.Administradora;
 import entities.Operadora;
 import entities.Profissao;
@@ -33,42 +34,52 @@ public class CotacaoDTO {
 
     private List<OpcaoDTO> opcoes;
 
+    @JsonIgnore
     public Optional<EstadoDTO> getEstadoOptional() {
         return Optional.ofNullable(estado);
     }
 
+    @JsonIgnore
     public Optional<String> getCategoriaOptional() {
         return Optional.ofNullable(categoria);
     }
 
+    @JsonIgnore
     public Optional<String> getAcomodacaoOptional() {
         return Optional.ofNullable(acomodacao);
     }
 
+    @JsonIgnore
     public Optional<String> getTipoAdesaoOptional() {
         return Optional.ofNullable(tipoAdesao);
     }
 
+    @JsonIgnore
     public Optional<String> getCoparticipacaoOptional() {
         return Optional.ofNullable(coparticipacao);
     }
 
+    @JsonIgnore
     public Optional<List<Integer>> getTitularesOptional() {
         return Optional.ofNullable(titulares);
     }
 
+    @JsonIgnore
     public Optional<List<Integer>> getDependentesOptional() {
         return Optional.ofNullable(dependentes);
     }
 
+    @JsonIgnore
     public Optional<List<Operadora>> getOperadorasOptional() {
         return Optional.ofNullable(operadoras);
     }
 
+    @JsonIgnore
     public Optional<List<Profissao>> getProfissoesOptional() {
         return Optional.ofNullable(profissoes);
     }
 
+    @JsonIgnore
     public Optional<List<Administradora>> getAdministradorasOptional() {
         return Optional.ofNullable(administradoras);
     }
