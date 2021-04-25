@@ -16,6 +16,7 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.Collections.emptyList;
@@ -152,18 +153,28 @@ public class CotacaoService {
 
         return cotacao == null ? new CotacaoDTO() :
                 CotacaoDTO.builder()
-                .id(cotacao.getId())
-                .mei(cotacao.getMei())
-                .acomodacao(cotacao.getAcomodacao())
-                .coparticipacao(cotacao.getCoparticipacao())
-                .categoria(cotacao.getCategoria().getNome())
-                .estado(cotacao.getEstado() == null ? null : new EstadoDTO(cotacao.getEstado()))
-                .tipoAdesao(cotacao.getTipoAdesao() == null ? null : cotacao.getTipoAdesao().getNome())
-                .titulares(Arrays.stream(cotacao.getTitulares().split(",")).map(Integer::valueOf).collect(toList()))
-                .dependentes(cotacao.getDependentes() == null || cotacao.getDependentes().isEmpty() ? emptyList() : Arrays.stream(cotacao.getDependentes().split(",")).map(Integer::valueOf).collect(toList()))
-                .profissoes(cotacao.getProfissoes() == null || cotacao.getProfissoes().isEmpty() ? emptyList() : Arrays.stream(cotacao.getProfissoes().split(",")).map(pId -> new Profissao(Long.valueOf(pId), null)).collect(toList()))
-                .operadoras(cotacao.getOperadoras() == null || cotacao.getOperadoras().isEmpty() ? emptyList() : Arrays.stream(cotacao.getOperadoras().split(",")).map(oId -> new Operadora(Long.valueOf(oId), null, null)).collect(toList()))
-                .administradoras(cotacao.getAdministradoras() == null || cotacao.getAdministradoras().isEmpty() ? emptyList() : Arrays.stream(cotacao.getAdministradoras().split(",")).map(aId -> new Administradora(Long.valueOf(aId), null)).collect(toList()))
-                .build();
+                        .id(cotacao.getId())
+                        .mei(cotacao.getMei())
+                        .acomodacao(cotacao.getAcomodacao())
+                        .coparticipacao(cotacao.getCoparticipacao())
+                        .categoria(cotacao.getCategoria().getNome())
+                        .estado(cotacao.getEstado() == null ? null : new EstadoDTO(cotacao.getEstado()))
+                        .tipoAdesao(cotacao.getTipoAdesao() == null ? null : cotacao.getTipoAdesao().getNome())
+                        .titulares(Arrays.stream(cotacao.getTitulares().split(",")).map(Integer::valueOf).collect(toList()))
+                        .dependentes(cotacao.getDependentes() == null || cotacao.getDependentes().isEmpty() ? emptyList() : Arrays.stream(cotacao.getDependentes().split(",")).map(Integer::valueOf).collect(toList()))
+                        .opcoesOcultas(cotacao.getOpcoesOcultas() == null || cotacao.getOpcoesOcultas().isEmpty() ? emptyList() : Arrays.stream(cotacao.getOpcoesOcultas().split(",")).map(Long::valueOf).collect(toList()))
+                        .profissoes(cotacao.getProfissoes() == null || cotacao.getProfissoes().isEmpty() ? emptyList() : Arrays.stream(cotacao.getProfissoes().split(",")).map(pId -> new Profissao(Long.valueOf(pId), null)).collect(toList()))
+                        .operadoras(cotacao.getOperadoras() == null || cotacao.getOperadoras().isEmpty() ? emptyList() : Arrays.stream(cotacao.getOperadoras().split(",")).map(oId -> new Operadora(Long.valueOf(oId), null, null)).collect(toList()))
+                        .administradoras(cotacao.getAdministradoras() == null || cotacao.getAdministradoras().isEmpty() ? emptyList() : Arrays.stream(cotacao.getAdministradoras().split(",")).map(aId -> new Administradora(Long.valueOf(aId), null)).collect(toList()))
+                        .build();
+    }
+
+    @Transactional
+    public Long atualizaOpcoesOcultas(Long id, List<Long> idsOpcoes) {
+        AuditoriaCotacao cotacao = AuditoriaCotacao.findById(id);
+        cotacao.setOpcoesOcultas(idsOpcoes.stream().map(Object::toString).collect(Collectors.joining(",")));
+        cotacao.persist();
+
+        return cotacao.getId();
     }
 }

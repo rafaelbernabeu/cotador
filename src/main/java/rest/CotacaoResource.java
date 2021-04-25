@@ -13,6 +13,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("/api/cotacoes")
 public class CotacaoResource {
@@ -40,4 +41,12 @@ public class CotacaoResource {
         return cotacaoService.geraCotacao(cotacao);
     }
 
+    @POST
+    @GZIP
+    @Path("{id}")
+    @RolesAllowed({"user", "admin"})
+    @Produces(MediaType.APPLICATION_JSON)
+    public Long atualizaOpcoesOcultas(@PathParam("id") Long id, List<Long> idsOpcoes) {
+        return cotacaoService.atualizaOpcoesOcultas(id, idsOpcoes);
+    }
 }

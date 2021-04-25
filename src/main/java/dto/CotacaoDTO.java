@@ -33,6 +33,7 @@ public class CotacaoDTO {
     private List<Administradora> administradoras;
 
     private List<OpcaoDTO> opcoes;
+    private List<Long> opcoesOcultas;
 
     @JsonIgnore
     public Optional<EstadoDTO> getEstadoOptional() {
