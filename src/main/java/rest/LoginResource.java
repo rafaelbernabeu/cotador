@@ -1,13 +1,14 @@
 package rest;
 
 import dto.GeolocationDTO;
-import entities.AuditoriaLogin;
 import entities.Role;
 import entities.Usuario;
 import io.smallrye.jwt.build.Jwt;
 import io.vertx.core.http.HttpServerRequest;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.jboss.resteasy.annotations.GZIP;
+import service.AuditoriaService;
+import service.UsuarioService;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -22,8 +23,6 @@ import javax.ws.rs.core.SecurityContext;
 import java.security.Principal;
 import java.time.Duration;
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -40,6 +39,12 @@ public class LoginResource {
     @Inject
     JsonWebToken jwt;
 
+    @Inject
+    UsuarioService usuarioService;
+
+    @Inject
+    AuditoriaService auditoriaService;
+
     @POST
     @GZIP
     @Transactional
@@ -49,7 +54,8 @@ public class LoginResource {
         if (userPrincipal == null) {
             return Response.status(Response.Status.UNAUTHORIZED).build();
         }
-        Usuario usuario = Usuario.find("email", userPrincipal.getName()).firstResult();
+
+        Usuario usuario = usuarioService.findUsuarioByEmail(userPrincipal.getName());
         Map<String, String> response = new HashMap<>();
         response.put("token", Jwt.issuer("http://localhost/issuer")
                 .upn(usuario.getEmail())
@@ -59,15 +65,7 @@ public class LoginResource {
                 .expiresIn(Duration.of(24, HOURS))
                 .sign());
 
-        String ipRemoto = request.getHeader("X-Forwarded-For");
-        AuditoriaLogin.builder()
-                .usuario(usuario.getEmail())
-                .dataHora(LocalDateTime.now(ZoneId.of("America/Sao_Paulo")))
-                .latitude(geolocation.getLatitude())
-                .longitude(geolocation.getLongitude())
-                .userAgent(request.getHeader("user-agent"))
-                .ip(ipRemoto == null ? request.remoteAddress().toString() : ipRemoto)
-                .build().persist();
+        auditoriaService.salvarLogin(request, geolocation, usuario);
 
         return Response.ok(response).build();
     }

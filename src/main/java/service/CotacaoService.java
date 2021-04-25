@@ -1,19 +1,35 @@
 package service;
 
 import dto.CotacaoDTO;
+import dto.EstadoDTO;
 import dto.OpcaoDTO;
+import entities.Administradora;
+import entities.AuditoriaCotacao;
 import entities.Opcao;
+import entities.Operadora;
+import entities.Profissao;
+import entities.enums.Adesao;
 import entities.enums.Categoria;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import javax.transaction.Transactional;
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 @ApplicationScoped
 public class CotacaoService {
 
-    public List<OpcaoDTO> geraCotacao(CotacaoDTO consulta) {
+    @Inject
+    AuditoriaService auditoriaService;
+
+    @Transactional
+    public CotacaoDTO geraCotacao(CotacaoDTO consulta) {
+        AuditoriaCotacao auditoriaCotacao = auditoriaService.salvarCotacao(consulta);
+
         Stream<Opcao> stream = Opcao.<Opcao>listAll().stream();
         stream = filtraPorProdutoAtivo(stream);
         stream = filtraPorCoparticipacao(consulta, stream);
@@ -27,10 +43,12 @@ public class CotacaoService {
         stream = filtraPorOperadora(consulta, stream);
         stream = filtraPorProfissao(consulta, stream);
 
-        List<OpcaoDTO> cotacao = stream.map(OpcaoDTO::new).collect(Collectors.toList());
+        List<OpcaoDTO> opcoes = stream.map(OpcaoDTO::new).collect(toList());
+        removeEntidadesPorProfissao(consulta, opcoes);
 
-        removeEntidadesPorProfissao(consulta, cotacao);
-        return cotacao;
+        consulta.setId(auditoriaCotacao.getId());
+        consulta.setOpcoes(opcoes);
+        return consulta;
     }
 
     private Stream<Opcao> filtraPorProdutoAtivo(Stream<Opcao> stream) {
@@ -53,7 +71,7 @@ public class CotacaoService {
     }
 
     private Stream<Opcao> filtraPorAcomodacao(CotacaoDTO consulta, Stream<Opcao> stream) {
-        if (consulta.getAcomodacao() != null && !consulta.getAcomodacao().equals("")) {
+        if (consulta.getAcomodacao() != null && !consulta.getAcomodacao().equals("Ambas")) {
             stream = stream.filter(op -> op.getAcomodacao().getNome().equals(consulta.getAcomodacao()));
         }
         return stream;
@@ -67,8 +85,8 @@ public class CotacaoService {
     }
 
     private Stream<Opcao> filtraPorCoparticipacao(CotacaoDTO consulta, Stream<Opcao> stream) {
-        if (consulta.getCoparticipacao() != null) {
-            stream = stream.filter(op -> op.getCoparticipacao().equals(consulta.getCoparticipacao()));
+        if (consulta.getCoparticipacao() != null && !consulta.getCoparticipacao().equals("Ambas")) {
+            stream = stream.filter(op -> op.getCoparticipacao().equals(Boolean.parseBoolean(consulta.getCoparticipacao())));
         }
         return stream;
     }
@@ -82,7 +100,7 @@ public class CotacaoService {
 
     private Stream<Opcao> filtraPorEstado(CotacaoDTO consulta, Stream<Opcao> stream) {
         if (consulta.getEstado() != null) {
-            stream = stream.filter(op -> op.getTabela().getEstado().getNome().equals(consulta.getEstado().getNome()));
+            stream = stream.filter(op -> op.getTabela().getEstado().getSigla().equals(consulta.getEstado().getSigla()));
         }
         return stream;
     }
@@ -99,9 +117,9 @@ public class CotacaoService {
         String tipoAdesao = consulta.getTipoAdesao();
 
         if (categoria != null && categoria.equals(Categoria.EMPRESARIAL.getNome()) && tipoAdesao != null) {
-            if (tipoAdesao.equals("livreAdesao")) {
+            if (tipoAdesao.equals(Adesao.LIVRE_ADESAO.getNome())) {
                 stream = stream.filter(op -> op.getTabela().getLivreAdesao());
-            } else if (tipoAdesao.equals("compulsoria")) {
+            } else if (tipoAdesao.equals(Adesao.COMPULSORIA.getNome())) {
                 stream = stream.filter(op -> op.getTabela().getCompulsoria());
             }
         }
@@ -126,5 +144,23 @@ public class CotacaoService {
         if (consulta.getProfissoes() != null && !consulta.getProfissoes().isEmpty()) {
             cotacao.forEach(c -> c.getTabela().getEntidades().removeIf(entidade -> entidade.getProfissoes().stream().noneMatch(p -> consulta.getProfissoes().contains(p))));
         }
+    }
+
+    public CotacaoDTO recuperaCotacao(Long id) {
+        AuditoriaCotacao cotacao = AuditoriaCotacao.findById(id);
+
+        return CotacaoDTO.builder()
+                .id(cotacao.getId())
+                .acomodacao(cotacao.getAcomodacao())
+                .coparticipacao(cotacao.getCoparticipacao())
+                .categoria(cotacao.getCategoria().getNome())
+                .tipoAdesao(cotacao.getTipoAdesao().getNome())
+                .estado(cotacao.getEstado() == null ? null : new EstadoDTO(cotacao.getEstado()))
+                .titulares(Arrays.stream(cotacao.getTitulares().split(",")).map(Integer::valueOf).collect(toList()))
+                .dependentes(cotacao.getDependentes() == null ? null : Arrays.stream(cotacao.getDependentes().split(",")).map(Integer::valueOf).collect(toList()))
+                .profissoes(cotacao.getProfissoes() == null ? null : Arrays.stream(cotacao.getProfissoes().split(",")).map(pId -> new Profissao(Long.valueOf(pId), null)).collect(toList()))
+                .operadoras(cotacao.getOperadoras() == null ? null : Arrays.stream(cotacao.getOperadoras().split(",")).map(oId -> new Operadora(Long.valueOf(oId), null, null)).collect(toList()))
+                .administradoras(cotacao.getAdministradoras() == null ? null : Arrays.stream(cotacao.getAdministradoras().split(",")).map(aId -> new Administradora(Long.valueOf(aId), null)).collect(toList()))
+                .build();
     }
 }

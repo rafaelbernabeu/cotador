@@ -15,6 +15,10 @@ import java.util.stream.Stream;
 @Singleton
 public class UsuarioService {
 
+    public Usuario findUsuarioByEmail(String email) {
+        return Usuario.find("email", email).firstResult();
+    }
+
     @Transactional
     public void carregaUsuarios(@Observes StartupEvent evt) {
         List<Role> roles = Role.listAll();
