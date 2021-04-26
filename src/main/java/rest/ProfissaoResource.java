@@ -19,6 +19,7 @@ import java.util.List;
 
 import static service.UsuarioService.ADMIN;
 import static service.UsuarioService.OPERADOR;
+import static service.UsuarioService.POS_VENDAS;
 import static service.UsuarioService.VENDEDOR;
 
 @Path("/api/profissoes")
@@ -38,7 +39,7 @@ public class ProfissaoResource {
 
     @GET
     @GZIP
-    @RolesAllowed({ADMIN, VENDEDOR, OPERADOR})
+    @RolesAllowed({ADMIN, VENDEDOR, OPERADOR, POS_VENDAS})
     @Produces("application/json")
     public List<Profissao> list() {
         return Profissao.listAll();
@@ -47,7 +48,7 @@ public class ProfissaoResource {
     @POST
     @GZIP
     @Transactional
-    @RolesAllowed({ADMIN, OPERADOR})
+    @RolesAllowed({ADMIN, OPERADOR, POS_VENDAS})
     @Consumes("application/json")
     @Produces("application/json")
     public Profissao add(Profissao profissao) {
@@ -58,7 +59,7 @@ public class ProfissaoResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed({ADMIN, OPERADOR})
+    @RolesAllowed({ADMIN, OPERADOR, POS_VENDAS})
     @Consumes("application/json")
     @Produces("application/json")
     public Profissao update(@PathParam("id") Long id, Profissao profissao) {
@@ -69,7 +70,7 @@ public class ProfissaoResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed({ADMIN, OPERADOR})
+    @RolesAllowed({ADMIN, OPERADOR, POS_VENDAS})
     public boolean delete(@PathParam("id") Long id) {
         return profissaoResource.delete(id);
     }
