@@ -20,6 +20,7 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 import static service.UsuarioService.ADMIN;
+import static service.UsuarioService.OPERADOR;
 
 @Path("/api/opcoes")
 public class OpcaoResource {
@@ -38,7 +39,7 @@ public class OpcaoResource {
 
     @GET
     @GZIP
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, OPERADOR})
     @Produces("application/json")
     public List<OpcaoDTO> list() {
         return Opcao.<Opcao>listAll().stream().map(OpcaoDTO::new).collect(toList());
@@ -47,7 +48,7 @@ public class OpcaoResource {
     @POST
     @GZIP
     @Transactional
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, OPERADOR})
     @Consumes("application/json")
     @Produces("application/json")
     public OpcaoDTO add(OpcaoDTO opcaoDTO) {
@@ -58,7 +59,7 @@ public class OpcaoResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, OPERADOR})
     @Consumes("application/json")
     @Produces("application/json")
     public OpcaoDTO update(@PathParam("id") Long id, OpcaoDTO opcaoDTO) {
@@ -69,7 +70,7 @@ public class OpcaoResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, OPERADOR})
     public boolean delete(@PathParam("id") Long id) {
         return opcaoResource.delete(id);
     }

@@ -12,13 +12,14 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 import static service.UsuarioService.ADMIN;
+import static service.UsuarioService.OPERADOR;
 
 @Path("/api/reajustes")
 public class ReajusteResource {
 
     @GET
     @GZIP
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, OPERADOR})
     @Produces("application/json")
     public List<String> getReajustes() {
         return Arrays.stream(Reajuste.values()).map(Reajuste::getNome).collect(toList());

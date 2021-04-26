@@ -28,6 +28,7 @@ import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 import static service.UsuarioService.ADMIN;
+import static service.UsuarioService.OPERADOR;
 import static service.UsuarioService.VENDEDOR;
 
 @Path("/api/operadoras")
@@ -48,7 +49,7 @@ public class OperadoraResource {
     @GET
     @GZIP
     @Path("{id}/produtos")
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, OPERADOR})
     @Produces("application/json")
     public List<ProdutoDTO> getProdutosByOperadora(@PathParam("id") Long id) {
         return Produto.<Produto>listAll().stream().filter(p -> p.getOperadora().getId().equals(id)).map(ProdutoDTO::new).collect(toList());
@@ -57,7 +58,7 @@ public class OperadoraResource {
     @GET
     @GZIP
     @Path("{id}/tabelas")
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, OPERADOR})
     @Produces("application/json")
     public Collection<TabelaDTO> getTabelasByOperadoraAndAdministradoraAndEstadoAndCategoriaAndMEI(
             @PathParam("id") Long idOperadora,
@@ -85,7 +86,7 @@ public class OperadoraResource {
 
     @GET
     @GZIP
-    @RolesAllowed({ADMIN, VENDEDOR})
+    @RolesAllowed({ADMIN, VENDEDOR, OPERADOR})
     @Produces("application/json")
     public List<Operadora> list() {
         return Operadora.listAll();
@@ -94,7 +95,7 @@ public class OperadoraResource {
     @POST
     @GZIP
     @Transactional
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, OPERADOR})
     @Consumes("application/json")
     @Produces("application/json")
     public Operadora add(Operadora operadora) {
@@ -105,7 +106,7 @@ public class OperadoraResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, OPERADOR})
     @Consumes("application/json")
     @Produces("application/json")
     public Operadora update(@PathParam("id") Long id, Operadora operadora) {
@@ -116,7 +117,7 @@ public class OperadoraResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, OPERADOR})
     public boolean delete(@PathParam("id") Long id) {
         return operadoraResource.delete(id);
     }

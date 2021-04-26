@@ -24,6 +24,7 @@ import java.util.List;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toSet;
 import static service.UsuarioService.ADMIN;
+import static service.UsuarioService.OPERADOR;
 import static service.UsuarioService.VENDEDOR;
 
 @Path("/api/administradoras")
@@ -44,7 +45,7 @@ public class AdministradoraResource {
     @GET
     @GZIP
     @Path("{id}/operadoras")
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, OPERADOR})
     @Produces("application/json")
     public Collection<Operadora> getOperadorasByAdministradoraAndEstadoAndCategoria(
             @PathParam("id") Long idAdministradora,
@@ -61,7 +62,7 @@ public class AdministradoraResource {
 
     @GET
     @GZIP
-    @RolesAllowed({ADMIN, VENDEDOR})
+    @RolesAllowed({ADMIN, VENDEDOR, OPERADOR})
     @Produces("application/json")
     public List<Administradora> list() {
         return Administradora.listAll();
@@ -70,7 +71,7 @@ public class AdministradoraResource {
     @POST
     @GZIP
     @Transactional
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, OPERADOR})
     @Consumes("application/json")
     @Produces("application/json")
     public Administradora add(Administradora administradora) {
@@ -81,7 +82,7 @@ public class AdministradoraResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, OPERADOR})
     @Consumes("application/json")
     @Produces("application/json")
     public Administradora update(@PathParam("id") Long id, Administradora administradora) {
@@ -92,7 +93,7 @@ public class AdministradoraResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, OPERADOR})
     public boolean delete(@PathParam("id") Long id) {
         return administradoraResource.delete(id);
     }
