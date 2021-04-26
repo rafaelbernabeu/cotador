@@ -17,13 +17,14 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 import static service.UsuarioService.ADMIN;
+import static service.UsuarioService.VENDEDOR;
 
 @Path("/api/categorias")
 public class CategoriaResource  {
 
     @GET
     @GZIP
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, VENDEDOR})
     @Produces("application/json")
     public List<String> getCategorias() {
         return Arrays.stream(Categoria.values()).map(Categoria::getNome).collect(toList());

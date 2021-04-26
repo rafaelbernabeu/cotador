@@ -24,6 +24,7 @@ import java.util.List;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toSet;
 import static service.UsuarioService.ADMIN;
+import static service.UsuarioService.VENDEDOR;
 
 @Path("/api/administradoras")
 public class AdministradoraResource {
@@ -60,7 +61,7 @@ public class AdministradoraResource {
 
     @GET
     @GZIP
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, VENDEDOR})
     @Produces("application/json")
     public List<Administradora> list() {
         return Administradora.listAll();

@@ -18,6 +18,7 @@ import javax.ws.rs.Produces;
 import java.util.List;
 
 import static service.UsuarioService.ADMIN;
+import static service.UsuarioService.VENDEDOR;
 
 @Path("/api/hospitais")
 public class HospitalResource {
@@ -36,7 +37,7 @@ public class HospitalResource {
 
     @GET
     @GZIP
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, VENDEDOR})
     @Produces("application/json")
     public List<Hospital> list() {
         return Hospital.listAll();

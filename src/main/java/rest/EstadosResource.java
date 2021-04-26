@@ -22,13 +22,14 @@ import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 import static service.UsuarioService.ADMIN;
+import static service.UsuarioService.VENDEDOR;
 
 @Path("/api/estados")
 public class EstadosResource {
 
     @GET
     @GZIP
-    @RolesAllowed({ADMIN})
+    @RolesAllowed({ADMIN, VENDEDOR})
     @Produces("application/json")
     public List<EstadoDTO> getEstados() {
         List<Estado> estados = new ArrayList<>(Estado.values().length);
