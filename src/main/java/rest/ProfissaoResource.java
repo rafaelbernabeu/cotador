@@ -17,6 +17,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.List;
 
+import static service.UsuarioService.ADMIN;
+
 @Path("/api/profissoes")
 public class ProfissaoResource {
 
@@ -26,7 +28,7 @@ public class ProfissaoResource {
     @GET
     @GZIP
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public Profissao get(@PathParam("id") Long id) {
         return profissaoResource.get(id);
@@ -34,7 +36,7 @@ public class ProfissaoResource {
 
     @GET
     @GZIP
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<Profissao> list() {
         return Profissao.listAll();
@@ -43,7 +45,7 @@ public class ProfissaoResource {
     @POST
     @GZIP
     @Transactional
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Consumes("application/json")
     @Produces("application/json")
     public Profissao add(Profissao profissao) {
@@ -54,7 +56,7 @@ public class ProfissaoResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Consumes("application/json")
     @Produces("application/json")
     public Profissao update(@PathParam("id") Long id, Profissao profissao) {
@@ -65,7 +67,7 @@ public class ProfissaoResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     public boolean delete(@PathParam("id") Long id) {
         return profissaoResource.delete(id);
     }

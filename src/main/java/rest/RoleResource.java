@@ -11,6 +11,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import java.util.List;
 
+import static service.UsuarioService.ADMIN;
+
 @Path("/api/roles")
 public class RoleResource {
 
@@ -19,7 +21,7 @@ public class RoleResource {
 
     @GET
     @GZIP
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<Role> listAll() {
         return Role.listAll();

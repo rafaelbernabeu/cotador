@@ -20,6 +20,8 @@ import javax.ws.rs.Produces;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static service.UsuarioService.ADMIN;
+
 @Path("/api/usuarios")
 public class UsuarioResource {
 
@@ -32,7 +34,7 @@ public class UsuarioResource {
     @GET
     @GZIP
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public UsuarioDTO get(@PathParam("id") Long id) {
         return new UsuarioDTO(usuarioResource.get(id));
@@ -41,7 +43,7 @@ public class UsuarioResource {
 
     @GET
     @GZIP
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<UsuarioDTO> list() {
         return Usuario.<Usuario>listAll().stream().map(UsuarioDTO::new).collect(Collectors.toList());
@@ -50,7 +52,7 @@ public class UsuarioResource {
     @POST
     @GZIP
     @Transactional
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Consumes("application/json")
     @Produces("application/json")
     public UsuarioDTO add(Usuario usuario) {
@@ -61,7 +63,7 @@ public class UsuarioResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Consumes("application/json")
     @Produces("application/json")
     public UsuarioDTO update(@PathParam("id") Long id, Usuario usuarioNovo) {
@@ -74,7 +76,7 @@ public class UsuarioResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     public boolean delete(@PathParam("id") Long id) {
         return usuarioResource.delete(id);
     }

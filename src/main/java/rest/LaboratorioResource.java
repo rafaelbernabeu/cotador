@@ -17,6 +17,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.List;
 
+import static service.UsuarioService.ADMIN;
+
 @Path("/api/laboratorios")
 public class LaboratorioResource {
 
@@ -26,7 +28,7 @@ public class LaboratorioResource {
     @GET
     @GZIP
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public Laboratorio get(@PathParam("id") Long id) {
         return laboratorioResource.get(id);
@@ -34,7 +36,7 @@ public class LaboratorioResource {
 
     @GET
     @GZIP
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<Laboratorio> list() {
         return Laboratorio.<Laboratorio>listAll();
@@ -43,7 +45,7 @@ public class LaboratorioResource {
     @POST
     @GZIP
     @Transactional
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Consumes("application/json")
     @Produces("application/json")
     public Laboratorio add(Laboratorio laboratorio) {
@@ -54,7 +56,7 @@ public class LaboratorioResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Consumes("application/json")
     @Produces("application/json")
     public Laboratorio update(@PathParam("id") Long id, Laboratorio laboratorio) {
@@ -65,7 +67,7 @@ public class LaboratorioResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     public boolean delete(@PathParam("id") Long id) {
         return laboratorioResource.delete(id);
     }

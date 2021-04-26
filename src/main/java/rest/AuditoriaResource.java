@@ -12,13 +12,15 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import java.util.List;
 
+import static service.UsuarioService.ADMIN;
+
 @Path("/api/auditoria")
 public class AuditoriaResource {
 
     @GET
     @GZIP
     @Path("/login")
-    @RolesAllowed({"admin"})
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<AuditoriaLogin> getHistoricoLogins() {
         return AuditoriaLogin.listAll(Sort.descending("id"));
@@ -27,7 +29,7 @@ public class AuditoriaResource {
     @GET
     @GZIP
     @Path("/cotacao")
-    @RolesAllowed({"admin"})
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<AuditoriaCotacao> getHistoricoCotacoes() {
         return AuditoriaCotacao.listAll();
@@ -36,7 +38,7 @@ public class AuditoriaResource {
     @GET
     @GZIP
     @Path("/alteracao")
-    @RolesAllowed({"admin"})
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<AuditoriaAlteracao> getHistoricoAlteracoes() {
         return AuditoriaAlteracao.listAll();

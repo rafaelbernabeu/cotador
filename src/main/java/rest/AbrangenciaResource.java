@@ -11,13 +11,14 @@ import java.util.Arrays;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
+import static service.UsuarioService.ADMIN;
 
 @Path("/api/abrangencias")
 public class AbrangenciaResource {
 
     @GET
     @GZIP
-    @RolesAllowed({"user", "admin"})
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<String> getAbrangencias() {
         return Arrays.stream(Abrangencia.values()).map(Abrangencia::getNome).collect(toList());

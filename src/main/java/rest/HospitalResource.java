@@ -17,6 +17,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.List;
 
+import static service.UsuarioService.ADMIN;
+
 @Path("/api/hospitais")
 public class HospitalResource {
 
@@ -26,7 +28,7 @@ public class HospitalResource {
     @GET
     @GZIP
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public Hospital get(@PathParam("id") Long id) {
         return hospitalResource.get(id);
@@ -34,7 +36,7 @@ public class HospitalResource {
 
     @GET
     @GZIP
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<Hospital> list() {
         return Hospital.listAll();
@@ -43,7 +45,7 @@ public class HospitalResource {
     @POST
     @GZIP
     @Transactional
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Consumes("application/json")
     @Produces("application/json")
     public Hospital add(Hospital hospital) {
@@ -54,7 +56,7 @@ public class HospitalResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Consumes("application/json")
     @Produces("application/json")
     public Hospital update(@PathParam("id") Long id, Hospital hospital) {
@@ -65,7 +67,7 @@ public class HospitalResource {
     @GZIP
     @Path("{id}")
     @Transactional
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     public boolean delete(@PathParam("id") Long id) {
         return hospitalResource.delete(id);
     }

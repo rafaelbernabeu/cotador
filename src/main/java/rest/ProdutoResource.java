@@ -19,6 +19,7 @@ import javax.ws.rs.Produces;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
+import static service.UsuarioService.ADMIN;
 
 @Path("/api/produtos")
 public class ProdutoResource {
@@ -29,7 +30,7 @@ public class ProdutoResource {
     @GET
     @GZIP
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public Produto get(@PathParam("id") Long id) {
         return produtoResource.get(id);
@@ -41,7 +42,7 @@ public class ProdutoResource {
      */
     @GET
     @GZIP
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<ProdutoDTO> list() {
         return Produto.<Produto>listAll().stream().map(ProdutoDTO::new).collect(toList());
@@ -50,7 +51,7 @@ public class ProdutoResource {
     @POST
     @GZIP
     @Transactional
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Consumes("application/json")
     @Produces("application/json")
     public ProdutoDTO add(ProdutoDTO produtoDTO) {
@@ -61,7 +62,7 @@ public class ProdutoResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Consumes("application/json")
     @Produces("application/json")
     public ProdutoDTO update(@PathParam("id") Long id, ProdutoDTO produtoDTO) {
@@ -72,7 +73,7 @@ public class ProdutoResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     public boolean delete(@PathParam("id") Long id) {
         return produtoResource.delete(id);
     }

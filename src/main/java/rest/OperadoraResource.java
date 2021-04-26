@@ -27,6 +27,7 @@ import java.util.stream.Stream;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
+import static service.UsuarioService.ADMIN;
 
 @Path("/api/operadoras")
 public class OperadoraResource {
@@ -37,7 +38,7 @@ public class OperadoraResource {
     @GET
     @GZIP
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public Operadora get(@PathParam("id") Long id) {
         return operadoraResource.get(id);
@@ -46,7 +47,7 @@ public class OperadoraResource {
     @GET
     @GZIP
     @Path("{id}/produtos")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<ProdutoDTO> getProdutosByOperadora(@PathParam("id") Long id) {
         return Produto.<Produto>listAll().stream().filter(p -> p.getOperadora().getId().equals(id)).map(ProdutoDTO::new).collect(toList());
@@ -55,7 +56,7 @@ public class OperadoraResource {
     @GET
     @GZIP
     @Path("{id}/tabelas")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public Collection<TabelaDTO> getTabelasByOperadoraAndAdministradoraAndEstadoAndCategoriaAndMEI(
             @PathParam("id") Long idOperadora,
@@ -83,7 +84,7 @@ public class OperadoraResource {
 
     @GET
     @GZIP
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<Operadora> list() {
         return Operadora.listAll();
@@ -92,7 +93,7 @@ public class OperadoraResource {
     @POST
     @GZIP
     @Transactional
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Consumes("application/json")
     @Produces("application/json")
     public Operadora add(Operadora operadora) {
@@ -103,7 +104,7 @@ public class OperadoraResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Consumes("application/json")
     @Produces("application/json")
     public Operadora update(@PathParam("id") Long id, Operadora operadora) {
@@ -114,7 +115,7 @@ public class OperadoraResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     public boolean delete(@PathParam("id") Long id) {
         return operadoraResource.delete(id);
     }

@@ -17,6 +17,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import java.util.List;
 
+import static service.UsuarioService.ADMIN;
+
 @Path("/api/entidades")
 public class EntidadeResource {
 
@@ -26,7 +28,7 @@ public class EntidadeResource {
     @GET
     @GZIP
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public Entidade get(@PathParam("id") Long id) {
         return entidadeResource.get(id);
@@ -34,7 +36,7 @@ public class EntidadeResource {
 
     @GET
     @GZIP
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<Entidade> list() {
         return Entidade.listAll();
@@ -43,7 +45,7 @@ public class EntidadeResource {
     @POST
     @GZIP
     @Transactional
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Consumes("application/json")
     @Produces("application/json")
     public Entidade add(Entidade entidade) {
@@ -54,7 +56,7 @@ public class EntidadeResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Consumes("application/json")
     @Produces("application/json")
     public Entidade update(@PathParam("id") Long id, Entidade entidade) {
@@ -65,7 +67,7 @@ public class EntidadeResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     public boolean delete(@PathParam("id") Long id) {
         return entidadeResource.delete(id);
     }

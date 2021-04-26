@@ -11,13 +11,14 @@ import java.util.Arrays;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
+import static service.UsuarioService.ADMIN;
 
 @Path("/api/acomodacoes")
 public class AcomodacoesResource {
 
     @GET
     @GZIP
-    @RolesAllowed({"user", "admin"})
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<String> getAcomodacoes() {
         return Arrays.stream(Acomodacao.values()).map(Acomodacao::getNome).collect(toList());

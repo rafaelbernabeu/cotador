@@ -25,6 +25,7 @@ import java.util.stream.Stream;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
+import static service.UsuarioService.ADMIN;
 
 @Path("/api/tabelas")
 public class TabelaResource {
@@ -35,7 +36,7 @@ public class TabelaResource {
     @GET
     @GZIP
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public Tabela get(@PathParam("id") Long id) {
         return tabelaResource.get(id);
@@ -44,7 +45,7 @@ public class TabelaResource {
     @GET
     @GZIP
     @Path("{id}/produtos")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public Collection<ProdutoDTO> getProdutosByTabelaAndOperadoraAndAdministradoraAndEstadoAndCategoriaAndMEI(
             @PathParam("id") Long idTabela,
@@ -75,7 +76,7 @@ public class TabelaResource {
 
     @GET
     @GZIP
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<TabelaDTO> list() {
         return Tabela.<Tabela>listAll().stream().map(TabelaDTO::new).collect(toList());
@@ -84,7 +85,7 @@ public class TabelaResource {
     @POST
     @GZIP
     @Transactional
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Consumes("application/json")
     @Produces("application/json")
     public TabelaDTO add(TabelaDTO tabelaDTO) {
@@ -95,7 +96,7 @@ public class TabelaResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Consumes("application/json")
     @Produces("application/json")
     public TabelaDTO update(@PathParam("id") Long id, TabelaDTO tabelaDTO) {
@@ -109,7 +110,7 @@ public class TabelaResource {
     @GZIP
     @Transactional
     @Path("{id}")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     public boolean delete(@PathParam("id") Long id) {
         return tabelaResource.delete(id);
     }

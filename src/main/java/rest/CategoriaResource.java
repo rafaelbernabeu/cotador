@@ -16,13 +16,14 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
+import static service.UsuarioService.ADMIN;
 
 @Path("/api/categorias")
 public class CategoriaResource  {
 
     @GET
     @GZIP
-    @RolesAllowed({"user", "admin"})
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<String> getCategorias() {
         return Arrays.stream(Categoria.values()).map(Categoria::getNome).collect(toList());
@@ -31,7 +32,7 @@ public class CategoriaResource  {
     @GET
     @GZIP
     @Path("/{categoria}/estados")
-    @RolesAllowed({"user", "admin"})
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public Collection<EstadoDTO> getCategorias(@PathParam("categoria") String categoria) {
         return Tabela.<Tabela>listAll().stream()

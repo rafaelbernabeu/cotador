@@ -21,13 +21,14 @@ import java.util.List;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
+import static service.UsuarioService.ADMIN;
 
 @Path("/api/estados")
 public class EstadosResource {
 
     @GET
     @GZIP
-    @RolesAllowed({"user", "admin"})
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<EstadoDTO> getEstados() {
         List<Estado> estados = new ArrayList<>(Estado.values().length);
@@ -42,7 +43,7 @@ public class EstadosResource {
     @GET
     @GZIP
     @Path("{sigla}/administradoras")
-    @RolesAllowed({"user", "admin"})
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public Collection<Administradora> getAdmininstradorasByEstadoAndCategoria(@PathParam("sigla") String sigla, @QueryParam("categoria") String categoria) {
         return Tabela.<Tabela>listAll().stream()
@@ -57,7 +58,7 @@ public class EstadosResource {
     @GET
     @GZIP
     @Path("{estado}/operadoras")
-    @RolesAllowed("admin")
+    @RolesAllowed({ADMIN})
     @Produces("application/json")
     public Collection<Operadora> getOperadorasByEstadoAndCategoria(
             @PathParam("estado") String siglaEstado,

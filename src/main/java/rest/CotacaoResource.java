@@ -15,6 +15,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+import static service.UsuarioService.ADMIN;
+
 @Path("/api/cotacoes")
 public class CotacaoResource {
 
@@ -27,7 +29,7 @@ public class CotacaoResource {
     @GET
     @GZIP
     @Path("{id}")
-    @RolesAllowed({"user", "admin"})
+    @RolesAllowed({ADMIN})
     @Produces(MediaType.APPLICATION_JSON)
     public CotacaoDTO recuperaCotacao(@PathParam("id") Long id) {
         return cotacaoService.recuperaCotacao(id);
@@ -35,7 +37,7 @@ public class CotacaoResource {
 
     @POST
     @GZIP
-    @RolesAllowed({"user", "admin"})
+    @RolesAllowed({ADMIN})
     @Produces(MediaType.APPLICATION_JSON)
     public CotacaoDTO geraCotacao(CotacaoDTO cotacao) {
         return cotacaoService.geraCotacao(cotacao);
@@ -44,7 +46,7 @@ public class CotacaoResource {
     @POST
     @GZIP
     @Path("{id}")
-    @RolesAllowed({"user", "admin"})
+    @RolesAllowed({ADMIN})
     @Produces(MediaType.APPLICATION_JSON)
     public Long atualizaOpcoesOcultas(@PathParam("id") Long id, List<Long> idsOpcoes) {
         return cotacaoService.atualizaOpcoesOcultas(id, idsOpcoes);

@@ -15,6 +15,11 @@ import java.util.stream.Stream;
 @Singleton
 public class UsuarioService {
 
+    public static final String ADMIN = "ADMIN";
+    public static final String VENDEDOR = "VENDEDOR";
+    public static final String OPERADOR = "OPERADOR";
+    public static final String POS_VENDAS = "POS-VENDAS";
+
     public Usuario findUsuarioByEmail(String email) {
         return Usuario.find("email", email).firstResult();
     }
@@ -23,18 +28,30 @@ public class UsuarioService {
     public void carregaUsuarios(@Observes StartupEvent evt) {
         List<Role> roles = Role.listAll();
         List<Usuario> usuarios = Usuario.listAll();
-        if (roles.stream().noneMatch(r -> r.getRole().equals("admin"))) {
-            Role.persist("admin");
+        if (roles.stream().noneMatch(r -> r.getRole().equals(ADMIN))) {
+            Role.persist(ADMIN);
         }
-        if (roles.stream().noneMatch(r -> r.getRole().equals("user"))) {
-            Role.persist("user");
+        if (roles.stream().noneMatch(r -> r.getRole().equals(VENDEDOR))) {
+            Role.persist(VENDEDOR);
+        }
+        if (roles.stream().noneMatch(r -> r.getRole().equals(OPERADOR))) {
+            Role.persist(OPERADOR);
+        }
+        if (roles.stream().noneMatch(r -> r.getRole().equals(POS_VENDAS))) {
+            Role.persist(POS_VENDAS);
         }
 
-        if (usuarios.stream().noneMatch(u -> u.getEmail().equals("admin@admin.com"))) {
-            adicionarUsuario("admin", "admin@admin.com", "admin", "admin");
+        if (usuarios.stream().noneMatch(u -> u.getEmail().equals("admin@cotador.com"))) {
+            adicionarUsuario("admin", "admin@cotador.com", "admin", ADMIN);
         }
-        if (usuarios.stream().noneMatch(u -> u.getEmail().equals("user@user.com"))) {
-            adicionarUsuario("user", "user@user.com", "user", "user");
+        if (usuarios.stream().noneMatch(u -> u.getEmail().equals("vendedor@cotador.com"))) {
+            adicionarUsuario("vendedor", "vendedor@cotador.com", "vendedor", VENDEDOR);
+        }
+        if (usuarios.stream().noneMatch(u -> u.getEmail().equals("operador@cotador.com"))) {
+            adicionarUsuario("operador", "operador@cotador.com", "operador", OPERADOR);
+        }
+        if (usuarios.stream().noneMatch(u -> u.getEmail().equals("posvendas@cotador.com"))) {
+            adicionarUsuario("pos-vendas", "posvendas@cotador.com", "posvendas", POS_VENDAS);
         }
     }
 
@@ -48,9 +65,4 @@ public class UsuarioService {
         usuario.persist();
     }
 
-    @Transactional
-    public static void adicionarUsuario(Usuario usuario) {
-        usuario.setPassword(BcryptUtil.bcryptHash(usuario.getPassword()));
-        usuario.persist();
-    }
 }
