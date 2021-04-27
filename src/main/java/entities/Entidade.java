@@ -19,6 +19,9 @@ public class Entidade extends PanacheEntityBase {
     private Long id;
 
     private String nome;
+    private String observacoes;
+    private String documentacao;
+    private String valorAssociacao;
 
     @ManyToMany
     private List<Profissao> profissoes;
