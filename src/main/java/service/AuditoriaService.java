@@ -5,7 +5,6 @@ import dto.GeolocationDTO;
 import entities.AuditoriaCotacao;
 import entities.AuditoriaLogin;
 import entities.Usuario;
-import io.quarkus.security.identity.SecurityIdentity;
 import io.vertx.core.http.HttpServerRequest;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -17,13 +16,13 @@ import java.time.ZoneId;
 public class AuditoriaService {
 
     @Inject
-    SecurityIdentity securityIdentity;
+    SegurancaService segurancaService;
 
     @Inject
     UsuarioService usuarioService;
 
     public AuditoriaCotacao salvarCotacao(CotacaoDTO cotacao) {
-        Usuario usuario = usuarioService.findUsuarioByEmail(securityIdentity.getPrincipal().getName());
+        Usuario usuario = usuarioService.findUsuarioByEmail(segurancaService.getEmailUsuarioLogado());
         AuditoriaCotacao auditoriaCotacao = new AuditoriaCotacao(cotacao, usuario);
         auditoriaCotacao.persist();
         return auditoriaCotacao;

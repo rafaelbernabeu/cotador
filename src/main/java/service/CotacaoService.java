@@ -58,7 +58,7 @@ public class CotacaoService {
     }
 
     private Stream<Opcao> filtraPorIdadeAndVidas(CotacaoDTO consulta, Stream<Opcao> stream) {
-        if (!consulta.getTitulares().isEmpty() || !consulta.getDependentes().isEmpty()) {
+        if (consulta.getTitulares() != null && consulta.getDependentes() != null) {
             stream = stream.filter(op -> (consulta.getTitulares().size() + consulta.getDependentes().size()) >= op.getTabela().getQtdMinVidas());
             stream = stream.filter(op -> Stream.concat(consulta.getTitulares().stream(), consulta.getDependentes().stream()).max(Integer::compareTo).orElse(0) <= op.getTabela().getIdadeMaxima());
             if (consulta.getCategoria() != null && consulta.getCategoria().equals(Categoria.ADESAO.getNome())) {

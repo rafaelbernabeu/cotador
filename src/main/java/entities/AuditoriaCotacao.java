@@ -47,7 +47,7 @@ public class AuditoriaCotacao extends PanacheEntityBase {
     private String administradoras;
     private String coparticipacao;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Usuario usuario;
     private LocalDateTime dataHora;
 

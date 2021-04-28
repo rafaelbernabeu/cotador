@@ -56,7 +56,7 @@ public class UsuarioService {
     }
 
     @Transactional
-    public static void adicionarUsuario(String nome, String email, String password, String... roles) {
+    public void adicionarUsuario(String nome, String email, String password, String... roles) {
         Usuario usuario = new Usuario();
         usuario.setNome(nome);
         usuario.setEmail(email);
