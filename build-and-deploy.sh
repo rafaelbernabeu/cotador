@@ -8,10 +8,10 @@ rm src/main/resources/META-INF/resources/polyfills.*.js
 rm src/main/resources/META-INF/resources/styles.*.css
 rm src/main/resources/META-INF/resources/3rdpartylicenses.txt
 
-cd ../cotador-app
+cd ../cotador-app || exit
 time ng build --prod
 
 cp dist/cotador-app/* ../cotador/src/main/resources/META-INF/resources
-cd -
+cd - || exit
 
 time ./build-native.sh && time ./deploy-heroku.sh
