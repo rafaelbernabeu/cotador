@@ -2,15 +2,17 @@ package service;
 
 import dto.CotacaoDTO;
 import dto.GeolocationDTO;
-import entities.AuditoriaCotacao;
-import entities.AuditoriaLogin;
-import entities.Usuario;
+import entities.*;
+import entities.enums.TipoAlteracao;
+import entities.enums.TipoEntidade;
 import io.vertx.core.http.HttpServerRequest;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+
+import static entities.enums.TipoAlteracao.EXCLUSAO;
 
 @ApplicationScoped
 public class AuditoriaService {
@@ -33,12 +35,40 @@ public class AuditoriaService {
 
         AuditoriaLogin.builder()
                 .usuario(usuario.getEmail())
-                .dataHora(LocalDateTime.now(ZoneId.of("America/Sao_Paulo")))
+                .dataHora(getDataHoraAtual())
                 .latitude(geolocation.getLatitude())
                 .longitude(geolocation.getLongitude())
                 .userAgent(request.getHeader("user-agent"))
                 .ip(ipRemoto == null ? request.remoteAddress().toString() : ipRemoto)
                 .build().persist();
+    }
+
+    public <T> T salvarAlteracao(IEntidade<T> entidade, TipoEntidade tipoEntidade, TipoAlteracao tipoAlteracao) {
+        createAuditoriaAlteracao(tipoEntidade, tipoAlteracao)
+                .idEntidade(entidade.getId())
+                .build().persist();
+
+        return (T) entidade;
+    }
+
+    public Long salvarExclusao(Long idEntidade, TipoEntidade tipoEntidade) {
+        createAuditoriaAlteracao(tipoEntidade, EXCLUSAO)
+                .idEntidade(idEntidade)
+                .build().persist();
+
+        return idEntidade;
+    }
+
+    private AuditoriaAlteracao.AuditoriaAlteracaoBuilder createAuditoriaAlteracao(TipoEntidade tipoEntidade, TipoAlteracao tipoAlteracao) {
+        return AuditoriaAlteracao.builder()
+                .dataHora(getDataHoraAtual())
+                .tipoAlteracao(tipoAlteracao)
+                .tipoEntidade(tipoEntidade)
+                .usuario(segurancaService.getEmailUsuarioLogado());
+    }
+
+    private LocalDateTime getDataHoraAtual() {
+        return LocalDateTime.now(ZoneId.of("America/Sao_Paulo"));
     }
 
 }

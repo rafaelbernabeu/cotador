@@ -1,15 +1,14 @@
 package entities;
 
+import entities.enums.TipoAlteracao;
+import entities.enums.TipoEntidade;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Data
@@ -24,5 +23,13 @@ public class AuditoriaAlteracao extends PanacheEntityBase {
     private Long id;
     private String usuario;
     private LocalDateTime dataHora;
+
+    private Long idEntidade;
+
+    @Enumerated(EnumType.ORDINAL)
+    private TipoEntidade tipoEntidade;
+
+    @Enumerated(EnumType.ORDINAL)
+    private TipoAlteracao tipoAlteracao;
 
 }

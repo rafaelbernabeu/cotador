@@ -7,18 +7,13 @@ import io.quarkus.security.jpa.UserDefinition;
 import io.quarkus.security.jpa.Username;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
 @Entity
 @UserDefinition
-public class Usuario extends PanacheEntityBase {
+public class Usuario extends PanacheEntityBase implements IEntidade<Usuario> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

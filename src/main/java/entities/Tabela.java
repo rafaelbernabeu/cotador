@@ -7,20 +7,13 @@ import entities.enums.Reajuste;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Data
 @Entity
-public class Tabela extends PanacheEntityBase {
+public class Tabela extends PanacheEntityBase implements IEntidade<Tabela> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

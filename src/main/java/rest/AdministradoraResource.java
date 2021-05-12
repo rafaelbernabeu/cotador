@@ -5,30 +5,27 @@ import entities.Operadora;
 import entities.Tabela;
 import org.jboss.resteasy.annotations.GZIP;
 import rest.interfaces.IAdministradoraResource;
+import service.AuditoriaService;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import java.util.Collection;
 import java.util.List;
 
+import static entities.enums.TipoAlteracao.EDICAO;
+import static entities.enums.TipoAlteracao.INCLUSAO;
+import static entities.enums.TipoEntidade.ADMINISTRADORA;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toSet;
-import static service.UsuarioService.ADMIN;
-import static service.UsuarioService.OPERADOR;
-import static service.UsuarioService.VENDEDOR;
+import static service.UsuarioService.*;
 
 @Path("/api/administradoras")
 public class AdministradoraResource {
+
+    @Inject
+    AuditoriaService auditoriaService;
 
     @Inject
     IAdministradoraResource administradoraResource;
@@ -75,7 +72,9 @@ public class AdministradoraResource {
     @Consumes("application/json")
     @Produces("application/json")
     public Administradora add(Administradora administradora) {
-        return administradoraResource.add(administradora);
+        return auditoriaService.salvarAlteracao(
+                administradoraResource.add(administradora),
+                ADMINISTRADORA, INCLUSAO);
     }
 
     @PUT
@@ -86,7 +85,9 @@ public class AdministradoraResource {
     @Consumes("application/json")
     @Produces("application/json")
     public Administradora update(@PathParam("id") Long id, Administradora administradora) {
-        return administradoraResource.update(id, administradora);
+        return auditoriaService.salvarAlteracao(
+                administradoraResource.update(id, administradora),
+                ADMINISTRADORA, EDICAO);
     }
 
     @DELETE
@@ -95,6 +96,7 @@ public class AdministradoraResource {
     @Path("{id}")
     @RolesAllowed({ADMIN, OPERADOR})
     public boolean delete(@PathParam("id") Long id) {
+        auditoriaService.salvarExclusao(id, ADMINISTRADORA);
         return administradoraResource.delete(id);
     }
 

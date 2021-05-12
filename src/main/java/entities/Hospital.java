@@ -10,7 +10,7 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Hospital extends PanacheEntityBase {
+public class Hospital extends PanacheEntityBase implements IEntidade<Hospital> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

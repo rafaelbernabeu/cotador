@@ -3,27 +3,24 @@ package rest;
 import entities.Profissao;
 import org.jboss.resteasy.annotations.GZIP;
 import rest.interfaces.IProfissaoResource;
+import service.AuditoriaService;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import java.util.List;
 
-import static service.UsuarioService.ADMIN;
-import static service.UsuarioService.OPERADOR;
-import static service.UsuarioService.POS_VENDAS;
-import static service.UsuarioService.VENDEDOR;
+import static entities.enums.TipoAlteracao.EDICAO;
+import static entities.enums.TipoAlteracao.INCLUSAO;
+import static entities.enums.TipoEntidade.PROFISSAO;
+import static service.UsuarioService.*;
 
 @Path("/api/profissoes")
 public class ProfissaoResource {
+
+    @Inject
+    AuditoriaService auditoriaService;
 
     @Inject
     IProfissaoResource profissaoResource;
@@ -52,7 +49,9 @@ public class ProfissaoResource {
     @Consumes("application/json")
     @Produces("application/json")
     public Profissao add(Profissao profissao) {
-        return profissaoResource.add(profissao);
+        return auditoriaService.salvarAlteracao(
+                profissaoResource.add(profissao),
+                PROFISSAO, INCLUSAO);
     }
 
     @PUT
@@ -63,7 +62,9 @@ public class ProfissaoResource {
     @Consumes("application/json")
     @Produces("application/json")
     public Profissao update(@PathParam("id") Long id, Profissao profissao) {
-        return profissaoResource.update(id, profissao);
+        return auditoriaService.salvarAlteracao(
+                profissaoResource.update(id, profissao),
+                PROFISSAO, EDICAO);
     }
 
     @DELETE
@@ -72,6 +73,7 @@ public class ProfissaoResource {
     @Path("{id}")
     @RolesAllowed({ADMIN, OPERADOR, POS_VENDAS})
     public boolean delete(@PathParam("id") Long id) {
+        auditoriaService.salvarExclusao(id, PROFISSAO);
         return profissaoResource.delete(id);
     }
 

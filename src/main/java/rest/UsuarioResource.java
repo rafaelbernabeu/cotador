@@ -4,32 +4,28 @@ import dto.UsuarioDTO;
 import entities.Usuario;
 import org.jboss.resteasy.annotations.GZIP;
 import rest.interfaces.IUsuarioResource;
-import service.UsuarioService;
+import service.AuditoriaService;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static entities.enums.TipoAlteracao.EDICAO;
+import static entities.enums.TipoAlteracao.INCLUSAO;
+import static entities.enums.TipoEntidade.USUARIO;
 import static service.UsuarioService.ADMIN;
 
 @Path("/api/usuarios")
 public class UsuarioResource {
 
     @Inject
-    IUsuarioResource usuarioResource;
+    AuditoriaService auditoriaService;
 
     @Inject
-    UsuarioService usuarioService;
+    IUsuarioResource usuarioResource;
 
     @GET
     @GZIP
@@ -56,7 +52,9 @@ public class UsuarioResource {
     @Consumes("application/json")
     @Produces("application/json")
     public UsuarioDTO add(Usuario usuario) {
-        return new UsuarioDTO(usuarioResource.add(usuario));
+        return new UsuarioDTO(auditoriaService.salvarAlteracao(
+                usuarioResource.add(usuario),
+                USUARIO, INCLUSAO));
     }
 
     @PUT
@@ -69,7 +67,9 @@ public class UsuarioResource {
     public UsuarioDTO update(@PathParam("id") Long id, Usuario usuarioNovo) {
         Usuario usuarioAtual = Usuario.findById(id);
         usuarioNovo.setPassword(usuarioAtual.getPassword());
-        return new UsuarioDTO(usuarioResource.update(id, usuarioNovo));
+        return new UsuarioDTO(auditoriaService.salvarAlteracao(
+                usuarioResource.update(id, usuarioNovo),
+                USUARIO, EDICAO));
     }
 
     @DELETE
@@ -78,6 +78,7 @@ public class UsuarioResource {
     @Path("{id}")
     @RolesAllowed({ADMIN})
     public boolean delete(@PathParam("id") Long id) {
+        auditoriaService.salvarExclusao(id, USUARIO);
         return usuarioResource.delete(id);
     }
 

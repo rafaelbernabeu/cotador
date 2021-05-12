@@ -3,26 +3,24 @@ package rest;
 import entities.Entidade;
 import org.jboss.resteasy.annotations.GZIP;
 import rest.interfaces.IEntidadeResource;
+import service.AuditoriaService;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import java.util.List;
 
-import static service.UsuarioService.ADMIN;
-import static service.UsuarioService.OPERADOR;
-import static service.UsuarioService.POS_VENDAS;
+import static entities.enums.TipoAlteracao.EDICAO;
+import static entities.enums.TipoAlteracao.INCLUSAO;
+import static entities.enums.TipoEntidade.ENTIDADE;
+import static service.UsuarioService.*;
 
 @Path("/api/entidades")
 public class EntidadeResource {
+
+    @Inject
+    AuditoriaService auditoriaService;
 
     @Inject
     IEntidadeResource entidadeResource;
@@ -51,7 +49,9 @@ public class EntidadeResource {
     @Consumes("application/json")
     @Produces("application/json")
     public Entidade add(Entidade entidade) {
-        return entidadeResource.add(entidade);
+        return auditoriaService.salvarAlteracao(
+                entidadeResource.add(entidade),
+                ENTIDADE, INCLUSAO);
     }
 
     @PUT
@@ -62,7 +62,9 @@ public class EntidadeResource {
     @Consumes("application/json")
     @Produces("application/json")
     public Entidade update(@PathParam("id") Long id, Entidade entidade) {
-        return entidadeResource.update(id, entidade);
+        return auditoriaService.salvarAlteracao(
+                entidadeResource.update(id, entidade),
+                ENTIDADE, EDICAO);
     }
 
     @DELETE
@@ -71,6 +73,7 @@ public class EntidadeResource {
     @Path("{id}")
     @RolesAllowed({ADMIN, OPERADOR, POS_VENDAS})
     public boolean delete(@PathParam("id") Long id) {
+        auditoriaService.salvarExclusao(id, ENTIDADE);
         return entidadeResource.delete(id);
     }
 

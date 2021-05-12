@@ -4,26 +4,26 @@ import dto.ProdutoDTO;
 import entities.Produto;
 import org.jboss.resteasy.annotations.GZIP;
 import rest.interfaces.IProdutoResource;
+import service.AuditoriaService;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import java.util.List;
 
+import static entities.enums.TipoAlteracao.EDICAO;
+import static entities.enums.TipoAlteracao.INCLUSAO;
+import static entities.enums.TipoEntidade.PRODUTO;
 import static java.util.stream.Collectors.toList;
 import static service.UsuarioService.ADMIN;
 import static service.UsuarioService.OPERADOR;
 
 @Path("/api/produtos")
 public class ProdutoResource {
+
+    @Inject
+    AuditoriaService auditoriaService;
 
     @Inject
     IProdutoResource produtoResource;
@@ -56,7 +56,9 @@ public class ProdutoResource {
     @Consumes("application/json")
     @Produces("application/json")
     public ProdutoDTO add(ProdutoDTO produtoDTO) {
-        return new ProdutoDTO(produtoResource.add(new Produto(produtoDTO)));
+        return new ProdutoDTO(auditoriaService.salvarAlteracao(
+                produtoResource.add(new Produto(produtoDTO)),
+                PRODUTO, INCLUSAO));
     }
 
     @PUT
@@ -67,7 +69,9 @@ public class ProdutoResource {
     @Consumes("application/json")
     @Produces("application/json")
     public ProdutoDTO update(@PathParam("id") Long id, ProdutoDTO produtoDTO) {
-        return new ProdutoDTO(produtoResource.update(id, new Produto(produtoDTO)));
+        return new ProdutoDTO(auditoriaService.salvarAlteracao(
+                produtoResource.update(id, new Produto(produtoDTO)),
+                PRODUTO, EDICAO));
     }
 
     @DELETE
@@ -76,6 +80,7 @@ public class ProdutoResource {
     @Path("{id}")
     @RolesAllowed({ADMIN, OPERADOR})
     public boolean delete(@PathParam("id") Long id) {
+        auditoriaService.salvarExclusao(id, PRODUTO);
         return produtoResource.delete(id);
     }
 

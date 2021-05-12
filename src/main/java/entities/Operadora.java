@@ -14,7 +14,7 @@ import javax.persistence.Id;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Operadora extends PanacheEntityBase {
+public class Operadora extends PanacheEntityBase implements IEntidade<Operadora> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
