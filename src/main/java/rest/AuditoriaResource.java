@@ -1,5 +1,6 @@
 package rest;
 
+import dto.AuditoriaAlteracaoDTO;
 import dto.ConsultaAuditoriaDTO;
 import entities.AuditoriaAlteracao;
 import entities.AuditoriaCotacao;
@@ -12,6 +13,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static service.UsuarioService.ADMIN;
 
@@ -30,8 +32,7 @@ public class AuditoriaResource {
     @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<AuditoriaLogin> getHistoricoLogins(ConsultaAuditoriaDTO consultaAuditoria) {
-        return AuditoriaLogin
-                .find(QUERY_BETWEEN_DATA_HORA, Sort.descending(DATA_HORA),
+        return AuditoriaLogin.find(QUERY_BETWEEN_DATA_HORA, Sort.descending(DATA_HORA),
                         consultaAuditoria.getDataInicio().withHour(N_23).withMinute(N_59).withSecond(N_59).withNano(N_999999),
                         consultaAuditoria.getDataFim().withHour(N_23).withMinute(N_59).withSecond(N_59).withNano(N_999999))
                 .list();
@@ -43,8 +44,7 @@ public class AuditoriaResource {
     @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<AuditoriaCotacao> getHistoricoCotacoes(ConsultaAuditoriaDTO consultaAuditoria) {
-        return AuditoriaCotacao
-                .find(QUERY_BETWEEN_DATA_HORA, Sort.descending(DATA_HORA),
+        return AuditoriaCotacao.find(QUERY_BETWEEN_DATA_HORA, Sort.descending(DATA_HORA),
                         consultaAuditoria.getDataInicio().withHour(N_23).withMinute(N_59).withSecond(N_59).withNano(N_999999),
                         consultaAuditoria.getDataFim().withHour(N_23).withMinute(N_59).withSecond(N_59).withNano(N_999999))
                 .list();
@@ -55,12 +55,11 @@ public class AuditoriaResource {
     @Path("/alteracao")
     @RolesAllowed({ADMIN})
     @Produces("application/json")
-    public List<AuditoriaAlteracao> getHistoricoAlteracoes(ConsultaAuditoriaDTO consultaAuditoria) {
-        return AuditoriaAlteracao
-                .find(QUERY_BETWEEN_DATA_HORA, Sort.descending(DATA_HORA),
+    public List<AuditoriaAlteracaoDTO> getHistoricoAlteracoes(ConsultaAuditoriaDTO consultaAuditoria) {
+        return AuditoriaAlteracao.<AuditoriaAlteracao>find(QUERY_BETWEEN_DATA_HORA, Sort.descending(DATA_HORA),
                         consultaAuditoria.getDataInicio().withHour(N_23).withMinute(N_59).withSecond(N_59).withNano(N_999999),
                         consultaAuditoria.getDataFim().withHour(N_23).withMinute(N_59).withSecond(N_59).withNano(N_999999))
-                .list();
+                .list().stream().map(AuditoriaAlteracaoDTO::new).collect(Collectors.toList());
     }
 
 }

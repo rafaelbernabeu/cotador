@@ -9,13 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.stream.Collectors;
 
@@ -47,13 +41,12 @@ public class AuditoriaCotacao extends PanacheEntityBase {
     private String administradoras;
     private String coparticipacao;
 
-    @ManyToOne(optional = false)
-    private Usuario usuario;
+    private String usuario;
     private LocalDateTime dataHora;
 
-    public AuditoriaCotacao(CotacaoDTO cotacao, Usuario usuario) {
+    public AuditoriaCotacao(CotacaoDTO cotacao, String usuario, LocalDateTime dataHora) {
         this.usuario = usuario;
-        this.dataHora = LocalDateTime.now();
+        this.dataHora = dataHora;
 
         this.mei = cotacao.getMei();
         this.acomodacao = cotacao.getAcomodacao();
@@ -67,6 +60,5 @@ public class AuditoriaCotacao extends PanacheEntityBase {
         cotacao.getProfissoesOptional().ifPresent(prof -> this.profissoes = prof.stream().map(p -> p.getId().toString()).collect(Collectors.joining(",")));
         cotacao.getOperadorasOptional().ifPresent(op -> this.operadoras = op.stream().map(o -> o.getId().toString()).collect(Collectors.joining(",")));
         cotacao.getAdministradorasOptional().ifPresent(adm -> this.administradoras = adm.stream().map(a -> a.getId().toString()).collect(Collectors.joining(",")));
-
     }
 }

@@ -9,8 +9,6 @@ import io.vertx.core.http.HttpServerRequest;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 
 import static entities.enums.TipoAlteracao.EXCLUSAO;
 
@@ -21,11 +19,10 @@ public class AuditoriaService {
     SegurancaService segurancaService;
 
     @Inject
-    UsuarioService usuarioService;
+    DateTimeService dateTimeService;
 
     public AuditoriaCotacao salvarCotacao(CotacaoDTO cotacao) {
-        Usuario usuario = usuarioService.findUsuarioByEmail(segurancaService.getEmailUsuarioLogado());
-        AuditoriaCotacao auditoriaCotacao = new AuditoriaCotacao(cotacao, usuario);
+        AuditoriaCotacao auditoriaCotacao = new AuditoriaCotacao(cotacao, segurancaService.getEmailUsuarioLogado(), dateTimeService.getDataHoraAtual());
         auditoriaCotacao.persist();
         return auditoriaCotacao;
     }
@@ -35,7 +32,7 @@ public class AuditoriaService {
 
         AuditoriaLogin.builder()
                 .usuario(usuario.getEmail())
-                .dataHora(getDataHoraAtual())
+                .dataHora(dateTimeService.getDataHoraAtual())
                 .latitude(geolocation.getLatitude())
                 .longitude(geolocation.getLongitude())
                 .userAgent(request.getHeader("user-agent"))
@@ -61,14 +58,10 @@ public class AuditoriaService {
 
     private AuditoriaAlteracao.AuditoriaAlteracaoBuilder createAuditoriaAlteracao(TipoEntidade tipoEntidade, TipoAlteracao tipoAlteracao) {
         return AuditoriaAlteracao.builder()
-                .dataHora(getDataHoraAtual())
-                .tipoAlteracao(tipoAlteracao)
                 .tipoEntidade(tipoEntidade)
+                .tipoAlteracao(tipoAlteracao)
+                .dataHora(dateTimeService.getDataHoraAtual())
                 .usuario(segurancaService.getEmailUsuarioLogado());
-    }
-
-    private LocalDateTime getDataHoraAtual() {
-        return LocalDateTime.now(ZoneId.of("America/Sao_Paulo"));
     }
 
 }
