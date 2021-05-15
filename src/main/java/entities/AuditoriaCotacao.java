@@ -3,6 +3,7 @@ package entities;
 import dto.CotacaoDTO;
 import entities.enums.Adesao;
 import entities.enums.Categoria;
+import entities.enums.ToCSV;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,7 +19,7 @@ import java.util.stream.Collectors;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuditoriaCotacao extends PanacheEntityBase {
+public class AuditoriaCotacao extends PanacheEntityBase implements ToCSV {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -60,5 +61,13 @@ public class AuditoriaCotacao extends PanacheEntityBase {
         cotacao.getProfissoesOptional().ifPresent(prof -> this.profissoes = prof.stream().map(p -> p.getId().toString()).collect(Collectors.joining(",")));
         cotacao.getOperadorasOptional().ifPresent(op -> this.operadoras = op.stream().map(o -> o.getId().toString()).collect(Collectors.joining(",")));
         cotacao.getAdministradorasOptional().ifPresent(adm -> this.administradoras = adm.stream().map(a -> a.getId().toString()).collect(Collectors.joining(",")));
+    }
+
+    public String toCSV() {
+        return String.format("%s,%s,%s,\"%s\",%n",
+                id,
+                dataHora,
+                usuario,
+                "https://cotador-super.herokuapp.com/#/cotacao/" + id);
     }
 }

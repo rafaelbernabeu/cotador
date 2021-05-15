@@ -2,6 +2,7 @@ package entities;
 
 import entities.enums.TipoAlteracao;
 import entities.enums.TipoEntidade;
+import entities.enums.ToCSV;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuditoriaAlteracao extends PanacheEntityBase {
+public class AuditoriaAlteracao extends PanacheEntityBase implements ToCSV {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,5 +32,15 @@ public class AuditoriaAlteracao extends PanacheEntityBase {
 
     @Enumerated(EnumType.ORDINAL)
     private TipoAlteracao tipoAlteracao;
+
+    public String toCSV() {
+        return String.format("%s,%s,%s,%s,%s,%s,%n",
+                id,
+                dataHora,
+                usuario,
+                tipoEntidade.getNome(),
+                tipoAlteracao.getNome(),
+                idEntidade);
+    }
 
 }

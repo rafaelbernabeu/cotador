@@ -1,5 +1,6 @@
 package entities;
 
+import entities.enums.ToCSV;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +18,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuditoriaLogin extends PanacheEntityBase {
+public class AuditoriaLogin extends PanacheEntityBase implements ToCSV {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,4 +31,13 @@ public class AuditoriaLogin extends PanacheEntityBase {
     private String userAgent;
     private LocalDateTime dataHora;
 
+    public String toCSV() {
+        return String.format("%s,%s,%s,%s,\"%s\",\"%s\",%n",
+                id,
+                dataHora,
+                usuario,
+                ip,
+                "https://www.google.com.br/maps/search/" + latitude + ',' + longitude,
+                userAgent);
+    }
 }

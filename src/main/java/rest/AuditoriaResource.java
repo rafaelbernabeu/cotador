@@ -2,29 +2,32 @@ package rest;
 
 import dto.AuditoriaAlteracaoDTO;
 import dto.ConsultaAuditoriaDTO;
-import entities.AuditoriaAlteracao;
 import entities.AuditoriaCotacao;
 import entities.AuditoriaLogin;
-import io.quarkus.panache.common.Sort;
 import org.jboss.resteasy.annotations.GZIP;
+import service.AuditoriaService;
+import service.CSVService;
 
 import javax.annotation.security.RolesAllowed;
+import javax.inject.Inject;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import java.util.List;
-import java.util.stream.Collectors;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.util.stream.Collectors.toList;
+import static service.CSVService.*;
 import static service.UsuarioService.ADMIN;
 
 @Path("/api/auditoria")
 public class AuditoriaResource {
 
-    private static final int N_23 = 23;
-    private static final int N_59 = 59;
-    private static final int N_999999 = 999999;
-    private static final String DATA_HORA = "dataHora";
-    private static final String QUERY_BETWEEN_DATA_HORA = "dataHora BETWEEN ?1 AND ?2";
+    @Inject
+    AuditoriaService auditoriaService;
+
+    @Inject
+    CSVService csvService;
 
     @POST
     @GZIP
@@ -32,10 +35,7 @@ public class AuditoriaResource {
     @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<AuditoriaLogin> getHistoricoLogins(ConsultaAuditoriaDTO consultaAuditoria) {
-        return AuditoriaLogin.find(QUERY_BETWEEN_DATA_HORA, Sort.descending(DATA_HORA),
-                        consultaAuditoria.getDataInicio().withHour(N_23).withMinute(N_59).withSecond(N_59).withNano(N_999999),
-                        consultaAuditoria.getDataFim().withHour(N_23).withMinute(N_59).withSecond(N_59).withNano(N_999999))
-                .list();
+        return auditoriaService.getHistoricoLogins(consultaAuditoria);
     }
 
     @POST
@@ -44,10 +44,7 @@ public class AuditoriaResource {
     @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<AuditoriaCotacao> getHistoricoCotacoes(ConsultaAuditoriaDTO consultaAuditoria) {
-        return AuditoriaCotacao.find(QUERY_BETWEEN_DATA_HORA, Sort.descending(DATA_HORA),
-                        consultaAuditoria.getDataInicio().withHour(N_23).withMinute(N_59).withSecond(N_59).withNano(N_999999),
-                        consultaAuditoria.getDataFim().withHour(N_23).withMinute(N_59).withSecond(N_59).withNano(N_999999))
-                .list();
+        return auditoriaService.getHistoricoCotacoes(consultaAuditoria);
     }
 
     @POST
@@ -56,10 +53,34 @@ public class AuditoriaResource {
     @RolesAllowed({ADMIN})
     @Produces("application/json")
     public List<AuditoriaAlteracaoDTO> getHistoricoAlteracoes(ConsultaAuditoriaDTO consultaAuditoria) {
-        return AuditoriaAlteracao.<AuditoriaAlteracao>find(QUERY_BETWEEN_DATA_HORA, Sort.descending(DATA_HORA),
-                        consultaAuditoria.getDataInicio().withHour(N_23).withMinute(N_59).withSecond(N_59).withNano(N_999999),
-                        consultaAuditoria.getDataFim().withHour(N_23).withMinute(N_59).withSecond(N_59).withNano(N_999999))
-                .list().stream().map(AuditoriaAlteracaoDTO::new).collect(Collectors.toList());
+        return auditoriaService.getHistoricoAlteracoes(consultaAuditoria).stream().map(AuditoriaAlteracaoDTO::new).collect(toList());
+    }
+
+    @POST
+    @GZIP
+    @Path("/login/download")
+    @RolesAllowed({ADMIN})
+    @Produces("text/csv")
+    public byte[] getHistoricoLoginsCSV(ConsultaAuditoriaDTO consultaAuditoria) {
+        return csvService.convertToCSV(CABECALHO_CSV_LOGINS, auditoriaService.getHistoricoLogins(consultaAuditoria)).getBytes(UTF_8);
+    }
+
+    @POST
+    @GZIP
+    @Path("/cotacao/download")
+    @RolesAllowed({ADMIN})
+    @Produces("text/csv")
+    public byte[] getHistoricoCotacoesCSV(ConsultaAuditoriaDTO consultaAuditoria) {
+        return csvService.convertToCSV(CABECALHO_CSV_COTACOES, auditoriaService.getHistoricoCotacoes(consultaAuditoria)).getBytes(UTF_8);
+    }
+
+    @POST
+    @GZIP
+    @Path("/alteracao/download")
+    @RolesAllowed({ADMIN})
+    @Produces("text/csv")
+    public byte[] getHistoricoAlteracoesCSV(ConsultaAuditoriaDTO consultaAuditoria) {
+        return csvService.convertToCSV(CABECALHO_CSV_ALTERACOES, auditoriaService.getHistoricoAlteracoes(consultaAuditoria)).getBytes(UTF_8);
     }
 
 }
