@@ -11,17 +11,14 @@ import io.vertx.core.http.HttpServerRequest;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import static entities.enums.TipoAlteracao.EXCLUSAO;
+import static service.DateTimeService.getDataNoUltimoSegundoDoDia;
 
 @ApplicationScoped
 public class AuditoriaService {
 
-    private static final int N_23 = 23;
-    private static final int N_59 = 59;
-    private static final int N_999999 = 999999;
     private static final String DATA_HORA = "dataHora";
     private static final String QUERY_BETWEEN_DATA_HORA = "dataHora BETWEEN ?1 AND ?2";
 
@@ -95,8 +92,5 @@ public class AuditoriaService {
                 .list();
     }
 
-    private LocalDateTime getDataNoUltimoSegundoDoDia(LocalDateTime dataInicio) {
-        return dataInicio.withHour(N_23).withMinute(N_59).withSecond(N_59).withNano(N_999999);
-    }
 
 }

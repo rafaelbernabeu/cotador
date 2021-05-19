@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
+import static service.DateTimeService.DATE_TIME_FORMATTER;
+
 @Data
 @Entity
 @Builder
@@ -34,7 +36,7 @@ public class AuditoriaLogin extends PanacheEntityBase implements ToCSV {
     public String toCSV() {
         return String.format("%s,%s,%s,%s,\"%s\",\"%s\",%n",
                 id,
-                dataHora,
+                DATE_TIME_FORMATTER.format(dataHora),
                 usuario,
                 ip,
                 "https://www.google.com.br/maps/search/" + latitude + ',' + longitude,

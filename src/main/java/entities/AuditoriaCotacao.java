@@ -14,6 +14,8 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.stream.Collectors;
 
+import static service.DateTimeService.DATE_TIME_FORMATTER;
+
 @Data
 @Entity
 @Builder
@@ -66,7 +68,7 @@ public class AuditoriaCotacao extends PanacheEntityBase implements ToCSV {
     public String toCSV() {
         return String.format("%s,%s,%s,\"%s\",%n",
                 id,
-                dataHora,
+                DATE_TIME_FORMATTER.format(dataHora),
                 usuario,
                 "https://cotador-super.herokuapp.com/#/cotacao/" + id);
     }

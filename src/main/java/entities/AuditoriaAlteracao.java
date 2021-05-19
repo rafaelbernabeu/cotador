@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+import static service.DateTimeService.DATE_TIME_FORMATTER;
+
 @Data
 @Entity
 @Builder
@@ -36,7 +38,7 @@ public class AuditoriaAlteracao extends PanacheEntityBase implements ToCSV {
     public String toCSV() {
         return String.format("%s,%s,%s,%s,%s,%s,%n",
                 id,
-                dataHora,
+                DATE_TIME_FORMATTER.format(dataHora),
                 usuario,
                 tipoEntidade.getNome(),
                 tipoAlteracao.getNome(),
