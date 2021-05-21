@@ -15,6 +15,7 @@ import java.util.List;
 import static entities.enums.TipoAlteracao.EDICAO;
 import static entities.enums.TipoAlteracao.INCLUSAO;
 import static entities.enums.TipoEntidade.OPCAO;
+import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
 import static service.UsuarioService.ADMIN;
 import static service.UsuarioService.OPERADOR;
@@ -42,7 +43,16 @@ public class OpcaoResource {
     @RolesAllowed({ADMIN, OPERADOR})
     @Produces("application/json")
     public List<OpcaoDTO> list() {
-        return Opcao.<Opcao>listAll().stream().map(OpcaoDTO::new).collect(toList());
+        return Opcao.<Opcao>listAll().stream()
+                .map(OpcaoDTO::new)
+                .sorted(comparing(OpcaoDTO::getAcomodacao))
+                .sorted(comparing(OpcaoDTO::getCoparticipacao))
+                .sorted(comparing(opcaoDTO -> opcaoDTO.getTabela().getNome()))
+                .sorted(comparing(opcaoDTO -> opcaoDTO.getTabela().getOperadora().getNome()))
+                .sorted(comparing(opcaoDTO -> opcaoDTO.getTabela().getAdministradora() == null ? "Z" : opcaoDTO.getTabela().getAdministradora().getNome()))
+                .sorted(comparing(opcaoDTO -> opcaoDTO.getTabela().getEstado().getSigla()))
+                .sorted(comparing(opcaoDTO -> opcaoDTO.getTabela().getCategoria()))
+                .collect(toList());
     }
 
     @POST
