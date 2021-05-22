@@ -1,6 +1,7 @@
 # cotador-super project
 
-# Front-end (https://github.com/rafaelbernabeu/cotador-app)
+# Front-end 
+##https://github.com/rafaelbernabeu/cotador-app
 Aplicaçao front-end do projeto cotador:
 
     - Angular 11, NPM.
@@ -10,7 +11,8 @@ Executar em modo dev: ng serve --proxy-config proxy.conf.js --host=0.0.0.0 --dis
 Compilar o projeto para prod: ng build --prod
 
 
-# Back-end (https://github.com/rafaelbernabeu/cotador)
+# Back-end 
+##https://github.com/rafaelbernabeu/cotador
 Aplicaçao back-end do projeto cotador.
 
     - Quarkus, Maven.
@@ -22,6 +24,7 @@ Para subir um banco de dados via docker, utilize o script: https://github.com/ra
 Leia o readme para mais informações.
 
 O sistema utiliza o framework Quarkus e seus modulos:
+```
     - agroal, 
     - cdi,
     - hibernate-orm,
@@ -38,6 +41,7 @@ O sistema utiliza o framework Quarkus e seus modulos:
     - smallrye-jwt,
     - vertx,
     - vertx-web
+```
 
 O Hibernate esta configurado para criar automaticamente o banco de dados.
 Essa e outras configurações podem ser alteradas no arquivo "application.properties"
