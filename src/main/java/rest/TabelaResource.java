@@ -18,12 +18,12 @@ import java.util.stream.Stream;
 import static entities.enums.TipoAlteracao.EDICAO;
 import static entities.enums.TipoAlteracao.INCLUSAO;
 import static entities.enums.TipoEntidade.TABELA;
-import static java.util.Comparator.comparing;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 import static service.UsuarioService.ADMIN;
 import static service.UsuarioService.OPERADOR;
+import static util.SortUtil.sortTabelas;
 
 @Path("/api/tabelas")
 public class TabelaResource {
@@ -80,12 +80,8 @@ public class TabelaResource {
     @RolesAllowed({ADMIN, OPERADOR})
     @Produces("application/json")
     public List<TabelaDTO> list() {
-        return Tabela.<Tabela>listAll().stream()
-                .map(TabelaDTO::new)
-                .sorted(comparing(TabelaDTO::getNome))
-                .sorted(comparing(tabelaDTO -> tabelaDTO.getEstado().getNome()))
-                .sorted(comparing(tabelaDTO -> tabelaDTO.getOperadora().getNome()))
-                .sorted(comparing(tabelaDTO -> tabelaDTO.getAdministradora() == null ? "Z" : tabelaDTO.getAdministradora().getNome()))
+        return sortTabelas(Tabela.<Tabela>listAll().stream()
+                .map(TabelaDTO::new))
                 .collect(toList());
     }
 

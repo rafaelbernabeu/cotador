@@ -3,11 +3,7 @@ package service;
 import dto.CotacaoDTO;
 import dto.EstadoDTO;
 import dto.OpcaoDTO;
-import entities.Administradora;
-import entities.AuditoriaCotacao;
-import entities.Opcao;
-import entities.Operadora;
-import entities.Profissao;
+import entities.*;
 import entities.enums.Adesao;
 import entities.enums.Categoria;
 
@@ -21,6 +17,7 @@ import java.util.stream.Stream;
 
 import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
+import static util.SortUtil.sortOpcoes;
 
 @ApplicationScoped
 public class CotacaoService {
@@ -45,7 +42,7 @@ public class CotacaoService {
         stream = filtraPorOperadora(consulta, stream);
         stream = filtraPorProfissao(consulta, stream);
 
-        List<OpcaoDTO> opcoes = stream.map(OpcaoDTO::new).collect(toList());
+        List<OpcaoDTO> opcoes = sortOpcoes(stream.map(OpcaoDTO::new)).collect(toList());
         removeEntidadesPorProfissao(consulta, opcoes);
 
         consulta.setId(auditoriaCotacao.getId());

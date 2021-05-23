@@ -15,10 +15,10 @@ import java.util.List;
 import static entities.enums.TipoAlteracao.EDICAO;
 import static entities.enums.TipoAlteracao.INCLUSAO;
 import static entities.enums.TipoEntidade.PRODUTO;
-import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
 import static service.UsuarioService.ADMIN;
 import static service.UsuarioService.OPERADOR;
+import static util.SortUtil.sortProdutos;
 
 @Path("/api/produtos")
 public class ProdutoResource {
@@ -47,10 +47,8 @@ public class ProdutoResource {
     @RolesAllowed({ADMIN, OPERADOR})
     @Produces("application/json")
     public List<ProdutoDTO> list() {
-        return Produto.<Produto>listAll().stream()
-                .map(ProdutoDTO::new)
-                .sorted(comparing(ProdutoDTO::getNome))
-                .sorted(comparing(produtoDTO -> produtoDTO.getOperadora().getNome()))
+        return sortProdutos(Produto.<Produto>listAll().stream()
+                .map(ProdutoDTO::new))
                 .collect(toList());
     }
 
