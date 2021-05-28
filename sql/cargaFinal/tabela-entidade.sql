@@ -1,218 +1,217 @@
-#1	ABERTA	:	ABPL	ASCOM	CNPL	FEBEUS	FETRACOM	FETRATUH
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (1, ABPL);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (1, ASCOM);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (1, CNPL);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (1, FEBEUS);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (1, FETRACOM);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (1, FETRATUH);
+#1	ABERTA	:	3	24	30	39	45	47
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (1, 3);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (1, 24);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (1, 30);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (1, 39);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (1, 45);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (1, 47);
 
 
-#2	A1	:	ABRE	FEB
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (2, ABRE);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (2, FEB);
+#2	A1	:	9	38
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (2, 9);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (2, 38);
 
 
-#3	FECHADA	:	ABESP DF	ABRAPAC	ABRAS	ANATO	FEIFAR	FETRAN	FNN	FNO	SINTEC DF	SINTRA
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, ABESP DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, ABRAPAC);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, ABRAS);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, ANATO);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, FEIFAR);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, FETRAN);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, FNN);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, FNO);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, SINTEC DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, SINTRA);
+#3	FECHADA	:	2	7	8	23	43	46	50	51	68	69
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, 2);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, 7);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, 8);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, 23);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, 43);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, 46);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, 50);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, 51);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, 68);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (3, 69);
 
 
-#4	ÚNICA	:	FEIFAR	SINARQ
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (4, FEIFAR);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (4, SINARQ);
+#4	ÚNICA	:	43	59
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (4, 43);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (4, 59);
 
 
-#5	FECHADA	:	ABECA	ABESP DF	ANATO	ASSEF	FEBRAD	FNN	FNO	INAAD	INAADIR	INAPROF	INST DE ENG	SINDPSICOP - BR
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, ABECA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, ABESP DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, ANATO);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, ASSEF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, FEBRAD);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, FNN);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, FNO);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, INAAD);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, INAADIR);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, INAPROF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, INST DE ENG);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, SINDPSICOP - BR);
+#5	FECHADA	:	1	2	23	27	40	50	51	53	54	55	56	65
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, 1);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, 2);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, 23);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, 27);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, 40);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, 50);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, 51);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, 53);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, 54);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, 55);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, 56);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (5, 65);
 
 
-#6	ABERTA	:	ABRE	AFECOM	ASCOM	FEB	FETRATUH
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (6, ABRE);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (6, AFECOM);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (6, ASCOM);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (6, FEB);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (6, FETRATUH);
+#6	ABERTA	:	9	14	24	38	47
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (6, 9);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (6, 14);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (6, 24);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (6, 38);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (6, 47);
 
 
-#7	ÚNICA	:	AESP/DF
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (7, AESP/DF);
+#7	ÚNICA	:	12
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (7, 12);
 
 
-#8	FECHADA 	:	AESP/DF
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (8, AESP/DF);
+#8	FECHADA 	:	12
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (8, 12);
 
 
-#9	ABERTA	:	ANATO	FEBRAD	FEIFAR	FENAMEV	FINAFITO	FNN	FNO	SINDPSICOP - BR
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (9, ANATO);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (9, FEBRAD);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (9, FEIFAR);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (9, FENAMEV);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (9, FINAFITO);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (9, FNN);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (9, FNO);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (9, SINDPSICOP - BR);
+#9	ABERTA	:	23	40	43	44	48	50	51	65
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (9, 23);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (9, 40);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (9, 43);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (9, 44);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (9, 48);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (9, 50);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (9, 51);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (9, 65);
 
 
 #10	ÚNICA	:	AMBr
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (10, AMBr);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (10, 18);
 
 
-#11	ABERTA	:	UBE	UBES	UNE
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (11, UBE);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (11, UBES);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (11, UNE);
+#11	ABERTA	:	70	71	72
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (11, 70);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (11, 71);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (11, 72);
 
 
-#12	FECHADA	:	ABRACEM	ASPROFILI
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (12, ABRACEM);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (12, ASPROFILI);
+#12	FECHADA	:	5	26
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (12, 5);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (12, 26);
 
 
-#13	ABERTA	:	UBE	UBES	UNE
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (13, UBE);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (13, UBES);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (13, UNE);
+#13	ABERTA	:	70	71	72
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (13, 70);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (13, 71);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (13, 72);
 
 
-#14	FECHADA	:	AJUFE	ANAMATRA	FNA	MÚTUA	SINDIRECEITA
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (14, AJUFE);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (14, ANAMATRA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (14, FNA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (14, MÚTUA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (14, SINDIRECEITA);
+#14	FECHADA	:	15	22	49	57	62
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (14, 15);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (14, 22);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (14, 49);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (14, 57);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (14, 62);
 
 
-#15	ABERTA	:	FECOMÉRCIO
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (15, FECOMÉRCIO);
+#15	ABERTA	:	41
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (15, 41);
 
 
-#16	FECHADA	:	ABRADIR 	AJUFE	AMB	ANAMATRA	CAA-DF	CORECON-DF	CRA-DF	CRO-DF	FNA	MÚTUA	MÚTUA 	SASPB	SINDICONTA-DF	SINDMÉDICO
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, ABRADIR );
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, AJUFE);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, AMB);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, ANAMATRA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, CAA-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, CORECON-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, CRA-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, CRO-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, FNA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, MÚTUA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, MÚTUA );
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, SASPB);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, SINDICONTA-DF);
+#16	FECHADA	:	6 	15	18	22	29	31	32	36	49	57	57 	58	SINDICONTA-DF	63
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 6 );
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 15);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 18);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 22);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 29);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 31);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 32);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 36);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 49);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 57);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 57 );
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 58);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 61);
 
 
-#17	FECHADA	:	ABRABDIR	AJUFE	AMB	ANAMATRA	FNA	SASPB
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (17, ABRABDIR);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (17, AJUFE);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (17, AMB);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (17, ANAMATRA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (17, FNA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (17, SASPB);
+#17	FECHADA	:	4	15	18	22	49	58
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (17, 4);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (17, 15);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (17, 18);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (17, 22);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (17, 49);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (17, 58);
 
 
-#18	ABERTA	:	ABRACEM	ANACOM	AVAASP	FECOMERCIO	SINDICOM-DF	UBE	UBES	UNE
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, ABRACEM);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, ANACOM);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, AVAASP);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, FECOMERCIO);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, SINDICOM-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, UBE);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, UBES);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, UNE);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, );
+#18	ABERTA	:	5	20	28	FECOMERCIO	60	70	71	72
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, 5);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, 20);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, 28);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, 41);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, 60);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, 70);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, 71);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, 72);
 
 
-#19	FECHADA	:	AFB	AMB	AMB	CAA-DF	CORECON-DF	CRO-DF	FNA	GASP	MÚTUA	SINDICONTA-DF
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, AFB);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, AMB);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, AMB);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, CAA-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, CORECON-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, CRO-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, FNA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, GASP);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, MÚTUA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, SINDICONTA-DF);
+#19	FECHADA	:	13	18	18	29	31	36	49	52	57	61
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, 13);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, 18);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, 18);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, 29);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, 31);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, 36);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, 49);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, 52);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, 57);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, 61);
 
 
-#20	ABERTA	:	UBES	UNE
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (20, UBES);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (20, UNE);
+#20	ABERTA	:	71	72
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (20, 71);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (20, 72);
 
 
-#21	ABERTA	:	UBES	UNE
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (21, UBES);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (21, UNE);
+#21	ABERTA	:	71	72
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (21, 71);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (21, 72);
 
 
-#22	FECHADA	:	ABRABDIR	ACRESP	ADPF	AFB	AJUFE	AMAGIS	AMAI	AMB	AMN	ANADEF	ANAMATRA	CAA-DF	CORECON-DF	CRA-DF	CRBio-4	CRO-DF	CRP-01	MÚTUA	SASPB	SINDICONTA-DF	SINDIRECEITA	SINDMÉDICO - DF	SINPROEP - DF
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, ABRABDIR);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, ACRESP);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, ADPF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, AFB);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, AJUFE);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, AMAGIS);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, AMAI);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, AMB);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, AMN);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, ANADEF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, ANAMATRA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, CAA-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, CORECON-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, CRA-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, CRBio-4);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, CRO-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, CRP-01);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, MÚTUA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, SASPB);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, SINDICONTA-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, SINDIRECEITA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, SINDMÉDICO - DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, SINPROEP - DF);
+#22	FECHADA	:	4	10	11	13	15	16	17	18	19	21	22	29	31	32	33	36	37	57	58	61	62	64	67
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 4);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 10);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 11);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 13);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 15);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 16);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 17);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 18);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 19);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 21);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 22);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 29);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 31);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 32);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 33);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 36);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 37);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 57);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 58);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 61);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 62);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 64);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (22, 67);
 
 
-#23	FECHADA	:	ABRABDIR	ACRESP	ADPF	AFB	AJUFE	AMAGIS	AMAI	AMB	AMN	ANADEF	ANAMATRA	CAA-DF	CORECON-DF	CRA-DF	CRBio-4	CRO-DF	CRP-01	MÚTUA	SASPB	SINDICONTA-DF	SINDIRECEITA	SINDMÉDICO - DF	SINPROEP - DF
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, ABRABDIR);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, ACRESP);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, ADPF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, AFB);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, AJUFE);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, AMAGIS);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, AMAI);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, AMB);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, AMN);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, ANADEF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, ANAMATRA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, CAA-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, CORECON-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, CRA-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, CRBio-4);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, CRO-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, CRP-01);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, MÚTUA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, SASPB);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, SINDICONTA-DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, SINDIRECEITA);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, SINDMÉDICO - DF);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, SINPROEP - DF);
+#23	FECHADA	:	4	10	11	13	15	16	17	18	19	21	22	29	31	32	33	36	37	57	58	61	62	64	67
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 4);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 10);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 11);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 13);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 15);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 16);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 17);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 18);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 19);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 21);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 22);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 29);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 31);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 32);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 33);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 36);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 37);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 57);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 58);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 61);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 62);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 64);
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (23, 67);
 
