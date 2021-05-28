@@ -72,429 +72,382 @@
 # (72, 'UNE');
 
 
+# (1, 'Autônomo'): AVAASP
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (1, 28);
 
-# (1, 'Autônomo');
-# Autônomo	AVAASP	|
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (1, AVAASP);
+# (2, 'Empresário'): AFECOM	ANACOM	FECOMÉRCIO	FECOMÉRCIO - DF
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (2, 14);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (2, 20);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (2, 41);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (2, 42);
 
-# (2, 'Empresário');
-# Empresário	AFECOM	|	ANACOM	|	FECOMÉRCIO	|	FECOMÉRCIO - DF	|
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (2, AFECOM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (2, ANACOM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (2, FECOMÉRCIO);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (2, FECOMÉRCIO - DF);
+# (3, 'Empresário Individual'): AFECOM	ANACOM	ASCOM	FECOMERCIO	FECOMÉRCIO	FECOMÉRCIO - DF	FETRATUH
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (3, 14);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (3, 20);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (3, 24);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (3, 41);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (3, 42);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (3, 47);
 
-# (3, 'Empresário Individual');
-# Empresário Individual	AFECOM	|	ANACOM	|	ASCOM	|	FECOMÉRCIO	|	FECOMÉRCIO - DF	|	FETRATUH
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (3, AFECOM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (3, ANACOM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (3, ASCOM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (3, FECOMÉRCIO);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (3, FECOMÉRCIO - DF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (3, FETRATUH);
+# (4, 'Comerciário / CLT'): AFECOM	ANACOM	ASCOM	FETRACOM	FETRATUH	SINDICOM-DF
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (4, 14);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (4, 20);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (4, 24);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (4, 45);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (4, 47);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (4, 60);
 
-# (4, 'Comerciário / CLT');
-# Comerciário / CLT	 AFECOM	|	ANACOM	|	ASCOM	|	FETRACOM	|	FETRATUH	|	SINDICOM-DF	|
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (4, AFECOM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (4, ANACOM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (4, ASCOM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (4, FETRACOM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (4, FETRATUH);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (4, SINDICOM-DF);
+# (5, 'Empregados do Conselho de Adm'): ABECA	AFECOM	ANACOM	ASCOM	FETRACOM	FETRATUH	SINDICOM-DF
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (5, 1);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (5, 14);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (5, 20);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (5, 24);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (5, 45);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (5, 47);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (5, 60);
 
-# (5, 'Empregados do Conselho de Adm');
-# Empregados do Conselho de Adm	ABECA	|	AFECOM	|	ANACOM	|	ASCOM	|	FETRACOM	|	FETRATUH	|	SINDICOM-DF
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (5, ABECA);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (5, AFECOM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (5, ANACOM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (5, ASCOM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (5, FETRACOM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (5, FETRATUH);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (5, SINDICOM-DF);
+# (6, 'Servidor Público Distrital'): ABESP DF	ACRESP	AESP/DF	AMAGIS	ASMPF	GASP	SASPB
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (6, 2);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (6, 10);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (6, 12);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (6, 16);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (6, 25);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (6, 52);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (6, 58);
 
-# (6, 'Servidor Público Distrital');
-# Servidor Público Distrital	ABESP DF	|	ACRESP	|	AESP/DF	|	AMAGIS	|	ASMPF	|	GASP	|	SASPB	|
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (6, ABESP DF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (6, ACRESP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (6, AESP/DF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (6, AMAGIS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (6, ASMPF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (6, GASP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (6, SASPB);
+# (7, 'Servidor Público Distrital Aposentado'): ABESP DF	AESP/DF
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (7, 2);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (7, 12);
 
-# (7, 'Servidor Público Distrital Aposentado');
-# Servidor Público Distrital Aposentado	ABESP DF	|	AESP/DF	|		|
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (7, ABESP DF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (7, AESP/DF);
+# (8, 'Servidor Público Federal'): ABRAS	ACRESP	AMAGIS	ASMPF	ASSEF	GASP	SASPB
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (8, 8);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (8, 10);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (8, 16);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (8, 25);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (8, 27);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (8, 52);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (8, 58);
 
-# (8, 'Servidor Público Federal');
-# Servidor Público Federal	ABRAS	|	ACRESP	|	AMAGIS	|	ASMPF	|	ASSEF	|	GASP	|	SASPB	|
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (8, ABRAS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (8, ACRESP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (8, AMAGIS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (8, ASMPF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (8, ASSEF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (8, GASP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (8, SASPB);
+# (9, 'Delegado da Polícia Federal'): ABRAS	ACRESP	ADPF	AMAGIS	ASMPF	ASSEF	GASP	SASPB
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (9, 8);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (9, 10);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (9, 11);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (9, 16);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (9, 25);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (9, 27);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (9, 52);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (9, 58);
 
-# (9, 'Delegado da Polícia Federal');
-# Delegado da Polícia Federal	ABRAS	|	ACRESP	|	ADPF	|	AMAGIS	|	ASMPF	|	ASSEF	|	GASP	|	SASPB
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (9, ABRAS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (9, ACRESP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (9, ADPF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (9, AMAGIS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (9, ASMPF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (9, ASSEF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (9, GASP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (9, SASPB);
+# (10, 'Defensor Público'): ABRAS	ACRESP	AMAGIS	ANADEF	ASMPF	ASSEF	GASP	SASPB
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (10, 8);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (10, 10);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (10, 16);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (10, 21);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (10, 25);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (10, 27);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (10, 52);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (10, 58);
 
-# (10, 'Defensor Público');
-# Defensor Público	ABRAS	|	ACRESP	|	AMAGIS	|	ANADEF	|	ASMPF	|	ASSEF	|	GASP	|	SASPB
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (10, ABRAS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (10, ACRESP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (10, AMAGIS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (10, ANADEF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (10, ASMPF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (10, ASSEF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (10, GASP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (10, SASPB);
+# (11, 'Juiz Federal'): ABRAS	ACRESP	AJUFE	AMAGIS	ASMPF	ASSEF	GASP	SASPB
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (11, 8);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (11, 10);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (11, 15);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (11, 16);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (11, 25);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (11, 27);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (11, 52);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (11, 58);
 
-# (11, 'Juiz Federal');
-# Juiz Federal	ABRAS	|	ACRESP	|	AJUFE	|	AMAGIS	|	ASMPF	|	ASSEF	|	GASP	|	SASPB
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (11, ABRAS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (11, ACRESP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (11, AJUFE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (11, AMAGIS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (11, ASMPF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (11, ASSEF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (11, GASP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (11, SASPB);
+# (12, 'Servidor da Receita'): ABRAS	ACRESP	AMAGIS	ASMPF	ASSEF	GASP	SASPB	SINDIRECEITA
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (12, 8);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (12, 10);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (12, 16);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (12, 25);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (12, 27);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (12, 52);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (12, 58);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (12, 62);
 
-# (12, 'Servidor da Receita');
-# Servidor da Receita	ABRAS	|	ACRESP	|	AMAGIS	|	ASMPF	|	ASSEF	|	GASP	|	SASPB	|	SINDIRECEITA
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (12, ABRAS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (12, ACRESP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (12, AMAGIS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (12, ASMPF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (12, ASSEF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (12, GASP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (12, SASPB);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (12, SINDIRECEITA);
+# (13, 'Servidor do Detran'): ABESP DF	ACRESP	AESP/DF	AMAGIS	ASMPF	FETRAN	GASP	SASPB
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (13, 2);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (13, 10);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (13, 12);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (13, 16);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (13, 25);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (13, 46);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (13, 52);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (13, 58);
 
-# (13, 'Servidor do Detran');
-# Servidor do Detran	ABESP DF	|	ACRESP	|	AESP/DF	|	AMAGIS	|	ASMPF	|	FETRAN	|	GASP	|	SASPB
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (13, ABESP DF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (13, ACRESP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (13, AESP/DF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (13, AMAGIS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (13, ASMPF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (13, FETRAN);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (13, GASP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (13, SASPB);
+# (14, 'Servidor do Ministério Público Federal'): ABRAS	ACRESP	AMAGIS	ASMPF	ASSEF	GASP	SASPB
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (14, 8);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (14, 10);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (14, 16);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (14, 25);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (14, 27);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (14, 52);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (14, 58);
 
-# (14, 'Servidor do Ministério Público Federal');
-# Servidor do Ministério Público  Federal 	ABRAS	|	ACRESP	|	AMAGIS	|	ASMPF	|	ASSEF	|	GASP	|	SASPB	|
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (14, ABRAS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (14, ACRESP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (14, AMAGIS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (14, ASMPF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (14, ASSEF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (14, GASP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (14, SASPB);
+# (15, 'Magistrado'): ABRAS	ACRESP	AMAGIS	AMB	ANAMATRA	ASMPF	ASSEF	GASP	SASPB
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, 8);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, 10);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, 16);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, 18);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, 22);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, 25);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, 27);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, 52);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, 58);
 
-# (15, 'Magistrado');
-# Magistrado	ABRAS	|	ACRESP	|	AMAGIS	|	AMB	|	ANAMATRA	|	ASMPF	|	ASSEF	|	GASP	|	SASPB
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, ABRAS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, ACRESP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, AMAGIS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, AMB);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, ANAMATRA);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, ASMPF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, ASSEF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, GASP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (15, SASPB);
+# (16, 'Estudante Ed Infantil'): FEB	FEBEUS	UBE
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (16, 38);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (16, 39);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (16, 70);
 
-# (16, 'Estudante Ed Infantil');
-# Estudante Ed Infantil	FEB	|	FEBEUS	|	UBE
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (16, FEB);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (16, FEBEUS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (16, UBE);
+# (17, 'Estudante Secundarista'): FEB	FEBEUS	UBES
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (17, 38);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (17, 39);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (17, 71);
 
-# (17, 'Estudante Secundarista');
-# Estudante Secundarista	FEB	|	FEBEUS	|	UBES
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (17, FEB);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (17, FEBEUS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (17, UBES);
+# (18, 'Estudante de Faculdade'): FEB	FEBEUS	UNE
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (18, 38);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (18, 39);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (18, 72);
 
-# (18, 'Estudante de Faculdade');
-# Estudante de Faculdade	FEB	|	FEBEUS	|	UNE
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (18, FEB);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (18, FEBEUS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (18, UNE);
+# (19, 'Estudante de Direito'): FEB	FEBEUS	INAAD	UNE
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (19, 38);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (19, 39);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (19, 53);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (19, 72);
 
-# (19, 'Estudante de Direito');
-# Estudante de Direito	FEB	|	FEBEUS	|	INAAD	|	UNE
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (19, FEB);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (19, FEBEUS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (19, INAAD);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (19, UNE);
+# (20, 'Estudante de Contabilidade 7º em diante'): FEB	FEBEUS	SINDICONTA - DF	UNE
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (20, 38);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (20, 39);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (20, 61);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (20, 72);
 
-# (20, 'Estudante de Contabilidade 7º em diante');
-# Estudante de Contabilidade 7º  em diante 	FEB	|	FEBEUS	|	SINDICONTA - DF	|	UNE
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (20, FEB);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (20, FEBEUS);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (20, SINDICONTA - DF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (20, UNE);
+# (21, 'Profissional Liberal'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (21, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (21, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (21, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (21, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (21, 30);
 
-# (21, 'Profissional Liberal');
-# Profissional Liberal	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (21, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (21, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (21, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (21, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (21, CNPL);
+# (22, 'Administrador com CRA'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	CRA-DF	FEBRAD
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (22, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (22, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (22, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (22, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (22, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (22, 32);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (22, 40);
 
-# (22, 'Administrador com CRA');
-# Administrador com CRA	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	CRA-DF	|	FEBRAD
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (22, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (22, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (22, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (22, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (22, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (22, CRA-DF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (22, FEBRAD);
+# (23, 'Advogado C/ OAB'): ABPL	ABRABDIR	ABRACEM	ABRADIR	ABRE	ASPROFILI	CAA	CNPL	INAADIR
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, 4);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, 6);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, 29);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, 54);
 
-# (23, 'Advogado C/ OAB');
-# Advogado C/ OAB	ABPL	|	ABRABDIR	|	ABRACEM	|	ABRADIR	|	ABRE	|	ASPROFILI	|	CAA	|	CNPL	|	INAADIR
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, ABRABDIR);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, ABRADIR);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, CAA);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (23, INAADIR);
+# (24, 'Advogado s/ OAB'): ABPL	ABRABDIR	ABRACEM	ABRADIR	ABRE	ASPROFILI	CNPL	INAADIR
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (24, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (24, 4);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (24, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (24, 6);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (24, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (24, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (24, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (24, 54);
 
-# (24, 'Advogado s/ OAB');
-# Advogado s/ OAB	ABPL	|	ABRABDIR	|	ABRACEM	|	ABRADIR	|	ABRE	|	ASPROFILI	|	CNPL	|	INAADIR
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (24, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (24, ABRABDIR);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (24, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (24, ABRADIR);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (24, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (24, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (24, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (24, INAADIR);
+# (25, 'Estagiário Advogado'): ABPL	ABRACEM	ABRE	ASPROFILI	CAA-DF	CNPL	INAADIR
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (25, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (25, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (25, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (25, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (25, 29);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (25, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (25, 54);
 
-# (25, 'Estagiário Advogado');
-# Estagiário Advogado	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CAA-DF	|	CNPL	|	INAADIR
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (25, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (25, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (25, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (25, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (25, CAA-DF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (25, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (25, INAADIR);
+# (26, 'Agronomo'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	MÚTUA
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (26, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (26, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (26, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (26, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (26, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (26, 57);
 
-# (26, 'Agronomo');
-# Agronomo	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	MÚTUA	|
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (26, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (26, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (26, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (26, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (26, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (26, MÚTUA);
+# (27, 'Arquiteto'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	FNA	MÚTIA	MÚTUA	SINARQ
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, 49);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, 57);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, 57);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, 59);
 
-# (27, 'Arquiteto');
-# Arquiteto	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	FNA	|	MÚTIA	|	MÚTUA	|	SINARQ
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, FNA);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, MÚTIA);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, MÚTUA);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, SINARQ);
+# (28, 'Biologo'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	CRBio-4
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (28, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (28, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (28, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (28, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (28, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (28, 33);
 
-# (28, 'Biologo');
-# Biologo	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	CRBio-4	|
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (28, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (28, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (28, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (28, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (28, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (28, CRBio-4);
+# (29, 'Contador'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	CORECON-DF	SINDICONTA-DF
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (29, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (29, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (29, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (29, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (29, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (29, 31);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (29, 61);
 
-# (29, 'Contador');
-# Contador	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	CORECON-DF	|	SINDICONTA-DF
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (29, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (29, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (29, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (29, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (29, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (29, CORECON-DF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (29, SINDICONTA-DF);
+# (30, 'Dentista'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	CRO-DF	FNO
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (30, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (30, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (30, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (30, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (30, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (30, 36);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (30, 51);
 
-# (30, 'Dentista');
-# Dentista	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	CRO-DF	|	FNO
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (30, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (30, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (30, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (30, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (30, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (30, CRO-DF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (30, FNO);
+# (31, 'Economista'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	CORECON-DF
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (31, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (31, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (31, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (31, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (31, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (31, 31);
 
-# (31, 'Economista');
-# Economista	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	CORECON-DF	|
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (31, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (31, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (31, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (31, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (31, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (31, CORECON-DF);
+# (32, 'Educação Física'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	CREF7
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (32, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (32, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (32, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (32, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (32, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (32, 34);
 
-# (32, 'Educação Física');
-# Educação Física	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	CREF7	|
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (32, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (32, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (32, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (32, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (32, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (32, CREF7);
+# (33, 'Engenheiro'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	INST DE ENG	MÚTUA
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (33, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (33, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (33, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (33, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (33, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (33, 56);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (33, 57);
 
-# (33, 'Engenheiro');
-# Engenheiro	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	INST DE ENG	|	MÚTUA
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (33, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (33, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (33, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (33, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (33, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (33, INST DE ENG);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (33, MÚTUA);
+# (34, 'Farmacêutico'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	CRF-DF	FEIFAR
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (34, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (34, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (34, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (34, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (34, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (34, 35);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (34, 43);
 
-# (34, 'Farmacêutico');
-# Farmacêutico	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	CRF-DF	|	FEIFAR
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (34, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (34, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (34, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (34, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (34, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (34, CRF-DF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (34, FEIFAR);
+# (35, 'Fisioterapeuta'): ABPL	ABRACEM	ABRE	AFB	ASPROFILI	CNPL	FINAFITO
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (35, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (35, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (35, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (35, 13);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (35, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (35, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (35, 48);
 
-# (35, 'Fisioterapeuta');
-# Fisioterapeuta	ABPL	|	ABRACEM	|	ABRE	|	AFB	|	ASPROFILI	|	CNPL	|	FINAFITO
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (35, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (35, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (35, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (35, AFB);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (35, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (35, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (35, FINAFITO);
+# (36, 'Médico'): ABPL	ABRACEM	ABRE	AMAI	AMB	ASPROFILI	CNPL	SINDMÉDICO	SINDMÉDICO - DF
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, 17);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, 18);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, 63);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, 64);
 
-# (36, 'Médico');
-# Médico	ABPL	|	ABRACEM	|	ABRE	|	AMAI	|	AMB	|	ASPROFILI	|	CNPL	|	SINDMÉDICO	|	SINDMÉDICO - DF
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, AMAI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, AMB);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, SINDMÉDICO);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (36, SINDMÉDICO - DF);
+# (37, 'Marinheiro'): ABPL	ABRACEM	ABRE	AMN	ASPROFILI	CNPL
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (37, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (37, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (37, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (37, 19);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (37, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (37, 30);
 
-# (37, 'Marinheiro');
-# Marinheiro	ABPL	|	ABRACEM	|	ABRE	|	AMN	|	ASPROFILI	|	CNPL
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (37, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (37, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (37, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (37, AMN);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (37, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (37, CNPL);
+# (38, 'Nutricionista'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	FNN
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (38, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (38, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (38, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (38, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (38, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (38, 50);
 
-# (38, 'Nutricionista');
-# Nutricionista	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	FNN
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (38, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (38, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (38, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (38, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (38, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (38, FNN);
+# (39, 'Piloto de Aviação'): ABPL	ABRACEM	ABRAPAC	ABRE	ASPROFILI	CNPL
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (39, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (39, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (39, 7);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (39, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (39, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (39, 30);
 
-# (39, 'Piloto de Aviação');
-# Piloto de Aviação	ABPL	|	ABRACEM	|	ABRAPAC	|	ABRE	|	ASPROFILI	|	CNPL
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (39, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (39, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (39, ABRAPAC);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (39, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (39, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (39, CNPL);
+# (40, 'Psicólogo'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	CRP-01
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (40, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (40, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (40, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (40, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (40, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (40, 37);
 
-# (40, 'Psicólogo');
-# Psicólogo	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	CRP-01
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (40, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (40, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (40, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (40, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (40, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (40, CRP-01);
+# (41, 'Psicopedagogo'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	SINDPSICOP - BR
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (41, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (41, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (41, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (41, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (41, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (41, 65);
 
-# (41, 'Psicopedagogo');
-# Psicopedagogo	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	SINDPSICOP - BR
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (41, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (41, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (41, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (41, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (41, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (41, SINDPSICOP - BR);
+# (42, 'Professor Particular'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	INAPROF	SINPROEP	SINPROEP - DF
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (42, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (42, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (42, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (42, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (42, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (42, 55);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (42, 66);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (42, 67);
 
-# (42, 'Professor Particular');
-# Professor Particular	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	INAPROF	|	SINPROEP	|	SINPROEP - DF
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (42, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (42, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (42, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (42, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (42, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (42, INAPROF);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (42, SINPROEP);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (42, SINPROEP - DF);
+# (43, 'Técnico em Odontologia'): ABPL	ABRACEM	ABRE	ANATO	ASPROFILI	CNPL
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (43, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (43, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (43, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (43, 23);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (43, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (43, 30);
 
-# (43, 'Técnico em Odontologia');
-# Técnico em Odontologia 	ABPL	|	ABRACEM	|	ABRE	|	ANATO	|	ASPROFILI	|	CNPL
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (43, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (43, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (43, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (43, ANATO);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (43, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (43, CNPL);
+# (44, 'Técnico Industrial'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	SINTEC DF
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (44, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (44, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (44, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (44, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (44, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (44, 68);
 
-# (44, 'Técnico Industrial');
-# Técnico Industrial	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	SINTEC DF
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (44, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (44, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (44, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (44, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (44, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (44, SINTEC DF);
+# (45, 'Tradutor'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	SINTRA
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (45, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (45, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (45, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (45, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (45, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (45, 69);
 
-# (45, 'Tradutor');
-# Tradutor	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	SINTRA
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (45, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (45, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (45, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (45, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (45, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (45, SINTRA);
-
-# (46, 'Veterinário');
-# Veterinário	ABPL	|	ABRACEM	|	ABRE	|	ASPROFILI	|	CNPL	|	FENAMEV
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (46, ABPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (46, ABRACEM);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (46, ABRE);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (46, ASPROFILI);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (46, CNPL);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (46, FENAMEV);
+# (46, 'Veterinário'): ABPL	ABRACEM	ABRE	ASPROFILI	CNPL	FENAMEV
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (46, 3);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (46, 5);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (46, 9);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (46, 26);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (46, 30);
+insert into Entidade_Profissao (profissoes_id, entidade_id) values (46, 44);
