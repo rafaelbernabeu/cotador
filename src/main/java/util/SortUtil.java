@@ -30,7 +30,8 @@ public class SortUtil {
                 .sorted(comparing(TabelaDTO::getNome))
                 .sorted(comparing(tabelaDTO -> tabelaDTO.getOperadora().getNome()))
                 .sorted(comparing(tabelaDTO -> tabelaDTO.getAdministradora() == null ? "Z" : tabelaDTO.getAdministradora().getNome()))
-                .sorted(comparing(tabelaDTO -> tabelaDTO.getEstado().getNome()));
+                .sorted(comparing(tabelaDTO -> tabelaDTO.getEstado().getNome()))
+                .sorted(comparing(TabelaDTO::getCategoria));
     }
 
     public static Stream<ProdutoDTO> sortProdutos(Stream<ProdutoDTO> streamProdutos) {
