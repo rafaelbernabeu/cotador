@@ -1945,7 +1945,7 @@ insert into Tabela_Entidade (Tabela_id, entidades_id) values (14, 62);
 insert into Tabela_Entidade (Tabela_id, entidades_id) values (15, 41);
 
 # 16	FECHADA	:	ABRADIR 	AJUFE	AMB	ANAMATRA	CAA-DF	CORECON-DF	CRA-DF	CRO-DF	FNA	MÚTUA	MÚTUA 	SASPB	SINDICONTA-DF	SINDMÉDICO
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 6 );
+insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 6);
 insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 15);
 insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 18);
 insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 22);
@@ -1955,7 +1955,6 @@ insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 32);
 insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 36);
 insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 49);
 insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 57);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 57 );
 insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 58);
 insert into Tabela_Entidade (Tabela_id, entidades_id) values (16, 61);
 
@@ -1979,7 +1978,6 @@ insert into Tabela_Entidade (Tabela_id, entidades_id) values (18, 72);
 
 # 19	FECHADA	:	AFB	AMB	AMB	CAA-DF	CORECON-DF	CRO-DF	FNA	GASP	MÚTUA	SINDICONTA-DF
 insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, 13);
-insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, 18);
 insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, 18);
 insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, 29);
 insert into Tabela_Entidade (Tabela_id, entidades_id) values (19, 31);
@@ -2262,7 +2260,6 @@ insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, 9);
 insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, 26);
 insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, 30);
 insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, 49);
-insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, 57);
 insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, 57);
 insert into Entidade_Profissao (profissoes_id, entidade_id) values (27, 59);
 
