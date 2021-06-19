@@ -54,6 +54,12 @@ public class CotacaoService {
         return stream.filter(op -> op.getProduto().getAtivo());
     }
 
+    /**
+     * Filtros aplicados quando:
+     * Sempre: QtdMinVidas, IdadeMaxima
+     * Adesao: IdadeMinima somente para titulares
+     * Empresarial: QtdMinTitulares
+     */
     private Stream<Opcao> filtraPorIdadeAndVidas(CotacaoDTO consulta, Stream<Opcao> stream) {
         if (consulta.getTitulares() != null && consulta.getDependentes() != null) {
             stream = stream.filter(op -> (consulta.getTitulares().size() + consulta.getDependentes().size()) >= op.getTabela().getQtdMinVidas());
